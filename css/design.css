@@ -1,0 +1,40 @@
+/***********************************************************************************
+
+			These are styling details used across the entire project.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				If the style you want to create is page-specific, 
+				please create new file - for example, webpage.css
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
+/*
+_________________________COLOR DEFINITIONS___________________________
+
+					definition:
+						name has to start with -- !
+					usage:
+						instead of color code, use var(varName)
+						for exmaple:
+							color: var(--orange);
+______________________________________________________________________
+*/
+							
+:root{
+	--orange: #E37222;
+}
+
+
+
+body, html{
+ 	background-color: #d3d3d3;
+}
+
+.btn{
+	background-color: var(--orange);
+	color: white;
+}
+
+.btn:hover{
+	color:white;
+}
