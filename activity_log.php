@@ -13,14 +13,14 @@
       <link rel="stylesheet" href="css/bootstrap.css">
       <!-- CSS Our-->
       <link rel="stylesheet" href="css/design.css">
-	  <link rel="stylesheet" href="css/activity_log.css">
+	    <link rel="stylesheet" href="css/activity_log.css">
 
 </head>
 
 <body>
 	<div class="container">
 		<div class="row">
-			
+
 		</div>
 	</div>
     <!-- JS for Bootstrap -->
