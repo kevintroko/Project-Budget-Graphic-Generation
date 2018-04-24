@@ -10,10 +10,13 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 		<!-- CSS Our-->
 		<link rel="stylesheet" href="css/design.css">
+		<link rel="stylesheet" href="css/navbar.css">
 		<link rel="stylesheet" href="css/profile.css">
 	</head>
 
 	<body>
+		<?php include_once ("navbar.php"); ?>
+	
 		<div class="container">
 			<div class="row">
 				

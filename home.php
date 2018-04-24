@@ -10,20 +10,12 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 		<!-- CSS Our-->
 		<link rel="stylesheet" href="css/design.css">
+		<link rel="stylesheet" href="css/navbar.css">
 		<link rel="stylesheet" href="css/home.css">
 	</head>
 
 	<body>
-		<nav class="navbar navbar-expand-lg navbar-light bottom-border">
-		<a class="navbar-brand" href="index.php">Project Budget Manager</a>
-			<div class="navbar-nav">
-				<a class="nav-item nav-link" href="profile.php">Name Lastname</a>
-				<a class="nav-item nav-link" href="#Notification">Notification</a>
-				<a class="nav-item nav-link" href="index.php">Log out</a>
-
-			</div>
-		</nav>
-	
+		<?php include_once ("navbar.php"); ?>
 	
 		<div class="container">
 			<div class="row">
