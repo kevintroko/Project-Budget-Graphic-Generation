@@ -1,6 +1,3 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<!------ Include the above in your HEAD tag ---------->
-
 <!DOCTYPE html>
 <html lang="en">
     <head> 
@@ -10,7 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Project Management System</title>
 		<!-- CSS other -->
-		<link rel="stylesheet" href="css/bootstrap.css" id="bootstrap-css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 		<!-- CSS Our-->
 		<link rel="stylesheet" href="css/design.css">
@@ -23,7 +20,7 @@
 			<div class="row">
 			
 				<!-- Login Box -->
-				<div class="container col-xs-12 col-sm-6 col-sm-offset-3" id="main-login">
+				<div class="container col-xs-12 col-sm-7" id="main-login">
 					<h1 class="text-center">Project Budget Manager</h1>
 					</br>
 					
@@ -32,24 +29,28 @@
 						<div class="container col-sm-7">
 							<form action="home.php" method="post">
 							
+							
+							
 								<div class="form-group">
-									<label for="email">Email</label>
-									<div class="input-group">
-										<span class="input-group-addon"><i class="material-icons">email</i></span>
-										<input placeholder="Enter your Email address" class="form-control" name="email" type="text"/>
+									<div class="input-group mb-3">
+									  <div class="input-group-prepend">
+										<span class="input-group-text" id="basic-addon1"><i class="material-icons">email</i></span>
+									  </div>
+									  <input type="text" name="email" class="form-control" placeholder="Enter your Email address" aria-label="Username" aria-describedby="basic-addon1">
 									</div>
 								</div>
 								
 								<div class="form-group">
-									<label for="password">Password</label>
-									<div class="input-group">
-										<span class="input-group-addon"><i class="material-icons">lock</i></span>
-										<input placeholder="Enter your Password" class="form-control" name="password" type="password"/>
+									<div class="input-group mb-3">
+										<div class="input-group-prepend">
+											<span class="input-group-text" id="basic-addon1"><i class="material-icons">lock</i></span>
+										</div>
+										<input type="password" name="password" class="form-control" placeholder="Enter your Password" aria-label="Username" aria-describedby="basic-addon1">
 									</div>
 								</div>
 								
 								</br>
-								<input class="btn btn-lg btn-block shadow" type="submit" value="Login">
+								<input class="btn btn-lg btn-block" type="submit" value="Login">
 							</form>
 						</div>
 					</div>
@@ -57,6 +58,9 @@
 			</div>
 		</div>
 
-		<script type="text/javascript" src="js/bootstrap.js"></script>
+		<!-- Bootstrap javascript libs -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 	</body>
 </html>

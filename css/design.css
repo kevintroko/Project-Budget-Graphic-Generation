@@ -24,6 +24,10 @@ ______________________________________________________________________
 	--orange: #E37222;
 }
 
+body, html{
+ 	background-color: #d3d3d3;
+}
+
 .btn{
 	background-color: var(--orange);
 	color: white;
