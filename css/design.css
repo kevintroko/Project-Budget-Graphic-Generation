@@ -29,10 +29,6 @@ ______________________________________________________________________
 	--red: #9F0000;
 }
 
-body, html{
- 	background-color: var(--grayLight);
-}
-
 .btn{
 	background-color: var(--orange);
 	color: white;
@@ -41,4 +37,8 @@ body, html{
 
 .btn:hover{
 	background-color: var(--orangeDark);
+}
+
+body {
+	font-family: avenir;
 }
