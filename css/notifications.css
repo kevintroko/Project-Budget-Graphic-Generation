@@ -6,7 +6,10 @@
 	padding:0;
 }
 
-
 .notification{
-	background-color:white;	
+	background-color:white;
+}
+
+h6 {
+	color: var(--gray);
 }
