@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="css/notifications.css">
+
 <div id="notifications-container" style="display:none" >
 
 	<!-- If no notifications, display this -->

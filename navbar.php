@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css/notifications.css">
+<link rel="stylesheet" href="css/navbar.css">
 
 <nav class="navbar navbar-expand-lg navbar-light bottom-border ">
 	<a class="navbar-brand" href="home.php">Project Budget Manager</a>
