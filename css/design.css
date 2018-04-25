@@ -16,6 +16,7 @@
 	--gray: #8B8B8B;
 	--blue: #66B9BF;
 	--red: #9F0000;
+	--redDark: #7F0000;
 }
 
 .btn{
@@ -38,4 +39,11 @@ body {
 
 .bold {
   font-weight: 500;
+}
+
+.vertical-align-middle {
+    vertical-align: middle;
+}
+.padding-bottom-3 {
+    padding-bottom: 3px;
 }

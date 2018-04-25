@@ -1,0 +1,58 @@
+body {
+  color: var(--gray);
+}
+.title {
+  position: relative;
+  font-size: 2em;
+  font-weight: 500;
+  margin: 1em;
+  padding: 0.5em;
+  text-align: center;
+}
+.panel{
+  max-width: 80%;
+  margin: 0.5em auto;
+}
+.button {
+  background: var(--orange);
+  color: white;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 0.8em;
+  max-width: 75%;
+}
+.delete{
+  color: white;
+  text-align: center;
+  padding: 0.5em;
+  margin-top: 2em;
+  margin-bottom: 0.8em;
+  max-width: 75%;
+  background: var(--red);
+}
+.delete:hover {
+  color: white;
+  text-align: center;
+  padding: 0.5em;
+  margin-bottom: 0.8em;
+  max-width: 75%;
+  background: var(--redDark);
+}
+.button:hover {
+  background: var(--orangeDark);
+}
+#profile-input {
+  background-color: var(--graySoft);
+  border: 0;
+  width: 100%;
+  margin: 0.38em 0;
+  padding-left: 1em;
+  color: var(--gray);
+}
+input, textarea, button {outline: none; }
+.vertical-align-middle {
+    vertical-align: middle;
+}
+.padding-bottom-3 {
+    padding-bottom: 3px;
+}
