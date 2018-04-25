@@ -1,0 +1,12 @@
+#notifications-container{
+	width:40vw;
+	background-color: var(--grayLight);
+}
+.popover-body{
+	padding:0;
+}
+
+
+.notification{
+	background-color:white;	
+}
