@@ -1,0 +1,12 @@
+.circle-icon {
+	position:fixed;
+	bottom:5%;
+	right: 5%;
+	
+    background: var(--orange);
+	color:white;
+	
+    padding:5px;
+    border-radius: 50%;
+	font-size: 2.5em;
+}

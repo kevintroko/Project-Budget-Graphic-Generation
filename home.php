@@ -8,17 +8,18 @@
 		<title>Project Management System</title>
 		<!-- CSS other -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+		<!-- Icons !-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!-- CSS Our-->
 		<link rel="stylesheet" href="css/design.css">
 		<link rel="stylesheet" href="css/home.css">
-		<!-- Icons !-->
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+		<link rel="stylesheet" href="css/editIcons.css">
 	</head>
 
 	<body>
 		<?php include_once ("navbar.php"); ?>
-
+		<span><i class="material-icons circle-icon shadow">add</i></span>
+		
 		<div class="container">
 			<div class="row filter shadow d-flex justify-content-around p-2">
 				<div class="p-2 filter-text">Owner <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></div>
