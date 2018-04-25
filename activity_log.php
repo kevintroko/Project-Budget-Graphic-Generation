@@ -11,6 +11,7 @@
 		<!-- CSS Our-->
 		<link rel="stylesheet" href="css/design.css">
 		<link rel="stylesheet" href="css/list.css">
+		<link rel="stylesheet" href="css/navbar.css">
     <!-- Icons links -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>

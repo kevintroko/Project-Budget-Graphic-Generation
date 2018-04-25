@@ -2,52 +2,48 @@
   font-family: avenir;
 }
 
-.center {
-
-}
-/*Add button icon*/
-.circle {
-  color: var(--orange);
+.boxes {
+  width: 80%;
+  margin: 0 auto;
 }
 /*Project box css*/
 .project {
   background-color: var(--graySoft);
   color: var(--gray);
-}
- .project p{
+  padding-bottom: .8em;
+  margin-top: 1em;
 }
 .title {
-  font-weight: 500;
+  font-size: 1.2em;
+  margin-left: 0.8em;
+  padding-top: 1em;
+  font-weight: 600;
 }
-.blue-box {
+.nobold {
+  font-weight: 400;
+}
+.project p {
+  margin-left: 1em;
+}
+.percentage {
   background-color: var(--blue);
   color: white;
+  text-align: center;
+  position: absolute;
+  padding: .5em 4em;
+  top: 1em;
+  right: 1em;
 }
 /*Filter css*/
 .filter {
   background-color: var(--graySoft);
   max-width: 80%;
-  margin: 0 auto;
+  margin: 1em auto 0.5em auto;
   padding: 1em;
-  border: 2px solid green;
 }
 .filter-text {
   color: var(--gray);
   font-weight: 500;
-  border: 2px solid green;
-}
-/*Orange Buttons css*/
-.button {
-  background: var(--orange);
-  color: white;
-  text-align: center;
-  font-weight: 600;
-  padding: 1em 30%;
-}
-.button:hover{
-  background-color: var(--orangeDark);
-  text-decoration: none;
-  color: white;
 }
 /* For icons*/
 .vertical-align-middle {

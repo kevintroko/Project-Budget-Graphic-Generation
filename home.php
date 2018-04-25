@@ -20,32 +20,47 @@
 		<?php include_once ("navbar.php"); ?>
 
 		<div class="container">
-			<div class="row">
-				<div class="col center">
-					<a class="button shadow" href="list_people.php" role="button">People</a>
-				</div>
-				<div class="col">
-					<a class="button shadow" href="list_project.php" role="button">Project</a>
-				</div>
+			<div class="row filter shadow d-flex justify-content-around p-2">
+				<div class="p-2 filter-text">Owner <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></div>
+			  <div class="p-2 filter-text">Project name	 <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></div>
+			  <div class="p-2 filter-text">Budget percentage  <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></div>
+				<div class="p-2 filter-text">Budget left  <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></div>
 			</div>
-		<div class="row filter shadow">
-					<padding class="filter-text">Owner	<i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
-					<padding class="filter-text">Project name	<i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
-					<padding class="filter-text">Budget percentage <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
-					<padding class="filter-text">Budget left <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
-			</div>
-			<!-- <div class="row">
+
+			<div class="row boxes">
+				<!--Project template !-->
+				<div class="col-12 col-md-6">
 					<div class="project shadow">
-							<p class="title">Budget project</p>
-							<div class="title blue-box">10%</div>
-							<p>Owner</p>
-							<p>Balance</p>
-							<p>Project to manage the budget of projects</p>
+							<p class="bold title inline-block">Title</p>
+							<div class="percentage bold">10%</div>
+							<p class="bold">Owner: <span class="nobold">Project Owner</span></p>
+							<P class="bold">Budget: <span class="nobold">1,000,000/5,000,000</span></p>
+							<p class="italic">Description of the project to be done hahah</p>
 					</div>
-			</div> -->
-				<!-- <i class="material-icons circle">add_circle</i> -->
+			</div>
+			<!--Project template !-->
+			<div class="col-12 col-md-6">
+				<div class="project shadow">
+						<p class="bold title inline-block">Title</p>
+						<div class="percentage bold">10%</div>
+						<p class="bold">Owner: <span class="nobold">Project Owner</span></p>
+						<P class="bold">Budget: <span class="nobold">1,000,000/5,000,000</span></p>
+						<p class="italic">Description of the project to be done hahah</p>
+				</div>
 		</div>
-		
+		<!--Project template !-->
+		<div class="col-12 col-md-6">
+			<div class="project shadow">
+					<p class="bold title inline-block">Title</p>
+					<div class="percentage bold">10%</div>
+					<p class="bold">Owner: <span class="nobold">Project Owner</span></p>
+					<P class="bold">Budget: <span class="nobold">1,000,000/5,000,000</span></p>
+					<p class="italic">Description of the project to be done hahah</p>
+			</div>
+	</div>
+	</div>
+		</div>
+
 		<!-- Bootstrap javascript libs -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
