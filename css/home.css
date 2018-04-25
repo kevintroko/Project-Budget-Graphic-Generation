@@ -1,0 +1,59 @@
+.body {
+  font-family: avenir;
+}
+
+.center {
+
+}
+/*Add button icon*/
+.circle {
+  color: var(--orange);
+}
+/*Project box css*/
+.project {
+  background-color: var(--graySoft);
+  color: var(--gray);
+}
+ .project p{
+}
+.title {
+  font-weight: 500;
+}
+.blue-box {
+  background-color: var(--blue);
+  color: white;
+}
+/*Filter css*/
+.filter {
+  background-color: var(--graySoft);
+  max-width: 80%;
+  margin: 0 auto;
+  padding: 1em;
+  border: 2px solid green;
+}
+.filter-text {
+  color: var(--gray);
+  font-weight: 500;
+  border: 2px solid green;
+}
+/*Orange Buttons css*/
+.button {
+  background: var(--orange);
+  color: white;
+  text-align: center;
+  font-weight: 600;
+  padding: 1em 30%;
+}
+.button:hover{
+  background-color: var(--orangeDark);
+  text-decoration: none;
+  color: white;
+}
+/* For icons*/
+.vertical-align-middle {
+    text-color: var(--gray);
+    vertical-align: middle;
+}
+.padding-bottom-3 {
+    padding-bottom: 3px;
+}

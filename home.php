@@ -12,6 +12,9 @@
 		<link rel="stylesheet" href="css/design.css">
 		<link rel="stylesheet" href="css/navbar.css">
 		<link rel="stylesheet" href="css/home.css">
+		<!-- Icons !-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 	</head>
 
 	<body style="background-color:white;">
@@ -19,8 +22,29 @@
 
 		<div class="container">
 			<div class="row">
-
+				<div class="col center">
+					<a class="button shadow" href="list_people.php" role="button">People</a>
+				</div>
+				<div class="col">
+					<a class="button shadow" href="list_project.php" role="button">Project</a>
+				</div>
 			</div>
+		<div class="row filter shadow">
+					<padding class="filter-text">Owner	<i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
+					<padding class="filter-text">Project name	<i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
+					<padding class="filter-text">Budget percentage <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
+					<padding class="filter-text">Budget left <i class="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></padding>
+			</div>
+			<!-- <div class="row">
+					<div class="project shadow">
+							<p class="title">Budget project</p>
+							<div class="title blue-box">10%</div>
+							<p>Owner</p>
+							<p>Balance</p>
+							<p>Project to manage the budget of projects</p>
+					</div>
+			</div> -->
+				<!-- <i class="material-icons circle">add_circle</i> -->
 		</div>
 		
 		<!-- Bootstrap javascript libs -->

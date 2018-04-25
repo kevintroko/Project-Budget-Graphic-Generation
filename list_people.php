@@ -11,25 +11,20 @@
 		<!-- CSS Our-->
 		<link rel="stylesheet" href="css/design.css">
 		<link rel="stylesheet" href="css/list.css">
+		<link rel="stylesheet" href="css/navbar.css">
     <!-- Icons links -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	</head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bottom-border">
-  <a class="navbar-brand" href="index.php">Project Budget Manager</a>
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="profile.php">Name Lastname</a>
-      <a class="nav-item nav-link" href="#Notification">Notification</a>
-      <a class="nav-item nav-link" href="index.php">Log out</a>
-    </div>
-  </nav>
+
+<?php include_once ("navbar.php"); ?>
 
   <div class="container">
     <div class="row">
       <div class="col">
         <div class="title">
-          <span id=active>People</span> <a href="listProject.php" id=inactive>Project</a>
+          <span id=active>People</span> <a href="list_project.php" id=inactive>Project</a>
         </div>
       </div>
     </div>
