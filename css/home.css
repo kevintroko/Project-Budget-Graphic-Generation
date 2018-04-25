@@ -1,7 +1,6 @@
 .body {
   font-family: avenir;
 }
-
 .boxes {
   width: 80%;
   margin: 0 auto;
@@ -44,6 +43,22 @@
 .filter-text {
   color: var(--gray);
   font-weight: 500;
+}
+
+/* Admin */
+.center {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    height: 10em;
+}
+
+.center p {
+  padding: 4em;
+}
+
+#admin {
+  margin-top: 3em;
 }
 /* For icons*/
 .vertical-align-middle {
