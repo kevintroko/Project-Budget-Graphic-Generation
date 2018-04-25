@@ -18,7 +18,7 @@
 
 <body>
 
-<?php include_once ("navbar.php"); ?>
+<?php include_once ("navbar_admin.php"); ?>
 
   <div class="container">
     <div class="row">
@@ -39,21 +39,26 @@
 							<p>Lastname:</p>
 							<p>Email:</p>
 							<p>Role:</p>
+							<p>Salary:</p>
+							<p>OH:</p>
 						</div>
 						<div class="col">
-							<p>John</p>
-							<p>Bergstrom</p>
-							<p>john.bergstrom@student.mdh.se</p>
-							<p>Professor</p>
+							<input type="text" name="name" id="profile-input" value="" tabindex="1" />
+							<input type="text" name="lastname" id="profile-input" value="" tabindex="1" />
+							<input type="text" name="email" id="profile-input" value="" tabindex="1" />
+							<input type="text" name="role" id="profile-input" value="" tabindex="1" />
+							<input type="text" name="salary" id="profile-input" value="" tabindex="1" />
+							<input type="text" name="oH" id="profile-input" value="" tabindex="1" />
 						</div>
 					</div>
-					<div class="button panel bold shadow">
-						add to project
-					</div>
+					<div class="button panel bold shadow">confirm</div>
+					<div class="button panel bold shadow">cancel</div>
+
 			</div>
 			 <!--Column 2!-->
 			<div class="col graph">
 					<img src="img/graph.png" style="width:100%;">
+					<div class="panel bold shadow delete">delete user</div>
 			</div>
     </div>
   </div>

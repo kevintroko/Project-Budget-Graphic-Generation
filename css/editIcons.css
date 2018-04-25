@@ -1,12 +1,14 @@
 .circle-icon {
-	position:fixed;
-	bottom:5%;
-	right: 5%;
-	
+		position:fixed;
+		bottom:5%;
+		right: 5%;
     background: var(--orange);
-	color:white;
-	
+		color:white;
     padding:5px;
     border-radius: 50%;
-	font-size: 2.5em;
+		font-size: 2.5em;
+}
+
+.circle-icon:hover {
+	background-color: var(--orangeDark);
 }
