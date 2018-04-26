@@ -1,0 +1,70 @@
+.body {
+  font-family: avenir;
+}
+.boxes {
+  width: 80%;
+  margin: 0 auto;
+}
+/*Project box css*/
+.project {
+  background-color: var(--graySoft);
+  color: var(--gray);
+  padding-bottom: .8em;
+  margin-top: 1em;
+}
+.title {
+  font-size: 1.2em;
+  margin-left: 0.8em;
+  padding-top: 1em;
+  font-weight: 600;
+}
+.nobold {
+  font-weight: 400;
+}
+.project p {
+  margin-left: 1em;
+}
+.percentage {
+  background-color: var(--blue);
+  color: white;
+  text-align: center;
+  position: absolute;
+  padding: .5em 4em;
+  top: 1em;
+  right: 1em;
+}
+/*Filter css*/
+.filter {
+  background-color: var(--graySoft);
+  max-width: 80%;
+  margin: 1em auto 0.5em auto;
+  padding: 1em;
+}
+.filter-text {
+  color: var(--gray);
+  font-weight: 500;
+}
+
+/* Admin */
+.center {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    height: 10em;
+}
+
+.center p {
+  padding: 4em;
+}
+
+#admin {
+  margin-top: 3em;
+}
+/* For icons*/
+.vertical-align-middle {
+    text-color: var(--gray);
+    vertical-align: middle;
+}
+.padding-bottom-3 {
+    padding-bottom: 3px;
+}
