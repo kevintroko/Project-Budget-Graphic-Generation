@@ -60,13 +60,11 @@
 #admin {
   margin-top: 3em;
 }
-<<<<<<< HEAD
+
 .no_hover:hover {
   text-decoration: none;
   background: var(--gray);
 }
-=======
->>>>>>> profile
 /* For icons*/
 .vertical-align-middle {
     text-color: var(--gray);

@@ -47,8 +47,43 @@
 							<p>Professor</p>
 						</div>
 					</div>
-					<div class="button panel bold shadow">
+					<div class="button panel bold shadow"  data-toggle="modal" data-target="#myModal">
 						add to project
+					</div>
+
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					  <div class="modal-dialog center-modal" role="document">
+					    <div class="modal-content">
+					      <div class="modal-header center-text">
+					        <h5 class="modal-title" id="exampleModalLabel">Add user to project</h5>
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					          <span aria-hidden="true">&times;</span>
+					        </button>
+					      </div>
+					      <div class="modal-body center-text margins">
+									<form>
+										<label for="inputState">Project</label>
+										<select id="inputState" class="form-control margins">
+											<option selected>Choose project...</option>
+											<option>Volvo project - 10%</option>
+											<option>MDH project - 90%</option>
+											<option>Coop project - 40%</option>
+											<option>Nils project - 50%</option>
+										</select>
+									  <div class="form-group">
+									    <label for="formGroupExampleInput">Workflow</label>
+									    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Insert Workflow">
+									  </div>
+									</form>
+
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="button panel bold" data-dismiss="modal">Cancel</button>
+					        <button type="button" class="button panel bold">Confirm</button>
+					      </div>
+					    </div>
+					  </div>
 					</div>
 			</div>
 			 <!--Column 2!-->

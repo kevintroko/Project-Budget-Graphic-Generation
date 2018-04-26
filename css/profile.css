@@ -49,10 +49,24 @@ body {
   padding-left: 1em;
   color: var(--gray);
 }
+
+.center-text{
+  text-align: center;
+}
+
+.margins {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 input, textarea, button {outline: none; }
 .vertical-align-middle {
     vertical-align: middle;
 }
 .padding-bottom-3 {
     padding-bottom: 3px;
+}
+
+.center-modal {
+  margin-top: 12em;
 }
