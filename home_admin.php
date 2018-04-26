@@ -23,7 +23,11 @@
 			<div class="row boxes" id="admin">
 				<!--Project template !-->
 				<div class="col-12 col-md-6">
+<<<<<<< HEAD
 					<a href="list_people_project.php" class="no_hover"><div class="project shadow center">
+=======
+					<a href="list_people_admin.php" class="no_hover"><div class="project shadow center">
+>>>>>>> profile
 							<!-- <p>Project <i class="material-icons vertical-align-middle padding-bottom-3">business_center</i></p> -->
               <p>Project</p>
 					</div></a>
@@ -35,7 +39,7 @@
           </div></a>
       </div>
       <div class="col-12 col-md-12">
-				<a href="activity_log.php" class="no_hover"><div class="project shadow center" href="#index.php">
+				<a href="activity_log.php" class="no_hover"><div class="project shadow center" href="activity_log.php">
             <!-- <p>Activity log <i class="material-icons vertical-align-middle padding-bottom-3">format_align_justify</i></p> -->
             <p>Activity log</p>
         </div></a>

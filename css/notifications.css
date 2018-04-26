@@ -12,4 +12,5 @@
 
 h6 {
 	color: var(--gray);
+	font-weight: 300;
 }
