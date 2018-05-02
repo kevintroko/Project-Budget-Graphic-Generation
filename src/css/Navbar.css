@@ -8,6 +8,10 @@
     border-bottom: 2px solid var(--orange);
 }
 
+.navbar-nav{
+  text-align: center;
+}
+
 .admin {
   border-bottom: 2px solid var(--orangeDark);
 }
