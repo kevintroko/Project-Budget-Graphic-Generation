@@ -1,11 +1,7 @@
 /* Navbar horizontal padding */
 .navbar {
-  padding: 1.1rem 1rem;
+  padding: 1.3rem 1rem;
   position: static;
-}
-/* Items assigned to the right*/
-.navbar-nav {
-  text-align: right;
 }
 /* Put bottom border orange */
 .bottom-border {

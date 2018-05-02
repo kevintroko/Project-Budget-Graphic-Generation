@@ -1,13 +1,3 @@
-/***********************************************************************************
-
-			These are styling details used across the entire project.
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				If the style you want to create is page-specific,
-				please create new file - for example, webpage.css
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-*/
-
 :root{
 	--orange: #E37222;
 	--orangeDark: #CE6318;
@@ -17,6 +7,10 @@
 	--blue: #66B9BF;
 	--red: #9F0000;
 	--redDark: #7F0000;
+}
+
+a {
+  text-decoration: none;
 }
 
 .btn{
@@ -31,6 +25,7 @@
 
 body {
 	font-family: avenir;
+  margin: 0;
 }
 
 .shadow {
