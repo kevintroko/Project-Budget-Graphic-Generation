@@ -1,26 +1,8 @@
 import React, { Component } from 'react';
 import '../css/List.css';
+import Table from './Table';
 
-function ColumnHeader(name){
-	return (<th scope="col">{name}<i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>);
-}
 
-function ColumnRow(data){
-	let row = [];
-	if(data){
-		for(var i=0; i<data.length; i++){
-			row.push(RowData(data[i]));
-		}
-	}
-	return (<tr>
-				{row}
-				<td><i className="material-icons vertical-align-middle padding-bottom-3">delete</i></td>
-			</tr>);
-}
-
-function RowData(data){
-	return (<td>{data}</td>);
-}
 
 class List extends Component {
 	
@@ -29,17 +11,6 @@ class List extends Component {
 	}
 	
 	render() {
-		//column headers
-		let cols = [];
-		for (var i=0; i < this.props.cols.length; i++){
-			cols.push(ColumnHeader(this.props.cols[i]));
-		}
-		//fill data
-		let rows = [];
-		
-		for(var i=0; i < this.props.data.length; i++){
-			rows.push(ColumnRow(this.props.data[i]));
-		}
 		  
 		return (
 		  <div>
@@ -53,18 +24,8 @@ class List extends Component {
 				  </div>
 				</div>
 				<div className="row">
-				  <table className="table">
-					<thead>
-					
-					
-					  <tr className="table-row">
-					  {cols}
-					  </tr>
-					</thead>
-					<tbody>
-						{rows}
-					</tbody>
-				  </table>
+				  <Table cols={this.props.cols}
+						data={this.props.data}/>
 				</div>
 			  </div>
 		  </div>
