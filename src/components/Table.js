@@ -49,6 +49,7 @@ class Table extends Component{
 				<thead>
 					<tr className="table-row">
 						{cols}
+							{ColumnHeader()}
 					</tr>
 				</thead>
 				<tbody>
