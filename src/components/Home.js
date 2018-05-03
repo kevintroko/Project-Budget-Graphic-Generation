@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import '../css/Home.css';
+import '../css/EditIcons.css';
 
 class Home extends Component {
   render() {
     return (
        <div>
          <div className="container">
+           <span><i class="material-icons circle-icon shadow">add</i></span>
            <div className="row filter shadow d-flex justify-content-around p-2">
              <div className="p-2 filter-text">Owner <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></div>
              <div className="p-2 filter-text">Project name	 <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></div>
