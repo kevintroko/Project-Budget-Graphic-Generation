@@ -1,3 +1,13 @@
+/***********************************************************************************
+
+			These are styling details used across the entire project.
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+				If the style you want to create is page-specific,
+				please create new file - for example, webpage.css
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+*/
+
 :root{
 	--orange: #E37222;
 	--orangeDark: #CE6318;
@@ -21,7 +31,6 @@
 
 body {
 	font-family: avenir;
-  margin: 0;
 }
 
 .shadow {
