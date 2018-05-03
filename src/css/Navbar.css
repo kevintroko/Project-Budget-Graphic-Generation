@@ -21,6 +21,7 @@
     padding: 1rem 1.5rem;
     color: var(--orange);
 }
+
 .navbar-light .navbar-nav .nav-link:hover{
     color: var(--orangeDark);
 }
