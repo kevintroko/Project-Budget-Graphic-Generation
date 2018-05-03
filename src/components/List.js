@@ -2,7 +2,17 @@ import React, { Component } from 'react';
 import '../css/List.css';
 
 class List extends Component {
+	constructor(props){
+		super(props);
+		
+	}
   render() {
+	  
+	  let cols = [];
+	  for (var i=0; i < this.props.cols.length; i++){
+		 cols.push(<th scope="col">{this.props.cols[i]}<i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>);
+		}
+	  
     return (
       <div>
         <span><i className="material-icons circle-icon shadow">edit</i></span>
@@ -10,23 +20,17 @@ class List extends Component {
             <div className="row">
               <div className="col">
                 <div className="title">
-                  <span id=active>People</span> <a href="list_project_admin.php" id=inactive>Project</a>
+                  <span id="active">People</span> <a href="list_project_admin.php" id="inactive">Project</a>
                 </div>
               </div>
             </div>
             <div className="row">
               <table className="table">
                 <thead>
+				
+				
                   <tr className="table-row">
-                    <th scope="col">Name <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-                    <th scope="col">Lastname <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-                    <th scope="col">Email <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-                    <th scope="col">Role <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-                    <th scope="col">Projects <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-                    <th scope="col">Workflow <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-              			<th scope="col">Salary <i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-              			<th scope="col">OH<i className="material-icons vertical-align-middle padding-bottom-3">arrow_drop_down</i></th>
-              			<th scope="col"><i className="material-icons vertical-align-middle padding-bottom-3 hidden">delete</i></th>
+				  {cols}
                   </tr>
                 </thead>
                 <tbody>
