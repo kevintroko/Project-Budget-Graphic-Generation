@@ -48,7 +48,7 @@ class Project extends Component {
     return (
        <div class="container">
 			<div class="row">
-			
+
 				<div class="col-sm-6">
 					<Card
 						title='Project title'
@@ -61,12 +61,12 @@ class Project extends Component {
 								description='Very good description'
 							/>}
 					/>
-						
+
 					<Card
 						title='Members'
 						content=
-							{<Table 
-								cols={['Name','Workflow','Start Date','End Date']} 
+							{<Table
+								cols={['Name','Workflow','Start Date','End Date']}
 								data={[
 									['John Bergstrom','60%','26/4/2018','27/4/2018'],
 									['John Bergstrom','60%','26/4/2018','27/4/2018'],
@@ -74,7 +74,7 @@ class Project extends Component {
 									]}
 							/>}
 					/>
-					
+
 				</div>
 				<div class="col-sm-6">
 					<Card

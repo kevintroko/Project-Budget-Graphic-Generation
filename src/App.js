@@ -3,6 +3,7 @@ import './css/App.css';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
+import Project from './components/Project';
 
 class App extends Component {
   render() {

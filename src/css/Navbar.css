@@ -35,3 +35,7 @@
     font-size: 2em;
     font-weight: 500;
 }
+
+.popover{
+  border-radius: 0px;
+}
