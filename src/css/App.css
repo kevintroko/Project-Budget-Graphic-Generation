@@ -1,5 +1,13 @@
 .body {
-  font-family: avenir;
+  font-family: avenir, helvetica;
+}
+/* For icons*/
+.vertical-align-middle {
+    text-color: var(--gray);
+    vertical-align: middle;
+}
+.padding-bottom-3 {
+    padding-bottom: 3px;
 }
 /* Grow */
 .hvr-grow {
