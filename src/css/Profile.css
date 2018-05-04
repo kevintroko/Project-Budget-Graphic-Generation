@@ -60,12 +60,6 @@ body {
 }
 
 input, textarea, button {outline: none; }
-.vertical-align-middle {
-    vertical-align: middle;
-}
-.padding-bottom-3 {
-    padding-bottom: 3px;
-}
 
 .center-modal {
   margin-top: 12em;
