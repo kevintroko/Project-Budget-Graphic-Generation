@@ -4,15 +4,15 @@ import Navbar from './components/Navbar';
 import ProjectCard from './components/ProjectCard';
 import Filter from './components/Filter';
 import AddIcon from './components/AddIcon';
-import ProfilePane from './components/ProfilePane';
+// import ProfilePane from './components/ProfilePane';
 
 class App extends Component {
   render() {
       return (
         <div className="App">
           <Navbar/>
-          <ProfilePane/>
-          {/* <Filter/>
+          {/* <ProfilePane/> */}
+          <Filter/>
           <AddIcon/>
           <div className="row boxes">
             <ProjectCard
@@ -21,7 +21,7 @@ class App extends Component {
               budget={"1,000,000"} currentBudget={"532,487"}
               description={"Project description"}
             />
-          </div>*/}
+          </div>
         </div>
       );
     }
