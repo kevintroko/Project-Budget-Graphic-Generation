@@ -1,8 +1,66 @@
 import React, { Component } from 'react';
 import '../css/Navbar.css';
-import Notifications from './Notifications';
+import '../css/Notification.css';
 import {Popover, Button, PopoverBody} from 'reactstrap';
 
+function Notif(props){
+  let timeText;
+  let time = props.time;
+  if(time > 1440){
+    time = Math.round(time/1440);
+    timeText="days ago";
+  }else if(time > 60){
+    time = Math.round(time/60);
+    timeText="hours ago";
+  }else{
+    timeText="mins ago";
+  }
+
+  return(
+    <div class="notification rounded m-2 p-1">
+      <h6>
+        {props.text}
+      </h6>
+      <p class="text-right font-weight-light font-italic m-0">
+        {time} {timeText}
+      </p>
+    </div>
+  );
+}
+
+class Notifications extends Component {
+
+  render() {
+    let result=[];
+    let notifs=this.props.notifs;
+    if(notifs){
+      for(var i=0; i<notifs.length; i++){
+        result.push(
+          <Notif
+            text={notifs[i].text}
+            time={notifs[i].time}
+          />
+        );
+        if(i<notifs.length-1){
+          result.push(
+            <hr class="m-2"/>
+          );
+        }
+      }
+    }
+    return (
+      <div>
+
+        {result}
+
+      	<div class="m-2">
+      		<button class="btn  btn-sm btn-block">Mark as read</button>
+      	</div>
+
+      </div>
+    );
+  }
+};
 
 class Navbar extends Component {
   constructor(props){
@@ -40,7 +98,13 @@ class Navbar extends Component {
                   target="Notifications"
                   toggle={this.toggle}>
               <PopoverBody>
-                <Notifications/>
+                <Notifications
+                  notifs={[
+                    {text:"Someone stole your bike", time:'5'},
+                    {text:"Your bike has arrived", time:'70'},
+                    {text:"Thanks for ordering the bike", time:'3000'}
+                  ]}
+                />
               </PopoverBody>
             </Popover>
 
