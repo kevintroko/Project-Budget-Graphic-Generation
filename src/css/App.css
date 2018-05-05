@@ -1,16 +1,10 @@
-/***********************************************************************************
-
-			These are styling details used across the entire project.
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-				If the style you want to create is page-specific,
-				please create new file - for example, webpage.css
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-*/
-
+.body {
+  font-family: avenir, helvetica;
+  margin: 0;
+}
 :root{
 	--orange: #E37222;
-	--orangeDark: #CE6318;
+	--orangeDark: #AA3300;
 	--grayLight: #d3d3d3;
 	--graySoft: #F1F1F1;
 	--gray: #8B8B8B;
@@ -18,32 +12,39 @@
 	--red: #9F0000;
 	--redDark: #7F0000;
 }
-
 .btn{
 	background-color: var(--orange);
 	color: white;
 	border-radius: 0;
 }
-
 .btn:hover{
 	background-color: var(--orangeDark);
 }
-
-body {
-	font-family: avenir;
-}
-
 .shadow {
 	  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
-
 .bold {
   font-weight: 500;
 }
-
+/* For icons*/
 .vertical-align-middle {
+    text-color: var(--gray);
     vertical-align: middle;
 }
 .padding-bottom-3 {
     padding-bottom: 3px;
+}
+/* Grow */
+.hvr-grow {
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -moz-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+.hvr-grow:hover,
+.hvr-grow:focus,
+.hvr-grow:active {
+    transform: scale(1.05);
 }

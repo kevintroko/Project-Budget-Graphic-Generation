@@ -1,0 +1,32 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.1.1",
+    "hover.css": "^2.3.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.1.4",
+    "reactstrap": "^6.0.1"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevintroko/Project.git"
+  },
+  "author": "Kevin Oswaldo Cabrera Navarro <kevintroko@gmail.com>",
+  "license": "MIT",
+  "description": "Martin, Yannis and Kevin Project",
+  "bugs": {
+    "url": "https://github.com/kevintroko/Project/issues"
+  },
+  "homepage": "https://github.com/kevintroko/Project#readme",
+  "devDependencies": {}
+}
