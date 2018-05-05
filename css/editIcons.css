@@ -8,6 +8,8 @@
     border-radius: 50%;
 	font-size: 2.5em;
 }
+
 .circle-icon:hover {
 	background-color: var(--orangeDark);
 }
+
