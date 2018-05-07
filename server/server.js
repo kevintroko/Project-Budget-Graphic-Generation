@@ -17,32 +17,41 @@ const port = process.env.PORT || 5000;
 // Initialize the app
 const app = express();
 
-// https://expressjs.com/en/guide/routing.html
+// person query
 app.get('/persons', function (req, res) {
     //connection.connect();
-
-    connection.query('select * from person', function (error, results, fields) {
+    connection.query('select * from person_view', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
-
     //connection.end();
 });
-
+//project query
 app.get('/projects', function (req, res) {
-    //connection.connect();
-
-    connection.query('select * from project', function (error, results, fields) {
-      // console.log(results);
+    connection.query('select * from project_view', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
-
-    //connection.end();
+});
+//professor query
+app.get('/professors', function (req, res) {
+    connection.query('select * from professor_view', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+});
+//has query
+app.get('/has', function (req, res) {
+    connection.query('select * from has_view', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
 });
 
 // Start the server
 app.listen(port, () => {
  console.log('Go to http://localhost:5000/persons to see persons');
  console.log('Go to http://localhost:5000/projects to see projects');
+ console.log('Go to http://localhost:5000/professors to see professors');
+ console.log('Go to http://localhost:5000/has to see has');
 });

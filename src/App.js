@@ -42,7 +42,7 @@ class App extends Component {
           <Filter/>
           <AddIcon/>
           <div className="row boxes">
-              {projects.map(item => (
+              {projects.sort((a, b) => a.name > b.name).map(item => (
                   <ProjectCard
                     title={item.name} percentage={item.workload}
                     owner={item.owner}
