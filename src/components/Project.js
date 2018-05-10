@@ -4,7 +4,7 @@ import Table from './Table';
 
 function ProjectDescription (props){
 	return(
-		<table class="table table-sm">
+		<table className="table table-sm">
 		  <thead></thead>
 		  <tbody>
 			<tr>
@@ -34,7 +34,7 @@ function ProjectDescription (props){
 
 function Card (props){
 	return (
-		<div class="row">
+		<div className="row">
 			<h1>
 				{props.title}
 			</h1>
@@ -46,10 +46,10 @@ function Card (props){
 class Project extends Component {
   render() {
     return (
-       <div class="container">
-			<div class="row">
+       <div className="container">
+			<div className="row">
 
-				<div class="col-sm-6">
+				<div className="col-sm-6">
 					<Card
 						title='Project title'
 						content=
@@ -76,7 +76,7 @@ class Project extends Component {
 					/>
 
 				</div>
-				<div class="col-sm-6">
+				<div className="col-sm-6">
 					<Card
 						title='Graph'
 						content=''

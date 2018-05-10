@@ -35,11 +35,15 @@
   background-color: var(--graySoft);
   max-width: 80%;
   margin: 1em auto 0.5em auto;
-  padding: 1em;
+  padding: 0em;
 }
 .filter-text {
   color: var(--gray);
   font-weight: 500;
+  cursor: pointer;
+}
+.filter-text:hover {
+  color: var(--grayDark);
 }
 /* Admin */
 .center {
