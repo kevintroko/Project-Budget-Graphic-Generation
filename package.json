@@ -15,7 +15,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+	"client": "cd client && yarn start",
+    "server": "nodemon server.js --ignore client",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
   "main": "index.js",
   "repository": {
@@ -29,5 +32,9 @@
     "url": "https://github.com/kevintroko/Project/issues"
   },
   "homepage": "https://github.com/kevintroko/Project#readme",
-  "devDependencies": {}
+  "devDependencies": {
+  "concurrently": "^3.5.0"
+  },
+  
+  "proxy": "http://localhost:5000/"
 }

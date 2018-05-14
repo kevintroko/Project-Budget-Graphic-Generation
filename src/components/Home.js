@@ -5,22 +5,22 @@ import {FilterBar} from './FilterBar';
 import AddIcon from './AddIcon';
 
 const filters = ["Project name", "Owner", "Budget left", "Time left"];
-const projects = [
-  {title:"Project", percentage:10,
-  owner:"Owner",
-  budget:1000000, currentBudget:999999999,
-  description:"Project description",},
-
-  {title:"XXX", percentage:50,
-  owner:"Martin",
-  budget:300000, currentBudget:51513,
-  description:"Project description",},
-
-  {title:"AAAA", percentage:50,
-  owner:"Xartin",
-  budget:300000, currentBudget:5,
-  description:"Project description",},
-];
+// const projects = [
+//   {title:"Project", percentage:10,
+//   owner:"Owner",
+//   budget:1000000, currentBudget:999999999,
+//   description:"Project description",},
+//
+//   {title:"XXX", percentage:50,
+//   owner:"Martin",
+//   budget:300000, currentBudget:51513,
+//   description:"Project description",},
+//
+//   {title:"AAAA", percentage:50,
+//   owner:"Xartin",
+//   budget:300000, currentBudget:5,
+//   description:"Project description",},
+// ];
 
 export class Home extends React.Component{
   constructor(props) {
@@ -28,10 +28,26 @@ export class Home extends React.Component{
 		this.state={
 			activeFilter: 0, //last clicked filter's number in filters array
       isOrderAsc: 1,
+      projects: [],
+      isLoading: false,
+      response:'',
 		};
 
     this.handleFilterChange = this.handleFilterChange.bind(this);
   }
+
+  componentDidMount(){
+    this.setState({ isLoading: true });
+    this.callApi().then(data => (this.setState({projects:data,isLoading:false})));
+  }
+
+  callApi = async() => {
+    const response = await fetch('/projects');
+    const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
 
   handleFilterChange(filterNum, isAsc){
     this.setState({activeFilter: filterNum, isOrderAsc: isAsc});
@@ -58,22 +74,22 @@ export class Home extends React.Component{
   }
 
   orderByName(ascending){
-    projects.sort(function(a, b){
-      var x = a.title.toLowerCase();
-      var y = b.title.toLowerCase();
+    this.state.projects.sort(function(a, b){
+      var x = a.name.toLowerCase();
+      var y = b.name.toLowerCase();
       return x.localeCompare(y)*ascending;
     });
   }
   orderByOwner(ascending){
-    projects.sort(function(a, b){
+    this.state.projects.sort(function(a, b){
       var x = a.owner.toLowerCase();
       var y = b.owner.toLowerCase();
       return x.localeCompare(y)*ascending;
     });
   }
   orderByBudget(ascending){
-    projects.sort(function(a, b){
-      return (a.currentBudget-b.currentBudget)*ascending;
+    this.state.projects.sort(function(a, b){
+      return (a.current_balance-b.current_balance)*ascending;
     });
   }
   orderByTime(ascending){
@@ -82,12 +98,16 @@ export class Home extends React.Component{
 
   render(){
     this.orderProjects();
+    const {projects,isLoading}=this.state;
+    if (isLoading) {
+      return <p>Start node server.js</p>;
+    }
 
     let cards = projects.map(project =>
       (<ProjectCard
-        title={project.title} percentage={project.percentage}
+        name={project.name} workload={project.workload}
         owner={project.owner}
-        budget={project.budget} currentBudget={project.currentBudget}
+        budget={project.budget} current_balance={project.current_balance}
         description={project.description}
       />)
     );

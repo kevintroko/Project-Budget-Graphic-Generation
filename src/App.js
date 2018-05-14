@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import {Home} from './components/Home';
 // import ProfilePane from './components/ProfilePane';
 
+
 class App extends React.Component {
   render() {
       return (
