@@ -24,7 +24,7 @@ function RowData(data){
 	return (<td>{data}</td>);
 }
 
-class Table extends Component{
+export class Table extends Component{
 	constructor(props){
 		super(props);
 	}
@@ -43,7 +43,7 @@ class Table extends Component{
 				rows.push(ColumnRow(this.props.data[i]));
 			}
 		}
-		
+
 		return(
 			<table className="table">
 				<thead>
@@ -59,5 +59,3 @@ class Table extends Component{
 		);
 	}
 }
-
-export default Table;

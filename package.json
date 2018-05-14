@@ -6,6 +6,8 @@
     "bootstrap": "^4.1.1",
     "express": "^4.16.3",
     "hover.css": "^2.3.1",
+    "mysql": "^2.15.0",
+    "prop-types": "^15.6.1",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
@@ -16,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-	"client": "cd client && yarn start",
+    "client": "cd client && yarn start",
     "server": "nodemon server.js --ignore client",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
@@ -33,8 +35,7 @@
   },
   "homepage": "https://github.com/kevintroko/Project#readme",
   "devDependencies": {
-  "concurrently": "^3.5.0"
+    "concurrently": "^3.5.0"
   },
-  
   "proxy": "http://localhost:5000/"
 }

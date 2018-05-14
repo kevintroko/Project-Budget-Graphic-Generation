@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/App.css';
 import Navbar from './components/Navbar';
-import {Home} from './components/Home';
+import {ProjectContainer} from './components/ProjectContainer';
 // import ProfilePane from './components/ProfilePane';
 
 
@@ -12,7 +12,7 @@ class App extends React.Component {
           <Navbar/>
           {/* <ProfilePane/> */}
 
-          <Home/>
+          <ProjectContainer />
         </div>
       );
     }
