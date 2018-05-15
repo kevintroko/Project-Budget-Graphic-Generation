@@ -6,10 +6,12 @@ function ColumnHeader(name){
 }
 
 function ColumnRow(data){
+
+	let arrData = Object.values(data);
 	let row = [];
 	if(data){
-		for(var i=0; i<data.length; i++){
-			row.push(RowData(data[i]));
+		for(var i=0; i<arrData.length; i++){
+			row.push(RowData(arrData[i]));
 		}
 	}
 	return (

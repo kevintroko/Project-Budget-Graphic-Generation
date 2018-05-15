@@ -66,11 +66,7 @@ export const Project = (props) => {
 					content=
 						{<Table
 							cols={['Name','Workflow','Start Date','End Date']}
-							data={[
-								['John Bergstrom','60%','26/4/2018','27/4/2018'],
-								['John Bergstrom','60%','26/4/2018','27/4/2018'],
-								['John Bergstrom','60%','26/4/2018','27/4/2018']
-								]}
+							data={props.members}
 						/>}
 				/>
 

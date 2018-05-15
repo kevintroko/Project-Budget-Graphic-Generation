@@ -8,6 +8,7 @@ export class ProjectContainer extends React.Component {
 		super(props);
 		this.state={
 			project: null,
+			members: [],
       isLoading: false,
       response:'',
 		};
@@ -16,21 +17,41 @@ export class ProjectContainer extends React.Component {
 	componentWillMount(){
 		//SQL query
 		this.setState({ isLoading: true });
-    this.callApi().then(data => {
-			this.setState({isLoading:false});
-
-			//find the correct project
-			for(var i=0; i < data.length; i++){
-				if(data[i].code == this.props.code){
-					this.setState({project: data[i]});
-					break;
+    this.fetchProjects().then(data => {
+			this.fetchMembers().then(membersQuery => {
+				this.setState({isLoading:false});
+				//find the correct project
+				for(var i=0; i < data.length; i++){
+					if(data[i].code == this.props.code){
+						this.setState({project: data[i]});
+						break;
+					}
 				}
-			}
+				let mmbrs = [];
+				for(var i=0; i<membersQuery.length;i++){
+					if(membersQuery[i].project_code == this.state.project.code){
+						let mmbr = {name: membersQuery[i].first_name +" "+ membersQuery[i].middle_name +" "+ membersQuery[i].last_name,
+												startDate: membersQuery[i].hiring_date,
+												endDate: membersQuery[i].deadline,
+												workload: membersQuery[i].workload};
+						mmbrs.push(mmbr);
+					}
+				}
+				this.setState({members: mmbrs});
+			});
 		});
 	}
 
-	callApi = async() => {
+	fetchProjects = async() => {
     const response = await fetch('/projects');
+    const body = await response.json();
+  	if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
+
+	fetchMembers = async() => {
+    const response = await fetch('/members');
     const body = await response.json();
   	if (response.status !== 200) throw Error(body.message);
 
@@ -40,7 +61,7 @@ export class ProjectContainer extends React.Component {
   render() {
 		//makes sure the SQL query finished
 		if(this.state.project){
-    	return <Project project={this.state.project} />;
+    	return <Project project={this.state.project} members={this.state.members} />;
 		}else{
 			return null;
 		}

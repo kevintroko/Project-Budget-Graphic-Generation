@@ -47,6 +47,13 @@ app.get('/has', function (req, res) {
       res.send(results)
     });
 });
+//members query
+app.get('/members', function (req, res) {
+    connection.query('select project_code, first_name, middle_name, last_name, workload, hiring_date, deadline from has_view join person_view where person_view.email = has_view.person_code', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+});
 
 // Start the server
 app.listen(port, () => {
