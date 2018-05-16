@@ -4,9 +4,12 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.1.1",
+    "chart.js": "^1.1.1",
     "express": "^4.16.3",
     "hover.css": "^2.3.1",
+    "mysql": "^2.15.0",
     "react": "^16.3.2",
+    "react-chartjs": "^1.2.0",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
     "reactstrap": "^6.0.1"
@@ -16,7 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-	"client": "cd client && yarn start",
+    "client": "cd client && yarn start",
     "server": "nodemon server.js --ignore client",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
   },
@@ -31,10 +34,14 @@
   "bugs": {
     "url": "https://github.com/kevintroko/Project/issues"
   },
+  "proxy": {
+    "/api": {
+      "target": "https://localhost:5000",
+      "secure": false
+    }
+  },
   "homepage": "https://github.com/kevintroko/Project#readme",
   "devDependencies": {
-  "concurrently": "^3.5.0"
-  },
-  
-  "proxy": "http://localhost:5000/"
+    "concurrently": "^3.5.0"
+  }
 }

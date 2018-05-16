@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/Navbar.css';
 import '../css/Notification.css';
-import {Popover, Button, PopoverBody} from 'reactstrap';
+import {Popover, PopoverBody} from 'reactstrap';
 
 function Notif(props){
   let timeText;
@@ -78,18 +78,18 @@ class Navbar extends Component {
   }
 
   render() {
-    const popoverBottom = (
-      <Popover id="popover-positioned-bottom" title="Popover bottom">
-        <strong>Holy guacamole!</strong> Check this info.
-      </Popover>
-    );
+    // const popoverBottom = (
+    //   <Popover id="popover-positioned-bottom" title="Popover bottom">
+    //     <strong>Holy guacamole!</strong> Check this info.
+    //   </Popover>
+    // );
     return (
        <div>
          <nav className="navbar navbar-expand-lg navbar-light bottom-border">
          	<a className="navbar-brand orange" href="#index">Project Budget Manager</a>
          	<div className="navbar-nav w-100">
          		<a className="nav-item nav-link ml-auto" href="#Profile">Name Lastname</a>
-            <a className="nav-item nav-link" onClick={this.toggle} id="Notifications" href="#">Notifications</a>
+            <a className="nav-item nav-link" onClick={this.toggle} id="Notifications" >Notifications</a>
             {/* Notifications popup*/}
             <Popover
                   className="shadow"

@@ -17,8 +17,8 @@ export class FilterBar extends React.Component {
 		let ascending = this.props.isOrderAsc;
 
 		for(var i=0; i<this.props.filters.length; i++){
-      if(this.props.filters[i] == filterText){
-        if(i == this.props.activeFilter){
+      if(this.props.filters[i] === filterText){
+        if(i === this.props.activeFilter){
           ascending *= -1;
         }else{
           activeFilter = i;
@@ -35,8 +35,8 @@ export class FilterBar extends React.Component {
 			let filters = this.props.filters.map((text,i) => (
 				<Filter text={text}
 					onClick={this.onFilterChange}
-					isAscending={(!(this.props.activeFilter == i) || (this.props.isOrderAsc == 1))}
-					isActive={this.props.activeFilter == i}
+					isAscending={(!(this.props.activeFilter === i) || (this.props.isOrderAsc === 1))}
+					isActive={this.props.activeFilter === i}
 				/>
 			));
 			return (
