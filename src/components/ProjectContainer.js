@@ -9,28 +9,33 @@ export class ProjectContainer extends React.Component {
 		this.state={
 			project: null,
 			members: [],
-      isLoading: false,
-      response:'',
 		};
 	}
 
 	componentWillMount(){
-		//SQL query
-		// var data = 'dsjlfjsdlf';
-		// fetch('/users?code='+data).then(function(response){
-		// 	return response.json()
-		// }).then(function(body){
-		// 	console.log(body);
-		// });
-		this.setState({ isLoading: true });
-    this.fetchProjects().then(data => {
-			this.fetchMembers().then(membersQuery => {
-				this.setState({isLoading:false, project: data[0], members: membersQuery});
-			});
+    this.fetchProjectDetails().then(data => {
+			this.setState({project: data[0]});
+		});
+		this.fetchMembers().then(membersQuery => {
+			this.setState({members: this.improveNames(membersQuery)});
 		});
 	}
 
-	fetchProjects = async() => {
+	improveNames(members){
+		let newMembers=[];
+		for(var i=0; i<members.length; i++){
+			let name = members[i].first_name;
+			if(members[i].middle_name != null){
+				name += " "+members[i].middle_name;
+			}
+			name += " "+members[i].last_name;
+
+			newMembers.push({name: name, workload: members[i].workload, hiring_date: members[i].hiring_date, deadline: members[i].deadline});
+		}
+		return newMembers;
+	}
+
+	fetchProjectDetails = async() => {
     const response = await fetch('/projectDetails?code='+this.props.code);
     const body = await response.json();
   	if (response.status !== 200) throw Error(body.message);
@@ -54,7 +59,9 @@ export class ProjectContainer extends React.Component {
 			return null;
 		}
   }
+
 };
+
 ProjectContainer.defaultProps = {
 	name: 'Project name',
 	owner: 'Owner',
