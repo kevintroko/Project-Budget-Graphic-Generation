@@ -43,7 +43,6 @@ function Card (props){
 }
 
 export const Project = (props) => {
-	console.log(props);
 	return(
 		<div className="container">
 		<div className="row">

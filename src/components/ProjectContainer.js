@@ -16,34 +16,22 @@ export class ProjectContainer extends React.Component {
 
 	componentWillMount(){
 		//SQL query
+		// var data = 'dsjlfjsdlf';
+		// fetch('/users?code='+data).then(function(response){
+		// 	return response.json()
+		// }).then(function(body){
+		// 	console.log(body);
+		// });
 		this.setState({ isLoading: true });
     this.fetchProjects().then(data => {
 			this.fetchMembers().then(membersQuery => {
-				this.setState({isLoading:false});
-				//find the correct project
-				for(var i=0; i < data.length; i++){
-					if(data[i].code == this.props.code){
-						this.setState({project: data[i]});
-						break;
-					}
-				}
-				let mmbrs = [];
-				for(var i=0; i<membersQuery.length;i++){
-					if(membersQuery[i].project_code == this.state.project.code){
-						let mmbr = {name: membersQuery[i].first_name +" "+ membersQuery[i].middle_name +" "+ membersQuery[i].last_name,
-												startDate: membersQuery[i].hiring_date,
-												endDate: membersQuery[i].deadline,
-												workload: membersQuery[i].workload};
-						mmbrs.push(mmbr);
-					}
-				}
-				this.setState({members: mmbrs});
+				this.setState({isLoading:false, project: data[0], members: membersQuery});
 			});
 		});
 	}
 
 	fetchProjects = async() => {
-    const response = await fetch('/projects');
+    const response = await fetch('/projectDetails?code='+this.props.code);
     const body = await response.json();
   	if (response.status !== 200) throw Error(body.message);
 
@@ -51,7 +39,7 @@ export class ProjectContainer extends React.Component {
   };
 
 	fetchMembers = async() => {
-    const response = await fetch('/members');
+    const response = await fetch('/members?code='+this.props.code);
     const body = await response.json();
   	if (response.status !== 200) throw Error(body.message);
 

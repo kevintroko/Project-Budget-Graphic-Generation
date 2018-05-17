@@ -16,6 +16,7 @@ const port = process.env.PORT || 5000;
 
 // Initialize the app
 const app = express();
+var router = express.Router();
 
 // person query
 app.get('/persons', function (req, res) {
@@ -29,6 +30,13 @@ app.get('/persons', function (req, res) {
 //project query
 app.get('/projects', function (req, res) {
     connection.query('select * from project_view', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+});
+//project query
+app.get('/projectDetails', function (req, res) {
+    connection.query('select * from project_view where code='+'"'+req.query.code+'" LIMIT 1', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
@@ -49,7 +57,7 @@ app.get('/has', function (req, res) {
 });
 //members query
 app.get('/members', function (req, res) {
-    connection.query('select project_code, first_name, middle_name, last_name, workload, hiring_date, deadline from has_view join person_view where person_view.email = has_view.person_code', function (error, results, fields) {
+    connection.query('select first_name, middle_name, last_name, workload, hiring_date, deadline from has_view join person_view where person_view.email = has_view.person_code and has_view.project_code='+'"'+req.query.code+'"', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
