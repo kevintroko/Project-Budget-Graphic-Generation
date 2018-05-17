@@ -12,7 +12,7 @@ class App extends React.Component {
         <div className="App">
           <Navbar/>
           {/* <ProfilePane/> */}
-          <Home/>
+          {/* <Home/> */}
         </div>
       );
     }
