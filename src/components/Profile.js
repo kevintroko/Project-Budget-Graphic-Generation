@@ -5,14 +5,14 @@ class Profile extends Component {
   render() {
     return (
       <div>
-        <div class="row panel">
-          <div class="col-3 bold">
+        <div className="row panel">
+          <div className="col-3 bold">
             <p>Name: </p>
             <p>Lastname:</p>
             <p>Email:</p>
             <p>Role:</p>
           </div>
-          <div class="col">
+          <div className="col">
             <p>{this.props.name}</p>
             <p>{this.props.lastname}</p>
             <p>{this.props.email}</p>

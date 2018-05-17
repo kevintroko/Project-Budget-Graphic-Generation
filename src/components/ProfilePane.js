@@ -6,14 +6,14 @@ class ProfilePane extends Component {
   render() {
     return (
       <div>
-        <div class="row">
-          <div class="col">
-            <div class="title">Profile</div>
+        <div className="row">
+          <div className="col">
+            <div className="title">Profile</div>
             <Profile/>
           </div>
         </div>
-        <div class="row">
-          <div class="col">
+        <div className="row">
+          <div className="col">
           {/* <div class="col graph">
               <img src="img/graph.png" style="width:100%;">
           </div> */}

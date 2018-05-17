@@ -17,11 +17,11 @@ function Notif(props){
   }
 
   return(
-    <div class="notification rounded m-2 p-1">
+    <div className="notification rounded m-2 p-1">
       <h6>
         {props.text}
       </h6>
-      <p class="text-right font-weight-light font-italic m-0">
+      <p className="text-right font-weight-light font-italic m-0">
         {time} {timeText}
       </p>
     </div>
@@ -43,7 +43,7 @@ class Notifications extends Component {
         );
         if(i<notifs.length-1){
           result.push(
-            <hr class="m-2"/>
+            <hr className="m-2"/>
           );
         }
       }
@@ -53,8 +53,8 @@ class Notifications extends Component {
 
         {result}
 
-      	<div class="m-2">
-      		<button class="btn  btn-sm btn-block">Mark as read</button>
+      	<div className="m-2">
+      		<button className="btn  btn-sm btn-block">Mark as read</button>
       	</div>
 
       </div>

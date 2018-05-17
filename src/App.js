@@ -1,9 +1,8 @@
 import React from 'react';
 import './css/App.css';
 import Navbar from './components/Navbar';
-import GraphTest from './components/GraphTest';
+import {Home} from './components/Home';
 
-// import {Home} from './components/Home';
 // import ProfilePane from './components/ProfilePane';
 
 
@@ -12,10 +11,8 @@ class App extends React.Component {
       return (
         <div className="App">
           <Navbar/>
-          <GraphTest.js/>
           {/* <ProfilePane/> */}
-{/*
-          <Home/> */}
+          <Home/>
         </div>
       );
     }
