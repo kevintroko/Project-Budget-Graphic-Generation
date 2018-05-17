@@ -5,63 +5,60 @@ class Chart extends Component{
   constructor(props){
     super(props);
     this.state = {
-      chartData:props.chartData
+      chartData: {
+        labels:['January', 'February', 'March', 'April', 'May', 'June'],
+        datasets: [
+          {
+            label:'Workload',
+            data: [80.0, 10.0, 10.0, 15.0, 40.0, 55.0, 54.0],
+            backgroundColor:'rgba(131, 184, 189, 1.0)',
+            hoverBorderColor:'#000'
+          }
+        ]
+      }
     }
   }
-
-  static defaultProps = {
-    displayTitle:true,
-    displayLegend: true,
-    legendPosition:'right',
-    location:'City'
-  }
-
   render(){
     return (
       <div className="chart">
         <Bar
-          data={this.state.chartData}
-          options={{
+        	data={this.state.chartData}
+        	// width={100}
+        	// height={50}
+        	options={{
             title:{
-              display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
+              display:false,
+              // text:'Workload',
               fontSize:25
             },
             legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        />
-
-        <Line
-          data={this.state.chartData}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
-              fontSize:25
+              display:false,
+              position:'right',
+              labels:{
+                fontColor:'#000'
+              }
             },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
-        />
-
-        <Pie
-          data={this.state.chartData}
-          options={{
-            title:{
-              display:this.props.displayTitle,
-              text:'Largest Cities In '+this.props.location,
-              fontSize:25
+            layout:{
+              padding:{
+                left:50,
+                right:0,
+                bottom:0,
+                top:0
+              }
             },
-            legend:{
-              display:this.props.displayLegend,
-              position:this.props.legendPosition
-            }
-          }}
+            tooltips:{
+              enabled:true
+            },
+            scales: {
+             yAxes: [{
+               // stacked: true,
+                ticks: {
+                   stepSize: 25,
+                   maxTicksLimit: 5
+                }
+             }]
+          }
+        	}}
         />
       </div>
     )

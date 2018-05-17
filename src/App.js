@@ -1,7 +1,7 @@
 import React from 'react';
 import './css/App.css';
 import Navbar from './components/Navbar';
-import {Home} from './components/Home';
+import Chart from './components/Chart';
 
 // import ProfilePane from './components/ProfilePane';
 
@@ -11,7 +11,7 @@ class App extends React.Component {
       return (
         <div className="App">
           <Navbar/>
-          {/* <ProfilePane/> */}
+          <Chart/>
           {/* <Home/> */}
         </div>
       );
