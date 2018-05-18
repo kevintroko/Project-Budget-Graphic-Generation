@@ -1,7 +1,9 @@
 import React from 'react';
 import './css/App.css';
 import Navbar from './components/Navbar';
-import Profile from './components/Profile';
+import {ProjectContainer} from './components/ProjectContainer';
+// import ProfilePane from './components/ProfilePane';
+
 
 class App extends React.Component {
 
@@ -9,6 +11,9 @@ class App extends React.Component {
       return (
         <div className="App">
           <Navbar/>
+          {/* <ProfilePane/> */}
+
+          <ProjectContainer />
         </div>
       );
     }

@@ -6,10 +6,12 @@ function ColumnHeader(name){
 }
 
 function ColumnRow(data){
+
+	let arrData = Object.values(data);
 	let row = [];
 	if(data){
-		for(var i=0; i<data.length; i++){
-			row.push(RowData(data[i]));
+		for(var i=0; i<arrData.length; i++){
+			row.push(RowData(arrData[i]));
 		}
 	}
 	return (
@@ -24,7 +26,7 @@ function RowData(data){
 	return (<td>{data}</td>);
 }
 
-class Table extends Component{
+export class Table extends Component{
 	constructor(props){
 		super(props);
 	}
@@ -43,7 +45,7 @@ class Table extends Component{
 				rows.push(ColumnRow(this.props.data[i]));
 			}
 		}
-		
+
 		return(
 			<table className="table">
 				<thead>
@@ -59,5 +61,3 @@ class Table extends Component{
 		);
 	}
 }
-
-export default Table;
