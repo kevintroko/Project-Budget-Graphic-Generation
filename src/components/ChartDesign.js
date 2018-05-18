@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import {Bar, Line} from 'react-chartjs-2';
 
 class ChartDesign extends Component{
   constructor(props){
@@ -42,20 +42,17 @@ class ChartDesign extends Component{
                 padding:{ left:50, right:0, bottom:0, top:10 }
               },
               scales: {
-                xAxes: [{
-                  stacked: true,
-                }],
-               yAxes: [{
-                 display: true,
-                 stacked: true,
-                  ticks: {
-                    suggestedMin: 0,
-                    max: 100,
-                    stepSize: 20,
-                    // maxTicksLimit: 5
-                  }
-               }]
-            }
+                xAxes: [{  stacked: true, }],
+                yAxes: [{  display: true,
+                           stacked: true,
+                           ticks: {
+                             suggestedMin: 0,
+                             max: 100,
+                             stepSize: 20,
+                             // maxTicksLimit: 5
+                           }
+                        }]
+                }
             }}
           />
         </div>
@@ -70,12 +67,8 @@ class ChartDesign extends Component{
               title:{
                 display:this.props.displayTitle,
                 text:'Budget Graph',
-                fontSize:25
-              },
-              tooltips: {
-                mode: 'index',
-                intersect: false,
-                enabled:true
+                fontSize:25,
+                fill: false
               },
               legend:{
                 display: this.props.displayLegend,
@@ -85,21 +78,22 @@ class ChartDesign extends Component{
               layout:{
                 padding:{ left:0, right:0, bottom:0, top:0 }
               },
-            //   scales: {
-            //     // xAxes: [{
-            //     //   stacked: true,
-            //     // }],
-            //    // yAxes: [{
-            //    //   // display: true,
-            //    //   // stacked: true,
-            //    //    ticks: {
-            //    //      // suggestedMin: 0,
-            //    //      // max: 100,
-            //    //      // stepSize: 20,
-            //    //      // maxTicksLimit: 5
-            //    //    }
-            //    // }]
-            // }
+              scales: {
+                xAxes: [{
+                  gridLines: {
+                    drawBorder: false,
+                    color: ['gray', 'red', 'gray', 'gray', 'red', 'gray']
+                  },
+                }],
+                yAxes: [{
+                        ticks: {
+                        suggestedMin: 0,
+                        max: 50,
+                        stepSize: 10,
+                        // maxTicksLimit: 5
+                    }
+                 }]
+                }
             }}
           />
         </div>
