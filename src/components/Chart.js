@@ -1,65 +1,62 @@
-import React, {Component} from 'react';
-import {Bar, Line, Pie} from 'react-chartjs-2';
+import React from 'react';
+import ChartDesign from './ChartDesign';
 
-class Chart extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      chartData: props.chartData
+class Chart extends React.Component {
+  // constructor(){
+  //   super();
+  //   this.state = {
+  //     chartData:{}
+  //   };
+  //   // Is it posible to set a variable here and use everywhere else?
+  // }
+
+  // componentWillMount(){
+  //   this.getChartData();
+  // }
+
+  // getChartData(type){
+  //     // alert(type);
+  //     this.setState({
+
+      // });
+  }
+
+  render() {
+    var chartData = {
+      labels:['January', 'February', 'March', 'April', 'May', 'June'],
+      datasets: [
+        {
+          label:'Project 1',
+          data: {this.props.data},
+          backgroundColor:'rgba(131, 184, 189, 1.0)',
+          hoverBorderColor:'#000',
+          hidden: false
+        },
+        {
+          label:'Project 2',
+          data: [30.0, 40.0, 50.0, 15.0, 20.0, 59.0, 84.0],
+          backgroundColor:'rgba(111, 164, 169, 1.0)',
+          hoverBorderColor:'#000',
+          hidden: false
+        },
+        {
+          label:'Project 3',
+          data: [30.0, 40.0, 10.0, 10.0, 10.0, 15.0, 22.0],
+          backgroundColor:'rgba(91, 144, 149, 1.0)',
+          hoverBorderColor:'#000',
+          hidden: false
+        }
+
+      ]
+    };
+      return (
+          <div>
+            <ChartDesign chartData={this.state.chartData} kind={'profile'}/>
+            {/* <ChartDesign chartData={this.state.chartData} kind={'budget'}/> */}
+          </div>
+
+      );
     }
-  }
-  static defaultProps = {
-    displayTitle: false,
-    displayLegend: true,
-    legendPosition: 'right',
-
-  }
-  render(){
-    return (
-      <div className="chart">
-        <Bar
-          data={this.state.chartData}
-          width={100}
-          height={30}
-          options={{
-            responsive: true,
-            title:{
-              display:this.props.displayTitle,
-              // text:'Workload',
-              fontSize:25
-            },
-            tooltips: {
-              mode: 'index',
-              intersect: false,
-              enabled:true
-            },
-            legend:{
-              display: this.props.displayLegend,
-              position:this.props.legendPosition,
-              labels:{ fontColor:'#000'}
-            },
-            layout:{
-              padding:{ left:50, right:0, bottom:0, top:0 }
-            },
-            scales: {
-              xAxes: [{
-  							stacked: true,
-  						}],
-             yAxes: [{
-               stacked: true,
-                ticks: {
-                   stepSize: 25,
-                   maxTicksLimit: 5
-                }
-             }]
-          }
-          }}
-        />
-      </div>
-    )
-  }
 }
-
-
 
 export default Chart;

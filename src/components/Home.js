@@ -5,22 +5,6 @@ import {FilterBar} from './FilterBar';
 import AddIcon from './AddIcon';
 
 const filters = ["Project name", "Owner", "Budget left", "Time left"];
-// const projects = [
-//   {title:"Project", percentage:10,
-//   owner:"Owner",
-//   budget:1000000, currentBudget:999999999,
-//   description:"Project description",},
-//
-//   {title:"XXX", percentage:50,
-//   owner:"Martin",
-//   budget:300000, currentBudget:51513,
-//   description:"Project description",},
-//
-//   {title:"AAAA", percentage:50,
-//   owner:"Xartin",
-//   budget:300000, currentBudget:5,
-//   description:"Project description",},
-// ];
 
 export class Home extends React.Component{
   constructor(props) {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Profile.css';
+import Chart from './Chart';
 
 class Profile extends Component {
   render() {
@@ -19,6 +20,7 @@ class Profile extends Component {
             <p>{this.props.role}</p>
           </div>
         </div>
+        <Chart/>
       </div>
     );
   }
