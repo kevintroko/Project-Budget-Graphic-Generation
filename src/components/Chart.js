@@ -2,32 +2,13 @@ import React from 'react';
 import ChartDesign from './ChartDesign';
 
 class Chart extends React.Component {
-  // constructor(){
-  //   super();
-  //   this.state = {
-  //     chartData:{}
-  //   };
-  //   // Is it posible to set a variable here and use everywhere else?
-  // }
-
-  // componentWillMount(){
-  //   this.getChartData();
-  // }
-
-  // getChartData(type){
-  //     // alert(type);
-  //     this.setState({
-
-      // });
-  }
-
   render() {
     var chartData = {
       labels:['January', 'February', 'March', 'April', 'May', 'June'],
       datasets: [
         {
           label:'Project 1',
-          data: {this.props.data},
+          data: this.props.data,
           backgroundColor:'rgba(131, 184, 189, 1.0)',
           hoverBorderColor:'#000',
           hidden: false
@@ -46,12 +27,11 @@ class Chart extends React.Component {
           hoverBorderColor:'#000',
           hidden: false
         }
-
       ]
     };
       return (
           <div>
-            <ChartDesign chartData={this.state.chartData} kind={'profile'}/>
+            <ChartDesign chartData={chartData} kind={'profile'}/>
             {/* <ChartDesign chartData={this.state.chartData} kind={'budget'}/> */}
           </div>
 

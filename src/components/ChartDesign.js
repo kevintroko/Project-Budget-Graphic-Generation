@@ -9,9 +9,9 @@ class ChartDesign extends Component{
     }
   }
   static defaultProps = {
-    displayTitle: true,
+    displayTitle: false,
     displayLegend: true,
-    legendPosition: 'right',
+    legendPosition: 'bottom',
   }
   render(){
     if(this.props.kind==='profile'){
@@ -19,8 +19,8 @@ class ChartDesign extends Component{
         <div className="chart">
           <Bar
             data={this.state.chartData}
-            width={100}
-            height={30}
+            // width={100}
+            // height={30}
             options={{
               responsive: true,
               title:{
@@ -65,8 +65,6 @@ class ChartDesign extends Component{
         <div className="chart">
           <Line
             data={this.state.chartData}
-            width={100}
-            height={30}
             options={{
               responsive: true,
               title:{
@@ -85,7 +83,7 @@ class ChartDesign extends Component{
                 labels:{ fontColor:'#000'}
               },
               layout:{
-                padding:{ left:50, right:0, bottom:0, top:10 }
+                padding:{ left:0, right:0, bottom:0, top:0 }
               },
             //   scales: {
             //     // xAxes: [{

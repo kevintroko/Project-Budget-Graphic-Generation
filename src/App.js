@@ -3,17 +3,12 @@ import './css/App.css';
 import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 
-// import ProfilePane from './components/ProfilePane';
-
-
 class App extends React.Component {
 
   render() {
       return (
         <div className="App">
           <Navbar/>
-          <Profile/>
-          {/* <Home/> */}
         </div>
       );
     }
