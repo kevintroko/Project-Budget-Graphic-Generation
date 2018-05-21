@@ -2,14 +2,30 @@ import React, {Component} from 'react';
 import {Form,FormGroup,Input,InputGroup,InputGroupAddon,Col,Row,Container} from 'reactstrap';
 import '../css/Login.css';
 
-class Login extends Component {
+export class Login extends Component {
   constructor(props){
     super(props);
     this.state={
       username:"",
-      password:""
+      password:"",
+      professors: [],
+      isLoading: false,
+      response:'',
     };
   }
+
+  componentDidMount(){
+    this.setState({ isLoading: true });
+    this.callApi().then(data => (this.setState({projects:data,isLoading:false})));
+  }
+
+  callApi = async() => {
+    const response = await fetch('/professors');
+    const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+
+    return body;
+  };
   isInvalid(){
     return !((this.state.username.length > 0)&&(this.state.password.length > 0));
   }
@@ -70,4 +86,3 @@ class Login extends Component {
     );
   }
 };
-export default Login;

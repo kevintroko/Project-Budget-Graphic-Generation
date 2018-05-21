@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mysql      = require('mysql');
+var cors = require('cors');
 // https://github.com/mysqljs/mysql
 const connection = mysql.createConnection({
   host     : 'localhost',
@@ -16,6 +17,8 @@ const port = process.env.PORT || 5000;
 
 // Initialize the app
 const app = express();
+
+app.use(cors());
 
 // person query
 app.get('/persons', function (req, res) {
@@ -43,6 +46,16 @@ app.get('/professors', function (req, res) {
 //has query
 app.get('/has', function (req, res) {
     connection.query('select * from has_view', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+});
+
+
+
+//has query
+app.get('/asdf', function (req, res) {
+    connection.query('select * from has_project_join_view where person_code="ross@student.se"', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });

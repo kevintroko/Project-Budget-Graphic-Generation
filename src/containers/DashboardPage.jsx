@@ -1,43 +1,76 @@
 import React from 'react';
+import Auth from '../modules/Auth';
+import Dashboard from '../components/Dashboard.jsx';
+const jwt = require('jsonwebtoken');
+const config = require('../../config');
 import '../css/Home.css';
-import ProjectCard from './ProjectCard';
-import {FilterBar} from './FilterBar';
-import AddIcon from './AddIcon';
+import ProjectCard from '../components/ProjectCard';
+import {FilterBar} from '../components/FilterBar';
+import AddIcon from '../components/AddIcon';
 
 const filters = ["Project name", "Owner", "Budget left", "Time left"];
+class DashboardPage extends React.Component {
 
-
-export class Home extends React.Component{
+  /**
+   * Class constructor.
+   */
   constructor(props) {
-		super(props);
-		this.state={
-			activeFilter: 0, //last clicked filter's number in filters array
+    super(props);
+    this.state = {
+    activeFilter: 0, //last clicked filter's number in filters array
       isOrderAsc: 1,
       projects: [],
       isLoading: false,
       response:'',
-		};
+      secretData: '',
+      userEmail:'',
+      req:"",
+    };
 
     this.handleFilterChange = this.handleFilterChange.bind(this);
   }
 
-  componentDidMount(){
+  /**
+   * This method will be executed after initial rendering.
+   */
+  componentDidMount() {
     this.setState({ isLoading: true });
     this.callApi().then(data => (this.setState({projects:data,isLoading:false})));
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', '/api/dashboard');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    // set the authorization HTTP header
+    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+         this.setState({
+            secretData:xhr.response.message
+          });
+          // decode the token using a secret key-phrase
+          jwt.verify(this.state.secretData, config.jwtSecret, (err, decoded) => {
+            // the 401 code is for unauthorized status
+            if (err) { return res.status(401).end(); }
+            this.setState({
+                userEmail:decoded.sub
+            });
+          });
+      }
+    });
+    xhr.send();
   }
 
-  async callApi() {
-    const response = await fetch('/projects');
+  async callApi(){
+    const response = await fetch('http://localhost:5000/projects');
     const body = await response.json();
-  if (response.status !== 200) throw Error(body.message);
-
+    if (response.status !== 200) throw Error(body.message);
     return body;
   };
 
   handleFilterChange(filterNum, isAsc){
     this.setState({activeFilter: filterNum, isOrderAsc: isAsc});
   }
-
 
   orderProjects(){
     switch (this.state.activeFilter) {
@@ -81,13 +114,15 @@ export class Home extends React.Component{
     /*PLS IMPLEMENT ME SENPAI */
   }
 
-  render(){
-    this.orderProjects();
+  /**
+   * Render the component.
+   */
+  render() {
+  this.orderProjects();
     const {projects,isLoading}=this.state;
     if (isLoading) {
       return <p>Start node server.js</p>;
     }
-
     let cards = projects.map(project =>
       (<ProjectCard
         name={project.name} workload={project.workload}
@@ -96,7 +131,6 @@ export class Home extends React.Component{
         description={project.description}
       />)
     );
-
     return(
       <div>
         <FilterBar
@@ -113,4 +147,7 @@ export class Home extends React.Component{
       </div>
     );
   }
+
 }
+
+export default DashboardPage;
