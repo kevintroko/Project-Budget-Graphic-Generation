@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/EditIcons.css';
+// import '../css/EditIcons.css';
 
 class AddIcon extends Component {
 	render() {

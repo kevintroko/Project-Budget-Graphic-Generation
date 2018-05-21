@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 
+const grayColor= 'rgba(235, 235, 235, 1.0)';
+const red = 'red';
 class ChartDesign extends Component{
   constructor(props){
     super(props);
@@ -13,6 +15,7 @@ class ChartDesign extends Component{
     displayLegend: true,
     legendPosition: 'bottom',
   }
+
   render(){
     if(this.props.kind==='profile'){
       return (
@@ -57,7 +60,7 @@ class ChartDesign extends Component{
           />
         </div>
       )
-    }else {
+    }else if(this.props.kind==='budget'){
       return(
         <div className="chart">
           <Line
@@ -82,7 +85,7 @@ class ChartDesign extends Component{
                 xAxes: [{
                   gridLines: {
                     drawBorder: false,
-                    color: ['gray', 'red', 'gray', 'gray', 'red', 'gray']
+                    color: [grayColor, red, grayColor, grayColor, 'red', grayColor]
                   },
                 }],
                 yAxes: [{
@@ -98,6 +101,8 @@ class ChartDesign extends Component{
           />
         </div>
       )
+    } else {
+      return (alert('You are not loading a valid graph type'));
     }
   }
 }

@@ -18,7 +18,7 @@ class Profile extends Component {
             <div className="button panel bold shadow hvr-grow"  data-toggle="modal" data-target="#myModal">add to project</div>
           </div>
           <div className="col-9">
-            <Chart data={['10','20','20','30','30','20']} type="profile"/>
+            <Chart data={['10','20','20','30','30','20']} type="budget"/>
           </div>
         </div>
       </div>

@@ -35,7 +35,14 @@
     font-size: 2em;
     font-weight: 500;
 }
-
 .popover{
   border-radius: 0px;
+}
+/* Notifications*/
+#notifications-container{
+  border: 1px solid var(--grayLight);
+  background-color:white;
+}
+.popover-body{
+	padding:0;
 }

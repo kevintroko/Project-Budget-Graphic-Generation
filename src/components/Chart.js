@@ -9,6 +9,7 @@ class Chart extends React.Component {
         datasets: [
           {
             label:'Year 2018',
+            lineTension: 0,
             data: this.props.data,
             backgroundColor:'rgba(131, 184, 189, 1.0)',
             borderColor:'rgba(131, 184, 189, 1.0)',
@@ -48,9 +49,14 @@ class Chart extends React.Component {
         return (
             <div>
               <ChartDesign chartData={chartData} kind={'profile'}/>
-              <ChartDesign chartData={budgetData} kind={'budget'} legendPosition="right"/>
             </div>
         );
+      } else if (this.props.type==='budget'){
+         return(
+           <div>
+             <ChartDesign chartData={budgetData} kind={'budget'} legendPosition="right"/>
+           </div>
+         );
       }
     }
 }

@@ -27,9 +27,9 @@ function RowData(data){
 }
 
 export class Table extends Component{
-	constructor(props){
-		super(props);
-	}
+	// constructor(props){
+	// 	super(props);
+	// }
 	render(){
 		//column headers
 		let cols = [];
@@ -41,8 +41,8 @@ export class Table extends Component{
 		//fill data
 		let rows = [];
 		if(this.props.data){
-			for(var i=0; i < this.props.data.length; i++){
-				rows.push(ColumnRow(this.props.data[i]));
+			for(var j=0; j < this.props.data.length; j++){
+				rows.push(ColumnRow(this.props.data[j]));
 			}
 		}
 

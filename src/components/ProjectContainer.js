@@ -39,7 +39,6 @@ export class ProjectContainer extends React.Component {
     const response = await fetch('/projectDetails?code='+this.props.code);
     const body = await response.json();
   	if (response.status !== 200) throw Error(body.message);
-
     return body;
   };
 
