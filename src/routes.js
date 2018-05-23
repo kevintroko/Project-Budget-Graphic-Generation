@@ -4,7 +4,7 @@ import DashboardPage from './containers/DashboardPage.jsx';
 import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import Auth from './modules/Auth';
-import Home from './components/Home.js';
+import Profile from './components/Profile.js';
 
 
 const routes = {
@@ -28,8 +28,8 @@ const routes = {
       component: LoginPage
     },
     {
-      path: '/home',
-      component: Home
+      path: '/profile',
+      component: Profile
     },
 
     {
