@@ -4,6 +4,11 @@ import Chart from './Chart';
 
 class Profile extends Component {
   render() {
+    //Get the current date and therefore the month
+    //It will be send trough the Chart.js prop
+    var date = new Date();
+    var month = date.getMonth();
+
     return (
       <div>
         <div className="title">
@@ -18,7 +23,7 @@ class Profile extends Component {
             <div className="button panel bold shadow hvr-grow"  data-toggle="modal" data-target="#myModal">add to project</div>
           </div>
           <div className="col-9">
-            <Chart data={['10','20','20','30','30','20']} type="profile" startDate="1"/>
+            <Chart data={['10','20','20','30','30','20','10','20','20','30']} type="budget" startDate={month}/>
           </div>
         </div>
       </div>

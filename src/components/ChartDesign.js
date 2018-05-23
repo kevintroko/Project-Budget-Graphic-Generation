@@ -87,7 +87,7 @@ class ChartDesign extends Component{
                 xAxes: [{
                   gridLines: {
                     drawBorder: false,
-                    color: [grayColor, red, grayColor, grayColor, 'red', grayColor]
+                    color: [grayColor, red, grayColor, grayColor, 'red', grayColor,grayColor,grayColor,grayColor,grayColor,grayColor,grayColor]
                   },
                 }],
                 yAxes: [{

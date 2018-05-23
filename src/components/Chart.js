@@ -1,14 +1,28 @@
 import React from 'react';
 import ChartDesign from './ChartDesign';
 
-const months = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+//months defined in here.
+const months_profile = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+//Create date for the year.
+var date = new Date();
+var year = date.getYear().toString();
+//Year is returned as 118 not as 2018
+year = year.substring(1);
+parseInt(year);
 
 class Chart extends React.Component {
-
     render() {
       //Budget graph data
+      for (var i = 0, graphMonth=[]; i < 12; i++) {
+        graphMonth[i]=((i%12)+1)+"/"+year;
+        //Adds a year
+        if(i===12){
+          year++;
+        }
+      }
       var budgetData = {
-        labels:['January', ['February','Current date'], 'March', 'April', ['May','Deadline'], 'June'],
+        // labels:['January', ['February','Current date'], 'March', 'April', ['May','Deadline'], 'June'],
+        labels: graphMonth,
         datasets: [
           {
             label:'Year 2018',
@@ -20,9 +34,23 @@ class Chart extends React.Component {
           }
         ]
       };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       //For used to sort the month circularly, may be on a function to be more optimized
-      for (var i = 0, graphMonth=[], len=months.length; i < len; i++) {
-              graphMonth[i]=months[(i+this.props.startDate)%len];
+      for (var i = 0, graphMonth=[], len=months_profile.length; i < len; i++) {
+              graphMonth[i]=months_profile[(i+this.props.startDate)%len];
       }
       var chartData = {
         labels: graphMonth,
