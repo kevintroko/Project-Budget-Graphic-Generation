@@ -49,3 +49,78 @@
 .hvr-grow:active {
     transform: scale(1.05);
 }
+
+/* Edit icons*/
+.circle-icon {
+	position:fixed;
+	bottom:5%;
+	right: 5%;
+  background: var(--orange);
+	color:white;
+  padding:10px;
+  border-radius: 50%;
+	font-size: 2.5em;
+}
+.circle-icon:hover {
+	background-color: var(--orangeDark);
+}
+
+.card{
+	border-radius: 0;
+	background-color: var(--grayLight);
+}
+
+.boxes {
+  width: 85%;
+  margin: 0 auto;
+}
+/*Project box css*/
+.project {
+  background-color: var(--graySoft);
+  color: var(--gray);
+  padding-bottom: .8em;
+  margin: 1em;
+}
+.title {
+  font-size: 1.2em;
+  margin-left: 0.8em;
+  padding-top: 1em;
+  font-weight: 600;
+}
+.nobold {
+  font-weight: 400;
+}
+.project p {
+  margin-left: 1em;
+}
+.percentage {
+  background-color: var(--blue);
+  color: white;
+  text-align: center;
+  position: absolute;
+  padding: .5em 4em;
+  top: 0em;
+  right: 0em;
+}
+/*Filter css*/
+.filter {
+  background-color: var(--graySoft);
+  max-width: 80%;
+  margin: 1em auto 0.5em auto;
+  padding: 0em;
+}
+.filter-text {
+  color: var(--gray);
+  font-weight: 500;
+  cursor: pointer;
+}
+.filter-text:hover {
+  color: var(--grayDark);
+}
+/* Admin */
+.center {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: 600;
+    height: 10em;
+}

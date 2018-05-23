@@ -1,7 +1,6 @@
 import React from 'react';
 import  PropTypes  from 'prop-types';
 import { Card, CardTitle, CardText } from 'material-ui/Card';
-import '../css/Home.css';
 import ProjectCard from './ProjectCard';
 import {FilterBar} from './FilterBar';
 import AddIcon from './AddIcon';

@@ -3,7 +3,6 @@ import Auth from '../modules/Auth';
 import Dashboard from '../components/Dashboard.jsx';
 const jwt = require('jsonwebtoken');
 const config = require('../../config');
-import '../css/Home.css';
 import ProjectCard from '../components/ProjectCard';
 import {FilterBar} from '../components/FilterBar';
 import AddIcon from '../components/AddIcon';

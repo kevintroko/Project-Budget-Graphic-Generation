@@ -41,7 +41,7 @@ export class Login extends Component {
 
   				{/* Login Box */}
           <Col xs={{size: 12}} sm={{size: 8, offset: 2}}  id="main-login">
-  					<h1 class="text-center">Project Budget Manager</h1>
+  					<h1 className="text-center">Project Budget Manager</h1>
   					<br/>
 
   					{/* Login Form */}
@@ -54,7 +54,7 @@ export class Login extends Component {
                   <FormGroup>
                     <InputGroup>
                       <InputGroupAddon addonType="prepend">
-                        <span class="input-group-text" id="basic-addon1"><i class="material-icons">email</i></span>
+                        <span className="input-group-text" id="basic-addon1"><i className="material-icons">email</i></span>
                       </InputGroupAddon>
                       <Input type="text" name="email" placeholder="Enter your Email address" aria-label="Username" aria-describedby="basic-addon1"
                           value={this.state.username}
@@ -65,16 +65,16 @@ export class Login extends Component {
                   <FormGroup>
                     <InputGroup>
                       <InputGroupAddon addonType="prepend">
-                        <span class="input-group-text" id="basic-addon1"><i class="material-icons">lock</i></span>
+                        <span className="input-group-text" id="basic-addon1"><i className="material-icons">lock</i></span>
                       </InputGroupAddon>
-                      <Input type="password" name="password" class="form-control" placeholder="Enter your Password" aria-label="Password" aria-describedby="basic-addon1"
+                      <Input type="password" name="password" className="form-control" placeholder="Enter your Password" aria-label="Password" aria-describedby="basic-addon1"
                       value={this.state.pass}
                       onChange={(e) => this.handleChange("password", e)}/>
                     </InputGroup>
                   </FormGroup>
 
   								<br/>
-  								<input class="btn btn-lg btn-block" type="submit" value="Login" disabled={this.isInvalid()}/>
+  								<input className="btn btn-lg btn-block" type="submit" value="Login" disabled={this.isInvalid()}/>
                 </Form>
 
 

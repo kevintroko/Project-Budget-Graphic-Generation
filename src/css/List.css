@@ -34,5 +34,4 @@ th:not(:first-child), th:first-child, td:not(:first-child), td:first-child {
 }
 .hidden {
    visibility: hidden;
-
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Home.css';
+import '../css/App.css';
 import ProjectCard from './ProjectCard';
 import {FilterBar} from './FilterBar';
 import AddIcon from './AddIcon';

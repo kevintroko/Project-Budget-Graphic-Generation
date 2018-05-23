@@ -2,16 +2,14 @@ import React, { Component } from 'react';
 import '../css/List.css';
 import Table from './Table';
 
-
-
 class List extends Component {
-	
+
 	constructor(props){
 		super(props);
 	}
-	
+
 	render() {
-		  
+
 		return (
 		  <div>
 			<span><i className="material-icons circle-icon shadow">edit</i></span>

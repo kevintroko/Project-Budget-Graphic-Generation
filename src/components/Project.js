@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import '../css/Project.css';
-import Table from './Table';
+import React from 'react';
+import {Table} from './Table';
 
 function ProjectDescription (props){
 	return(
@@ -13,7 +12,7 @@ function ProjectDescription (props){
 			</tr>
 			<tr>
 			  <th scope="row">Budget</th>
-			  <td>{props.budget}</td>
+			  <td>{props.current_balance} / {props.budget}</td>
 			</tr>
 			<tr>
 			  <th scope="row">Start date</th>
@@ -36,56 +35,48 @@ function Card (props){
 	return (
 		<div className="row">
 			<h1>
-				{props.title}
+				{props.name}
 			</h1>
 			{props.content}
 		</div>
 	);
 }
 
-class Project extends Component {
-  render() {
-    return (
-       <div className="container">
-			<div className="row">
+export const Project = (props) => {
+	return(
+		<div className="container">
+		<div className="row">
+			<div className="col-sm-6">
+				<Card
+					name={props.project.name}
+					content=
+						{<ProjectDescription
+							owner={props.project.owner}
+							current_balance={props.project.current_balance}
+							budget={props.project.budget}
+							startDate={props.project.start_date}
+							endDate={props.project.end_date}
+							description={props.project.description}
+						/>}
+				/>
 
-				<div className="col-sm-6">
-					<Card
-						title='Project title'
-						content=
-							{<ProjectDescription
-								owner='Sergei Bogdevic'
-								budget='1 000 zimbabwe dollars'
-								startDate='24/4/2017'
-								endDate='24/4/2089'
-								description='Very good description'
-							/>}
-					/>
+				<Card
+					name='Members'
+					content=
+						{<Table
+							cols={['Name','Workflow','Start Date','End Date']}
+							data={props.members}
+						/>}
+				/>
 
-					<Card
-						title='Members'
-						content=
-							{<Table
-								cols={['Name','Workflow','Start Date','End Date']}
-								data={[
-									['John Bergstrom','60%','26/4/2018','27/4/2018'],
-									['John Bergstrom','60%','26/4/2018','27/4/2018'],
-									['John Bergstrom','60%','26/4/2018','27/4/2018']
-									]}
-							/>}
-					/>
-
-				</div>
-				<div className="col-sm-6">
-					<Card
-						title='Graph'
-						content=''
-					/>
-				</div>
+			</div>
+			<div className="col-sm-6">
+				<Card
+					name='Graph'
+					content=''
+				/>
 			</div>
 		</div>
-    )
-  }
-};
-
-export default Project;
+	</div>
+	);
+}
