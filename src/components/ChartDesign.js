@@ -10,11 +10,11 @@ class ChartDesign extends Component{
       chartData: props.chartData
     }
   }
-  static defaultProps = {
-    displayTitle: false,
-    displayLegend: true,
-    legendPosition: 'bottom',
-  }
+  // static defaultProps = {
+  //   displayTitle: false,
+  //   displayLegend: true,
+  //   legendPosition: 'bottom',
+  // }
 
   render(){
     if(this.props.kind==='profile'){
@@ -37,8 +37,10 @@ class ChartDesign extends Component{
                 enabled:true
               },
               legend:{
-                display: this.props.displayLegend,
-                position:this.props.legendPosition,
+                // display: this.props.displayLegend,
+                display: true,
+                position: 'right',
+                // position:this.props.legendPosition,
                 labels:{ fontColor:'#000'}
               },
               layout:{

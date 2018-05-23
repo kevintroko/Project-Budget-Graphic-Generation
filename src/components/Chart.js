@@ -1,7 +1,10 @@
 import React from 'react';
 import ChartDesign from './ChartDesign';
 
+const months = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
+
 class Chart extends React.Component {
+
     render() {
       //Budget graph data
       var budgetData = {
@@ -17,9 +20,12 @@ class Chart extends React.Component {
           }
         ]
       };
-      //Profile graph data
+      //For used to sort the month circularly, may be on a function to be more optimized
+      for (var i = 0, graphMonth=[], len=months.length; i < len; i++) {
+              graphMonth[i]=months[(i+this.props.startDate)%len];
+      }
       var chartData = {
-        labels:['January', 'February', 'March', 'April', 'May', 'June'],
+        labels: graphMonth,
         datasets: [
           {
             label:'Project 1',
