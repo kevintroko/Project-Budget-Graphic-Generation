@@ -31,11 +31,11 @@ class Chart extends React.Component {
         //Adds a year every time month is December
         if(i===11) year++;
         //Fills gray if normal behaviour
-        colors_line[i]='gray';
+        colors_line[i]='rgba(235, 235, 235, 1.0)';
         //Colors the current month
         if(i===month){
           graphMonth_Budget[i-initial_month]= 'current date';
-          colors_line[i]='red';
+          colors_line[i]='rgba(255, 0, 0, 1.0)';
         } //Colors the deadline month
         if(i===deadline_month){
           graphMonth_Budget[i-initial_month]= 'deadline';

@@ -1,16 +1,15 @@
 import React, {Component} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 
-const gray= 'rgba(235, 235, 235, 1.0)';
-const red = 'red';
-
 class ChartDesign extends Component{
   constructor(props){
     super(props);
     this.state = {
-      chartData: props.chartData
+      chartData: props.chartData,
+      colors: props.colors_line
     }
   }
+
   // static defaultProps = {
   //   displayTitle: false,
   //   displayLegend: true,
@@ -64,6 +63,8 @@ class ChartDesign extends Component{
         </div>
       )
     }else if(this.props.kind==='budget'){
+      let a = '['+this.state.colors+']';
+      console.log(a);
       return(
         <div className="chart">
           <Line
@@ -87,8 +88,9 @@ class ChartDesign extends Component{
               scales: {
                 xAxes: [{
                   gridLines: {
-                    drawBorder: false,
-                    color: [gray, gray, gray,red, gray,red,gray,gray,gray,gray,gray,gray]
+                    drawBorder: true,
+                    // color: {a}
+                    // color: ['rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)','rgba(255, 0, 0, 1.0)','rgba(235, 235, 235, 1.0)','red','rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)','rgba(235, 235, 235, 1.0)']
                   },
                 }],
                 yAxes: [{
