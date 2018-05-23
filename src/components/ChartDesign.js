@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 
-const grayColor= 'rgba(235, 235, 235, 1.0)';
+const gray= 'rgba(235, 235, 235, 1.0)';
 const red = 'red';
+
 class ChartDesign extends Component{
   constructor(props){
     super(props);
@@ -87,15 +88,15 @@ class ChartDesign extends Component{
                 xAxes: [{
                   gridLines: {
                     drawBorder: false,
-                    color: [grayColor, red, grayColor, grayColor, 'red', grayColor,grayColor,grayColor,grayColor,grayColor,grayColor,grayColor]
+                    color: [gray, gray, gray,red, gray,red,gray,gray,gray,gray,gray,gray]
                   },
                 }],
                 yAxes: [{
                         ticks: {
                         suggestedMin: 0,
-                        max: 50,
-                        stepSize: 10,
-                        // maxTicksLimit: 5
+                        // max: 0,
+                        // stepSize: 100,
+                        maxTicksLimit: 10
                     }
                  }]
                 }
