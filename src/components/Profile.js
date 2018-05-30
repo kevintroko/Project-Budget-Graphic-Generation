@@ -11,15 +11,15 @@ class Profile extends Component {
     //Const is read only so I change it to let
     let sum_data=100;
     let data_to_profile = [20,20,20,10];
-    profileCalculator();
-
-    function profileCalculator() {
-      for (var i = 0; i < data_to_profile.length; i++) {
-        sum_data-=data_to_profile[i];
-      } if (sum_data<100){
-        data_to_profile = [20,20,20,10, sum_data];
-      }
-    }
+    // profileCalculator();
+    //
+    // function profileCalculator() {
+    //   for (var i = 0; i < data_to_profile.length; i++) {
+    //     sum_data-=data_to_profile[i];
+    //   } if (sum_data<100){
+    //     data_to_profile = [20,20,20,10, sum_data];
+    //   }
+    // }
 
     // personMonthCalculator();
     //

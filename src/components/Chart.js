@@ -15,8 +15,6 @@ var month = date.getMonth();
 var initial_month=1;
 var deadline_month=6;
 // var deadline_year=19;
-//Define the color array for painting the graph deadlines
-var colors_line=[];
 
 class Chart extends React.Component {
     render() {
@@ -25,16 +23,12 @@ class Chart extends React.Component {
         graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+year;
         //Adds a year every time month is December
         if(i===11) year++;
-        //Fills gray if normal behaviour
-        colors_line[i]='rgba(235, 235, 235, 1.0)';
         //Colors the current month
         if(i===month){
           graphMonth_Budget[i-initial_month]= 'current date';
-          colors_line[i]='rgba(255, 0, 0, 1.0)';
         } //Colors the deadline month
         if(i===deadline_month){
           graphMonth_Budget[i-initial_month]= 'deadline';
-          colors_line[i]='red';
         }
       }
       var budgetData = {
@@ -55,32 +49,25 @@ class Chart extends React.Component {
       for (var j = 0, graphMonth=[], len=months_profile.length; j < len; j++) {
               graphMonth[j]=months_profile[(j+this.props.startDate)%len];
       }
-      var chartData = {
-        labels: graphMonth,
-        datasets: [
-          {
-            label:'Project 1',
-            data: this.props.data,
-            backgroundColor:'rgba(131, 184, 189, 1.0)',
-            hoverBorderColor:'#000',
-            hidden: false
-          },
-          {
-            label:'Project 2',
-            data: this.props.data,
-            backgroundColor:'rgba(111, 164, 169, 1.0)',
-            hoverBorderColor:'#000',
-            hidden: false
-          },
-          {
-            label:'Project 3',
+
+        var chartData = {
+          labels: graphMonth,
+          datasets: []
+        };
+
+        var newDataset;
+        for (var i = 1; i < 3; i++) {
+            newDataset = {
+            label:'Project '+i,
             data: this.props.data,
             backgroundColor:'rgba(91, 144, 149, 1.0)',
             hoverBorderColor:'#000',
             hidden: false
           }
-        ]
-      };
+          // You add the newly created dataset to the list of `data`
+          chartData.datasets.push(newDataset);
+        }
+
 
       if(this.props.type==='profile'){
         return (
@@ -89,10 +76,9 @@ class Chart extends React.Component {
             </div>
         );
       } else if (this.props.type==='budget'){
-        var quotedAndCommaSeparated = "'" + colors_line.join("','") + "'";
          return(
            <div>
-             <ChartDesign chartData={budgetData} kind={'budget'} legendPosition="right" colors_line={quotedAndCommaSeparated}/>
+             <ChartDesign chartData={budgetData} kind={'budget'} legendPosition="right"/>
            </div>
          );
       }

@@ -2,14 +2,6 @@ import React, {Component} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 
 class ChartDesign extends Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      chartData: props.chartData,
-      colors: props.colors_line
-    }
-  }
-
   // static defaultProps = {
   //   displayTitle: false,
   //   displayLegend: true,
@@ -21,7 +13,7 @@ class ChartDesign extends Component{
       return (
         <div className="chart">
           <Bar
-            data={this.state.chartData}
+            data={this.props.chartData}
             // width={100}
             // height={30}
             options={{
