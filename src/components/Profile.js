@@ -6,8 +6,28 @@ class Profile extends Component {
   render() {
     //Get the current date and therefore the month
     //It will be send trough the Chart.js prop
-    var date = new Date();
-    var month = date.getMonth();
+    const date = new Date();
+    const month = date.getMonth();
+    //Const is read only so I change it to let
+    let sum_data=100;
+    let data_to_profile = [20,20,20,10];
+    profileCalculator();
+
+    function profileCalculator() {
+      for (var i = 0; i < data_to_profile.length; i++) {
+        sum_data-=data_to_profile[i];
+      } if (sum_data<100){
+        data_to_profile = [20,20,20,10, sum_data];
+      }
+    }
+
+    // personMonthCalculator();
+    //
+    // function personMonthCalculator() {
+    //   for (var i = 0; i < data_to_send.length; i++) {
+    //     data_to_send[i]=data_to_send[i]*0.1;
+    //   }
+    // }
 
     return (
       <div>
@@ -23,9 +43,7 @@ class Profile extends Component {
             <div className="button panel bold shadow hvr-grow"  data-toggle="modal" data-target="#myModal">add to project</div>
           </div>
           <div className="col-9">
-            <Chart data={['10','20','30','40']} type="budget" startDate={month}/>
-            <Chart data={['10','20','30','40']} type="profile" startDate={month}/>
-
+            <Chart data={data_to_profile} type="profile" startDate={month}/>
           </div>
         </div>
       </div>

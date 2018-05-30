@@ -3,23 +3,18 @@ import ChartDesign from './ChartDesign';
 
 //months defined in here.
 const months_profile = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
-
 //Create date for the year.
 var date = new Date();
-
 //Year is returned as 118 not as 2018, so it must be parse into int
 var year = date.getYear().toString();
 year = year.substring(1);
 parseInt(year,0);
-
 //Gets the current month
 var month = date.getMonth();
-
 //Initial month for the budget graph 0=January... 5=January... 11=December
 var initial_month=1;
 var deadline_month=6;
 // var deadline_year=19;
-
 //Define the color array for painting the graph deadlines
 var colors_line=[];
 
@@ -43,7 +38,6 @@ class Chart extends React.Component {
         }
       }
       var budgetData = {
-        // labels:['January', ['February','Current date'], 'March', 'April', ['May','Deadline'], 'June'],
         labels: graphMonth_Budget,
         datasets: [
           {
@@ -73,14 +67,14 @@ class Chart extends React.Component {
           },
           {
             label:'Project 2',
-            data: [30.0, 40.0, 50.0, 15.0, 20.0, 59.0, 84.0],
+            data: this.props.data,
             backgroundColor:'rgba(111, 164, 169, 1.0)',
             hoverBorderColor:'#000',
             hidden: false
           },
           {
             label:'Project 3',
-            data: [30.0, 40.0, 10.0, 10.0, 10.0, 15.0, 22.0],
+            data: this.props.data,
             backgroundColor:'rgba(91, 144, 149, 1.0)',
             hoverBorderColor:'#000',
             hidden: false
