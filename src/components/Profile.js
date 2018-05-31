@@ -9,7 +9,7 @@ class Profile extends Component {
     const date = new Date();
     const month = date.getMonth();
     //Const is read only so I change it to let
-    let sum_data=100;
+    //let sum_data=100;
     let data_to_profile = [20,20,20,10];
     // profileCalculator();
     //

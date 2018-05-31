@@ -56,11 +56,22 @@ class Chart extends React.Component {
         };
 
         var newDataset;
-        for (var i = 1; i < 3; i++) {
+        //Define for color of the graph components
+        let colors = 'rgba(';
+        let colors2 = ',1.0)';
+        let redA, grenA, blueA;
+        let colors1;
+
+        for (i = 1; i < 9; i++) {
+            redA-=25;
+            grenA-=25;
+            blueA-=25;
+            colors1 = colors+redA+','+grenA+','+blueA+colors2;
             newDataset = {
             label:'Project '+i,
             data: this.props.data,
-            backgroundColor:'rgba(91, 144, 149, 1.0)',
+            // backgroundColor:'rgba(91, 144, 149, 1.0)',
+            backgroundColor: colors1,
             hoverBorderColor:'#000',
             hidden: false
           }
