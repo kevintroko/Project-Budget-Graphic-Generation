@@ -10,9 +10,20 @@ class Profile extends Component {
     const month = date.getMonth();
     //Const is read only so I change it to let
     //let sum_data=100;
-    let data_to_profile = [20,20,20,10];
-    // profileCalculator();
-    //
+    let data_to_profile;
+
+    profileCalculator();
+
+    function profileCalculator(){
+       data_to_profile = [[10,11,12,13],[20,21,22,23]];
+       sumProfesorHours();
+    }
+
+    function sumProfesorHours(){
+        let newArray = [1,1];
+        let sum = 100-(data_to_profile[0][0]+data_to_profile[1][0]);
+        data_to_profile.push([sum]);
+    }
     // function profileCalculator() {
     //   for (var i = 0; i < data_to_profile.length; i++) {
     //     sum_data-=data_to_profile[i];

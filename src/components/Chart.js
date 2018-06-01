@@ -15,9 +15,19 @@ var month = date.getMonth();
 var initial_month=1;
 var deadline_month=6;
 // var deadline_year=19;
+//Define for color of the graph components
+let redA, greenA, blueA, colors1;
+
+//Function to get the random colors of the chart
+function getRandomColor() {
+  redA   = Math.floor((Math.random() * 127) + 50);
+  greenA = Math.floor((Math.random() * 127) + 127);
+  blueA = Math.floor((Math.random() * 127) + 127);
+}
 
 class Chart extends React.Component {
     render() {
+      let arrayOfData = this.props.data;
       //Budget graph data
       for (var i = 0, graphMonth_Budget=[]; i < 12+initial_month; i++) {
         graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+year;
@@ -44,33 +54,22 @@ class Chart extends React.Component {
           }
         ]
       };
-
       //For used to sort the month circularly, may be on a function to be more optimized
       for (var j = 0, graphMonth=[], len=months_profile.length; j < len; j++) {
               graphMonth[j]=months_profile[(j+this.props.startDate)%len];
       }
-
         var chartData = {
           labels: graphMonth,
           datasets: []
         };
-
         var newDataset;
-        //Define for color of the graph components
-        let colors = 'rgba(';
-        let colors2 = ',1.0)';
-        let redA, grenA, blueA;
-        let colors1;
-
-        for (i = 1; i < 9; i++) {
-            redA-=25;
-            grenA-=25;
-            blueA-=25;
-            colors1 = colors+redA+','+grenA+','+blueA+colors2;
+        for (let k = 0; k < arrayOfData.length; k++) {
+            getRandomColor();
+            //alert('this is '+arrayOfData[k]);
+            colors1 = 'rgba('+redA+','+greenA+','+blueA+',1.0)';
             newDataset = {
-            label:'Project '+i,
-            data: this.props.data,
-            // backgroundColor:'rgba(91, 144, 149, 1.0)',
+            label:'Project '+k,
+            data: arrayOfData[k],
             backgroundColor: colors1,
             hoverBorderColor:'#000',
             hidden: false
@@ -78,7 +77,6 @@ class Chart extends React.Component {
           // You add the newly created dataset to the list of `data`
           chartData.datasets.push(newDataset);
         }
-
 
       if(this.props.type==='profile'){
         return (
