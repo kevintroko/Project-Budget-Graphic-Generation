@@ -20,9 +20,11 @@ class Profile extends Component {
     }
 
     function sumProfesorHours(){
-        let newArray = [1,1];
-        let sum = 100-(data_to_profile[0][0]+data_to_profile[1][0]);
-        data_to_profile.push([sum]);
+        let sum=0;
+        for (let x = 0; x < data_to_profile.length; x++) {
+          sum=sum+data_to_profile[x][0];
+        }
+        data_to_profile.push([100-sum]);
     }
     // function profileCalculator() {
     //   for (var i = 0; i < data_to_profile.length; i++) {

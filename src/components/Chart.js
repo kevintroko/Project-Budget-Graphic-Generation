@@ -17,6 +17,9 @@ var deadline_month=6;
 // var deadline_year=19;
 //Define for color of the graph components
 let redA, greenA, blueA, colors1;
+let newDataset;
+//Sum for the counter
+let k = 0;
 
 //Function to get the random colors of the chart
 function getRandomColor() {
@@ -41,6 +44,7 @@ class Chart extends React.Component {
           graphMonth_Budget[i-initial_month]= 'deadline';
         }
       }
+      //Data for the budget graph
       var budgetData = {
         labels: graphMonth_Budget,
         datasets: [
@@ -58,17 +62,15 @@ class Chart extends React.Component {
       for (var j = 0, graphMonth=[], len=months_profile.length; j < len; j++) {
               graphMonth[j]=months_profile[(j+this.props.startDate)%len];
       }
-        var chartData = {
-          labels: graphMonth,
-          datasets: []
-        };
-        var newDataset;
-        for (let k = 0; k < arrayOfData.length; k++) {
+
+      var chartData = { labels: graphMonth, datasets: []};
+
+        for (k = 0; k < arrayOfData.length-1; k++) {
             getRandomColor();
             //alert('this is '+arrayOfData[k]);
             colors1 = 'rgba('+redA+','+greenA+','+blueA+',1.0)';
             newDataset = {
-            label:'Project '+k,
+            label:'Project '+(k+1),
             data: arrayOfData[k],
             backgroundColor: colors1,
             hoverBorderColor:'#000',
@@ -77,6 +79,16 @@ class Chart extends React.Component {
           // You add the newly created dataset to the list of `data`
           chartData.datasets.push(newDataset);
         }
+        colors1 = 'rgba(215,215,215,1.0)';
+        newDataset = {
+        label:'Teaching',
+        data: arrayOfData[2],
+        backgroundColor: colors1,
+        hoverBorderColor:'#000',
+        hidden: false
+      }
+      // You add the newly created dataset to the list of `data`
+      chartData.datasets.push(newDataset);
 
       if(this.props.type==='profile'){
         return (
