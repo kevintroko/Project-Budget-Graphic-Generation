@@ -44,7 +44,7 @@ class ChartDesign extends Component{
                            stacked: true,
                            ticks: {
                              suggestedMin: 0,
-                             max: 100,
+                             //max: 100,
                              stepSize: 20,
                              // maxTicksLimit: 5
                            }

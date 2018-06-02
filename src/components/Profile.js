@@ -11,36 +11,30 @@ class Profile extends Component {
     //Const is read only so I change it to let
     //let sum_data=100;
     let data_to_profile;
-
     profileCalculator();
 
     function profileCalculator(){
-       data_to_profile = [[10,11,12,13],[20,21,22,23]];
+       data_to_profile = [[10,11,12,50,100,0],[20,21,22,50,0,0]];
+       //Add empty array for teaching bar section
+       data_to_profile.push([]);
+       //Call the 100 hours - workload calculator
        sumProfesorHours();
     }
 
     function sumProfesorHours(){
-        let sum=0;
-        for (let x = 0; x < data_to_profile.length; x++) {
-          sum=sum+data_to_profile[x][0];
+        let sum; //The hours of workload substracting 100 hours
+        let newArray=[];
+        for (var y = 0; y < data_to_profile[0].length; y++) {
+          sum=0;
+          for (let x = 0; x < data_to_profile.length-1; x++) {
+            sum=sum+data_to_profile[x][y];
+          }
+          newArray.push(100-sum);
         }
-        data_to_profile.push([100-sum]);
+        for (var i = 0; i < data_to_profile[0].length; i++) {
+          data_to_profile[2].push(newArray[i]);
+        }
     }
-    // function profileCalculator() {
-    //   for (var i = 0; i < data_to_profile.length; i++) {
-    //     sum_data-=data_to_profile[i];
-    //   } if (sum_data<100){
-    //     data_to_profile = [20,20,20,10, sum_data];
-    //   }
-    // }
-
-    // personMonthCalculator();
-    //
-    // function personMonthCalculator() {
-    //   for (var i = 0; i < data_to_send.length; i++) {
-    //     data_to_send[i]=data_to_send[i]*0.1;
-    //   }
-    // }
 
     return (
       <div>
