@@ -2,20 +2,12 @@ import React, {Component} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 
 class ChartDesign extends Component{
-  // static defaultProps = {
-  //   displayTitle: false,
-  //   displayLegend: true,
-  //   legendPosition: 'bottom',
-  // }
-
   render(){
     if(this.props.kind==='profile'){
       return (
         <div className="chart">
           <Bar
             data={this.props.chartData}
-            // width={100}
-            // height={30}
             options={{
               responsive: true,
               title:{
@@ -55,12 +47,10 @@ class ChartDesign extends Component{
         </div>
       )
     }else if(this.props.kind==='budget'){
-      let a = '['+this.state.colors+']';
-      console.log(a);
       return(
         <div className="chart">
           <Line
-            data={this.state.chartData}
+            data={this.props.chartData}
             options={{
               responsive: true,
               title:{

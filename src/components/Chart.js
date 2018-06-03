@@ -6,13 +6,12 @@ const months_profile = ['January', 'February', 'March', 'April', 'May', 'June','
 //Create date for the year.
 var date = new Date();
 //Year is returned as 118 not as 2018, so it must be parse into int
-var year = date.getYear().toString();
-year = year.substring(1);
+var year = date.getYear().toString().substring(1);
 parseInt(year,0);
 //Gets the current month
 var month = date.getMonth();
 //Initial month for the budget graph 0=January... 5=January... 11=December
-var initial_month=1;
+var initial_month=0;
 var deadline_month=6;
 // var deadline_year=19;
 //Define for color of the graph components
@@ -33,7 +32,7 @@ class Chart extends React.Component {
       let arrayOfData = this.props.data;
       //Budget graph data
       for (var i = 0, graphMonth_Budget=[]; i < 12+initial_month; i++) {
-        graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+year;
+        graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year-1);
         //Adds a year every time month is December
         if(i===11) year++;
         //Colors the current month
@@ -64,10 +63,8 @@ class Chart extends React.Component {
       }
 
       var chartData = { labels: graphMonth, datasets: []};
-
         for (k = 0; k < arrayOfData.length-1; k++) {
             getRandomColor();
-            //alert('this is '+arrayOfData[k]);
             colors1 = 'rgba('+redA+','+greenA+','+blueA+',1.0)';
             newDataset = {
             label:'Project '+(k+1),

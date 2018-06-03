@@ -12,7 +12,6 @@ class Profile extends Component {
     //let sum_data=100;
     let data_to_profile;
     profileCalculator();
-
     function profileCalculator(){
        data_to_profile = [[10,11,12,50,100,0],[20,21,22,50,0,0]];
        //Add empty array for teaching bar section
@@ -20,7 +19,6 @@ class Profile extends Component {
        //Call the 100 hours - workload calculator
        sumProfesorHours();
     }
-
     function sumProfesorHours(){
         let sum; //The hours of workload substracting 100 hours
         let newArray=[];
@@ -35,7 +33,6 @@ class Profile extends Component {
           data_to_profile[2].push(newArray[i]);
         }
     }
-
     return (
       <div>
         <div className="title">
@@ -51,6 +48,7 @@ class Profile extends Component {
           </div>
           <div className="col-9">
             <Chart data={data_to_profile} type="profile" startDate={month}/>
+            <Chart data={['10','20','30','40']} type="budget" startDate={month}/>
           </div>
         </div>
       </div>
