@@ -9,10 +9,6 @@ const connection = mysql.createConnection({
   password : '',
   database : 'test5',
   port : '3307'
-  // host     : 'https://app-1525516093.000webhostapp.com/',
-  // user     : 'id5636783_admin',
-  // password : 'admin',
-  // database : 'id5636783_admin'
 });
 const port = process.env.PORT || 5000;
 
@@ -65,7 +61,6 @@ app.get('/members', function (req, res) {
       res.send(results)
     });
 });
-
 //query to get the projects and info that a person is working at=====>gets ALL the states of his work
 //give the emai of a person
 app.get('/working_projects', function (req, res) {
@@ -74,17 +69,14 @@ app.get('/working_projects', function (req, res) {
       res.send(results)
     });
 });
-
 //query to get info for a specific person
 //give the emai of a person
 app.get('/person_info', function (req, res) {
-    connection.query('select * from person_view where person_code="'+req.query.code+'"', function (error, results, fields) {
+    connection.query('select * from person_view where email="'+req.query.code+'"', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
 });
-
-
 //query to get the projects a specific user is working on====>ONLY gets the current state of his work
 //give the email of a person
 app.get('/user_projects', function (req, res) {
@@ -93,7 +85,6 @@ app.get('/user_projects', function (req, res) {
       res.send(results)
     });
 });
-
 //query to get some project's information
 //give the code of a project
 app.get('/project_info', function (req, res) {
@@ -102,9 +93,6 @@ app.get('/project_info', function (req, res) {
       res.send(results)
     });
 });
-
-
-
 //query to get the projects that a user owns
 //give the email of a person
 app.get('/project_ownership', function (req, res) {
@@ -120,4 +108,5 @@ app.listen(port, () => {
  console.log('Go to http://localhost:5000/projects to see projects');
  console.log('Go to http://localhost:5000/professors to see professors');
  console.log('Go to http://localhost:5000/has to see has');
+ console.log('Go to http://localhost:5000/working_projects to see working_projects');
 });
