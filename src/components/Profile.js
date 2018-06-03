@@ -1,48 +1,40 @@
 import React, { Component } from 'react';
 import '../css/Profile.css';
 import Chart from './Chart';
-// var date1 = new Date('December 17, 1995 03:24:00');
+
 class Profile extends Component {
   constructor(props) {
     super(props);
     this.state={profile:[], graphData:[]};
   }
-
   componentDidMount(){
     this.callApiGraph().then(data => (this.setState({graphData:data})));
     this.callApiProfile().then(data => (this.setState({profile:data})));
   }
-
+  //Calls the information from the graph of the profile database
   async callApiGraph() {
     const response = await fetch('http://localhost:5000/working_projects?code=test@admin.se');
     const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
     return body;
   };
-
+  //Calls the information from the person profile database
   async callApiProfile(){
     const response = await fetch('http://localhost:5000/person_info?code=chad@bing.se');
     const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
     return body;
   };
-
   render() {
     //Get the current date and therefore the month
     //It will be send trough the Chart.js prop
     const date = new Date();
     const month = date.getMonth();
+    const year = date.getYear();
     //Const is read only so I change it to let
-    //let sum_data=100;
     let data_to_profile;
+
     profileCalculator();
-    function profileCalculator(){
-       data_to_profile = [[10,11,12,50,100,0],[20,21,22,50,0,0]];
-       //Add empty array for teaching bar section
-       data_to_profile.push([]);
-       //Call the 100 hours - workload calculator
-       sumProfesorHours();
-    }
     function sumProfesorHours(){
         let sum; //The hours of workload substracting 100 hours
         let newArray=[];
@@ -67,6 +59,21 @@ class Profile extends Component {
     this.state.profile.map(p=>(isprofessor=p.isprofessor));
     if(isprofessor===1){isprofessor="Professor";}else {isprofessor="Student"}
 
+    let hiring_date="";
+    this.state.graphData.map(p=>(hiring_date=p.hiring_date));
+    var date1 = new Date(hiring_date);
+    // if((5+" "+date1.getYear())===(date.getMonth()+" "+date.getYear()+" ")){
+      alert((5+date1.getYear())===(date.getMonth()+date.getYear()));
+    // }
+
+    function profileCalculator(){
+       data_to_profile = [[10,11,12,50,100,0],[20,21,22,50,0,0]];
+       //Add empty array for teaching bar section
+       data_to_profile.push([]);
+       //Call the 100 hours - workload calculator
+       sumProfesorHours();
+    }
+
     return (
       <div>
         <div className="title">
@@ -83,12 +90,10 @@ class Profile extends Component {
           </div>
           <div className="col-9">
             <Chart data={data_to_profile} type="profile" startDate={month}/>
-            <Chart data={['10','20','30','40']} type="budget" startDate={month}/>
           </div>
         </div>
       </div>
     );
   }
 };
-
 export default Profile;
