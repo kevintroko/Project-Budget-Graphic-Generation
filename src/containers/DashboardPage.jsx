@@ -15,7 +15,15 @@ class DashboardPage extends React.Component {
    */
   constructor(props) {
     super(props);
+    const storedMessage = localStorage.getItem('successMessage');
+    let successMessage = '';
+
+    if (storedMessage) {
+      successMessage = storedMessage;
+      localStorage.removeItem('successMessage');
+    }
     this.state = {
+      successMessage,
     activeFilter: 0, //last clicked filter's number in filters array
       isOrderAsc: 1,
       projects: [],
@@ -34,12 +42,10 @@ class DashboardPage extends React.Component {
    */
   componentDidMount() {
     this.setState({ isLoading: true });
-    this.callApi().then(data => (this.setState({projects:data,isLoading:false})));
-
-    const xhr = new XMLHttpRequest();
-    xhr.open('get', '/api/dashboard');
+  const xhr = new XMLHttpRequest();
+    xhr.open('get', '/api/dashboard'); 
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    // set the authorization HTTP header
+    //set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
@@ -54,10 +60,15 @@ class DashboardPage extends React.Component {
             this.setState({
                 userEmail:decoded.sub
             });
+            this.callApi().then(data => (this.setState({projects:data,isLoading:false})));
           });
       }
     });
     xhr.send();
+  }
+
+  getEmail() {
+  
   }
 
   async callApi(){
@@ -132,6 +143,7 @@ class DashboardPage extends React.Component {
     );
     return(
       <div>
+      {this.state.successMessage && <p className="success-message">{this.state.successMessage}</p>}
         <FilterBar
           filters={filters}
           activeFilter={this.state.activeFilter}
