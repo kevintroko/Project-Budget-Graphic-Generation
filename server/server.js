@@ -103,8 +103,6 @@ app.get('/project_info', function (req, res) {
     });
 });
 
-
-
 //query to get the projects that a user owns
 //give the email of a person
 app.get('/project_ownership', function (req, res) {
