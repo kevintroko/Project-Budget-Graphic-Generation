@@ -27,8 +27,8 @@ function getRandomColor() {
 class Chart extends React.Component {
     render() {
       //Initial month for the budget graph 0=January... 5=January... 11=December
-      let initial_month =this.props.startDate;
-      let deadline_month = this.props.endDate;
+      let initial_month =this.props.startDate.getMonth();
+      let deadline_month = this.props.endDate.getMonth();
       let time = deadline_month-initial_month;
       let arrayOfData = this.props.data;
       if(time<12){
@@ -45,7 +45,7 @@ class Chart extends React.Component {
           }
         }
       }else {
-        for (var i = 0, graphMonth_Budget=[]; i < time+initial_month; i++) {
+        for (let i = 0, graphMonth_Budget=[]; i < time+initial_month; i++) {
           graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year);
           //Adds a year every time month is December
           if(i===11) year++;
@@ -69,6 +69,14 @@ class Chart extends React.Component {
             data: this.props.data,
             backgroundColor:'rgba(131, 184, 189, 1.0)',
             borderColor:'rgba(131, 184, 189, 1.0)',
+            fill: false
+          },
+          {
+            label:'Year 2018',
+            lineTension: 0,
+            data: this.props.averageLine,
+            backgroundColor:'red',
+            borderColor:'red',
             fill: false
           }
         ]
