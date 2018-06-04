@@ -112,9 +112,9 @@ app.get('/working_projects', function (req, res) {
 });
 
 //query to get info for a specific person
-//give the emai of a person
+//give the email of a person
 app.get('/person_info', function (req, res) {
-    connection.query('select * from person_view where person_code="'+req.query.code+'"', function (error, results, fields) {
+    connection.query('select * from person_view where email="'+req.query.code+'"', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
@@ -134,6 +134,15 @@ app.get('/user_projects', function (req, res) {
 //give the code of a project
 app.get('/project_info', function (req, res) {
     connection.query('select * from project_current_participants_view where project_code="'+req.query.code+'"', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+});
+
+//query to get some project's information 
+//give the code of a project
+app.get('/all_person_emails', function (req, res) {
+    connection.query('select email from person_view ', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
