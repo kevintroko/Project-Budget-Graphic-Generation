@@ -59,12 +59,16 @@ class Profile extends Component {
     this.state.profile.map(p=>(isprofessor=p.isprofessor));
     if(isprofessor===1){isprofessor="Professor";}else {isprofessor="Student"}
 
-    let workload="";
-    this.state.graphData.map(p=>(workload=p.workload));
+    // let workload="";
+    // this.state.graphData.map(p=>(workload=p.workload));
 
     function profileCalculator(){
-      let hiring_date = new Date("August, 2018");
-      let end_date    = new Date("September, 2018");
+      //DUMMY DATA ARRAY OF DATES
+      let workload = 0;
+      let arrayOfData_d1 = ["August, 2018","September, 2018"];
+      let arrayOfData_d2 = ["September, 2018","October, 2018","October, 2018","December, 2018","December, 2018","January, 2019"];
+      let hiring_date = new Date(arrayOfData_d1[0]);
+      let end_date    = new Date(arrayOfData_d1[1]);
       workload    = 10;
       let arrayMonth  = [];
       let elapsedForZero =  Math.round((((((end_date-date)/1000)/60)/60)/24)/30);
@@ -77,45 +81,30 @@ class Profile extends Component {
           arrayMonth.push(workload);
       }
 
-      hiring_date = new Date("September, 2018");
-      elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
-      end_date    = new Date("January, 2019");
-      workload    = 13;
-      if(elapsed===1){
-        for (let i = 0; i < elapsedForZero;i++){
-          arrayMonth.push(0);
+      for (var z = 0; z < arrayOfData_d2.length; z+=2) {
+        console.log(z);
+        hiring_date = new Date(arrayOfData_d2[z]);
+        elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
+        end_date    = new Date(arrayOfData_d2[z+1]);
+        workload    = 13+z;
+        if(elapsed===1){
+          for (let i = 0; i < elapsedForZero;i++){
+            arrayMonth.push(0);
+          }
+        }else {
+          for (let i = 0; i < elapsedForZero-1;i++){
+            arrayMonth.push(0);
+          }
         }
-      }else {
-        for (let i = 0; i < elapsedForZero-1;i++){
-          arrayMonth.push(0);
-        }
-      }
-      elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      elapsed1    = elapsed;
-      for (let i = 0; i < elapsed1; i++) {
-          arrayMonth.push(workload);
-      }
-      //for 3
-      hiring_date = new Date("January, 2019");
-      elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
-      end_date    = new Date("March, 2019");
-      workload    = 15;
-      if(elapsed===1){
-        for (let i = 0; i < elapsedForZero;i++){
-          arrayMonth.push(0);
-        }
-      }else {
-        for (let i = 0; i < elapsedForZero-1;i++){
-          arrayMonth.push(0);
+        elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+        elapsed1    = elapsed;
+        for (let i = 0; i < elapsed1; i++) {
+            arrayMonth.push(workload);
         }
       }
-      elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      elapsed1    = elapsed;
-      for (let i = 0; i < elapsed1; i++) {
-          arrayMonth.push(workload);
-      }
-
       data_to_profile.push(arrayMonth);
+
+      
       //Add empty array for teaching bar section
       //for 2
       //Add empty array for teaching bar section
