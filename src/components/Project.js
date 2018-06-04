@@ -12,7 +12,7 @@ class Project extends Component {
 		project.deadline=new Date("December, 2018");
 		let time = Math.round((((((project.deadline-project.startDate)/1000)/60)/60)/24)/30);
 		console.log(time);
-		let budget = 3000;
+		let budget = 2000;
 		let cost=0;
 		let budgetData = [];
 		var person1 = {firstName:"John",lastName:"Doe",salary:50,socialfactor:1,cost:0};
@@ -38,7 +38,7 @@ class Project extends Component {
         </div> */}
         <div className="row panel flex-center-vertically">
           <div className="col-9">
-						<Chart data={budgetData} type="budget" startDate={month}/>
+						<Chart data={budgetData} type="budget" startDate={project.startDate.getMonth()} endDate={project.deadline.getMonth()}/>
           </div>
         </div>
       </div>
