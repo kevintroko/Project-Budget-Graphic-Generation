@@ -30,7 +30,7 @@ class Profile extends Component {
     //It will be send trough the Chart.js prop
     const date = new Date();
     const month = date.getMonth();
-    const year = date.getYear();
+
     //Const is read only so I change it to let
     let data_to_profile=[];
 
@@ -45,7 +45,7 @@ class Profile extends Component {
             }
             newArray.push(100-sum);
          }
-         for (var i = 0; i < data_to_profile.length; i++) { //2
+         for (let i = 0; i < data_to_profile.length; i++) { //2
             data_to_profile[(data_to_profile.length-1)].push(newArray[i]);
           }
     }
@@ -61,127 +61,67 @@ class Profile extends Component {
 
     let workload="";
     this.state.graphData.map(p=>(workload=p.workload));
-    console.log(workload);
 
     function profileCalculator(){
-      let a = new Date("February, 2018");
-      // a = a.getMonth();
-      let b = new Date("March, 2019");
-      // b = b.getMonth();
-      let c = (((((((b-a))/1000)/60)/60)/24)/30);
-      console.log(b+'-'+a+'='+c);
-
       let hiring_date = new Date("August, 2018");
       let end_date    = new Date("September, 2018");
       workload    = 10;
       let arrayMonth  = [];
-      let elapsedForZero = ((((((end_date-date)/1000)/60)/60)/24)/30);
-      for (var i = 0; i < elapsedForZero-1;i++){
+      let elapsedForZero =  Math.round((((((end_date-date)/1000)/60)/60)/24)/30);
+      for (let i = 0; i < elapsedForZero-1;i++){
         arrayMonth.push(0);
       }
-      let elapsed     = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      let elapsed1    = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      for (var i = 0; i < elapsed1; i++) {
+      let elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      let elapsed1    = elapsed;
+      for (let i = 0; i < elapsed1; i++) {
           arrayMonth.push(workload);
       }
 
       hiring_date = new Date("September, 2018");
-      elapsedForZero = ((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
+      elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
       end_date    = new Date("January, 2019");
       workload    = 13;
       if(elapsed===1){
-        for (var i = 0; i < elapsedForZero;i++){
+        for (let i = 0; i < elapsedForZero;i++){
           arrayMonth.push(0);
         }
       }else {
-        for (var i = 0; i < elapsedForZero-1;i++){
+        for (let i = 0; i < elapsedForZero-1;i++){
           arrayMonth.push(0);
         }
       }
-      elapsed     = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      elapsed1    = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      for (var i = 0; i < elapsed1; i++) {
+      elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      elapsed1    = elapsed;
+      for (let i = 0; i < elapsed1; i++) {
           arrayMonth.push(workload);
       }
       //for 3
       hiring_date = new Date("January, 2019");
-      elapsedForZero = ((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
+      elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
       end_date    = new Date("March, 2019");
       workload    = 15;
       if(elapsed===1){
-        for (var i = 0; i < elapsedForZero;i++){
+        for (let i = 0; i < elapsedForZero;i++){
           arrayMonth.push(0);
         }
       }else {
-        for (var i = 0; i < elapsedForZero-1;i++){
+        for (let i = 0; i < elapsedForZero-1;i++){
           arrayMonth.push(0);
         }
       }
-      elapsed     = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      elapsed1    = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      for (var i = 0; i < elapsed1; i++) {
+      elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      elapsed1    = elapsed;
+      for (let i = 0; i < elapsed1; i++) {
           arrayMonth.push(workload);
       }
 
-     //   hiring_date = new Date("September, 2018");
-     //   end_date    = new Date("November, 2018");
-     //   elapsed1    = Math.ceil((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-     //   elapsed1    -= elapsed1-elapsed;
-     //   elapsed = elapsed1;
-     //   workload    = 20;
-     //    for (var i = 0; i < elapsed1; i++) {
-     //      arrayMonth.push(workload);
-     //  }
-     //  hiring_date = new Date("November, 2018");
-     //  end_date    = new Date("December, 2018");
-     //  elapsed1    = Math.ceil((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-     //  elapsed1    -= elapsed1-elapsed;
-     //  elapsed     = elapsed1;
-     //  workload    = 15;
-     //   for (var i = 0; i < elapsed1; i++) {
-     //     arrayMonth.push(workload);
-     // }
       data_to_profile.push(arrayMonth);
       //Add empty array for teaching bar section
-      data_to_profile.push([]);
-      //Call the 100 hours - workload calculator
-      //sumProfesorHours();
-
       //for 2
-     //  hiring_date = new Date("June, 2018");
-     //  end_date    = new Date("September, 2018");
-     //  elapsed     = Math.ceil((((((end_date-date)/1000)/60)/60)/24)/30);;
-     //  elapsed1    = Math.ceil((((((end_date-date)/1000)/60)/60)/24)/30);
-     //  console.log(elapsed1);
-     //   workload    = 10;
-     //  arrayMonth  = [];
-     //    for (var i = 0; i < elapsed1; i++) {
-     //      arrayMonth.push(workload);
-     //  }
-     //   hiring_date = new Date("June, 2018");
-     //   end_date    = new Date("November, 2018");
-     //   elapsed1    = Math.ceil((((((end_date-date)/1000)/60)/60)/24)/30);
-     //   elapsed1    -= elapsed1-elapsed;
-     //   elapsed = elapsed1;
-     //   workload    = 20;
-     //    for (var i = 0; i < elapsed1; i++) {
-     //      arrayMonth.push(workload);
-     //  }
-     //
-     //  hiring_date = new Date("June, 2018");
-     //  end_date    = new Date("December, 2018");
-     //  elapsed1    = Math.ceil((((((end_date-date)/1000)/60)/60)/24)/30);
-     //  elapsed1    -= elapsed1-elapsed;
-     //  elapsed = elapsed1;
-     //  workload    = 15;
-     //   for (var i = 0; i < elapsed1; i++) {
-     //     arrayMonth.push(workload);
-     // }
-    //  data_to_profile.push(arrayMonth);
       //Add empty array for teaching bar section
       data_to_profile.push([]);
       //Call the 100 hours - workload calculator
-      //sumProfesorHours();
+      sumProfesorHours();
     }
 
 
