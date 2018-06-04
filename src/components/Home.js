@@ -29,14 +29,12 @@ export class Home extends React.Component{
     const response = await fetch('/projects');
     const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
-
     return body;
   };
 
   handleFilterChange(filterNum, isAsc){
     this.setState({activeFilter: filterNum, isOrderAsc: isAsc});
   }
-
 
   orderProjects(){
     switch (this.state.activeFilter) {

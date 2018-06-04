@@ -19,7 +19,6 @@ let redA, greenA, blueA, colors1;
 let newDataset;
 //Sum for the counter
 let k = 0;
-
 //Function to get the random colors of the chart
 function getRandomColor() {
   redA   = Math.floor((Math.random() * 127) + 50);
@@ -29,10 +28,14 @@ function getRandomColor() {
 
 class Chart extends React.Component {
     render() {
+      initial_month=this.props.startDate;
+      deadline_month=this.props.endDate;
+      console.log(initial_month+" "+deadline_month);
+
       let arrayOfData = this.props.data;
       //Budget graph data
       for (var i = 0, graphMonth_Budget=[]; i < 12+initial_month; i++) {
-        graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year-1);
+        graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year);
         //Adds a year every time month is December
         if(i===11) year++;
         //Colors the current month
@@ -79,7 +82,7 @@ class Chart extends React.Component {
         colors1 = 'rgba(215,226,228,1.0)';
         newDataset = {
         label:'Teaching',
-        data: arrayOfData[2],
+        data: arrayOfData[arrayOfData.length-1],
         backgroundColor: colors1,
         hoverBorderColor:'#000',
         hidden: false

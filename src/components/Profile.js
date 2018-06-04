@@ -3,36 +3,117 @@ import '../css/Profile.css';
 import Chart from './Chart';
 
 class Profile extends Component {
+  constructor(props) {
+    super(props);
+    this.state={profile:[], graphData:[]};
+  }
+  componentDidMount(){
+  //  this.callApiGraph().then(data => (this.setState({graphData:data})));
+    //this.callApiProfile().then(data => (this.setState({profile:data})));
+  }
+  //Calls the information from the graph of the profile database
+  async callApiGraph() {
+    const response = await fetch('http://localhost:5000/working_projects?code=test@admin.se');
+    const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+    return body;
+  };
+  //Calls the information from the person profile database
+  async callApiProfile(){
+    const response = await fetch('http://localhost:5000/person_info?code=chad@bing.se');
+    const body = await response.json();
+  if (response.status !== 200) throw Error(body.message);
+    return body;
+  };
   render() {
     //Get the current date and therefore the month
     //It will be send trough the Chart.js prop
     const date = new Date();
     const month = date.getMonth();
+
     //Const is read only so I change it to let
-    //let sum_data=100;
-    let data_to_profile;
+    let data_to_profile=[];
     profileCalculator();
-    function profileCalculator(){
-       data_to_profile = [[10,11,12,50,100,0],[20,21,22,50,0,0]];
-       //Add empty array for teaching bar section
-       data_to_profile.push([]);
-       //Call the 100 hours - workload calculator
-       sumProfesorHours();
-    }
     function sumProfesorHours(){
-        let sum; //The hours of workload substracting 100 hours
+        let sum=0; //The hours of workload substracting 100 hours
         let newArray=[];
-        for (var y = 0; y < data_to_profile[0].length; y++) {
-          sum=0;
-          for (let x = 0; x < data_to_profile.length-1; x++) {
-            sum=sum+data_to_profile[x][y];
+        for (var y = 0; y < data_to_profile.length; y++) { //2 and [x][y]
+            sum=0;
+            for (let x = 0; x < data_to_profile.length-1; x++) { //3
+              sum=sum+data_to_profile[x][y];
+            }
+            newArray.push(100-sum);
+         }
+         // for (let i = 0; i < data_to_profile.length; i++) { //2
+         for (let i = 0; i < data_to_profile.length; i++) { //2
+            data_to_profile[(data_to_profile.length-1)].push(newArray[i]);
           }
-          newArray.push(100-sum);
-        }
-        for (var i = 0; i < data_to_profile[0].length; i++) {
-          data_to_profile[2].push(newArray[i]);
-        }
+          //data_to_profile[4].push([0],[0],[0],[0]);
     }
+
+    let first_name, last_name, email, department,office,isprofessor = "";
+    this.state.profile.map(p=>(first_name=p.first_name));
+    this.state.profile.map(p=>(last_name=p.last_name));
+    this.state.profile.map(p=>(email=p.email));
+    this.state.profile.map(p=>(department=p.department));
+    this.state.profile.map(p=>(office=p.office));
+    this.state.profile.map(p=>(isprofessor=p.isprofessor));
+    if(isprofessor===1){isprofessor="Professor";}else {isprofessor="Student"}
+    // let workload="";
+    // this.state.graphData.map(p=>(workload=p.workload));
+
+    function profileCalculator(){
+      //DUMMY DATA ARRAY OF DATES
+      let workload = 0;
+      let arrayOfData_d1 = ["August, 2018","September, 2018"];
+      let arrayOfData_d2 = ["September, 2018","October, 2018","October, 2018","December, 2018","December, 2018","January, 2019"];
+      let arrayOfWorkLoad_d = [10,10,10,10,10,10,10,10,10];
+      let hiring_date, end_date, arrayMonth, elapsedForZero, elapsed,elapsed1;
+
+      for (let a = 0; a < 4; a++) {
+        hiring_date = new Date(arrayOfData_d1[0]);
+        end_date    = new Date(arrayOfData_d1[1]);
+        workload    = arrayOfWorkLoad_d[a];
+        arrayMonth  = [];
+        elapsedForZero =  Math.round((((((end_date-date)/1000)/60)/60)/24)/30);
+        for (let i = 0; i < elapsedForZero-1;i++){
+          arrayMonth.push(0);
+        }
+        elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+        elapsed1    = elapsed;
+        for (let i = 0; i < elapsed1; i++) {
+           arrayMonth.push(workload);
+        }
+
+        for (var z = 0; z < arrayOfData_d2.length; z+=2) {
+          hiring_date = new Date(arrayOfData_d2[z]);
+          elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
+          end_date    = new Date(arrayOfData_d2[z+1]);
+          workload    = z+11;
+          if(elapsed===1){
+            for (let i = 0; i < elapsedForZero;i++){
+              arrayMonth.push(0);
+            }
+          }else {
+            for (let i = 0; i < elapsedForZero-1;i++){
+              arrayMonth.push(0);
+            }
+          }
+          elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+          elapsed1    = elapsed;
+          for (let i = 0; i < elapsed1; i++) {
+              arrayMonth.push(workload);
+          }
+        }
+        data_to_profile.push(arrayMonth);
+      }
+
+      //Add empty array for teaching bar section
+      data_to_profile.push([]);
+      //Call the 100 hours - workload calculator
+      //sumProfesorHours();
+    }
+
     return (
       <div>
         <div className="title">
@@ -40,20 +121,19 @@ class Profile extends Component {
         </div>
         <div className="row panel flex-center-vertically">
           <div className="col-3 margin-10">
-            <p><span className="bold">Name: </span>{this.props.name}</p>
-            <p><span className="bold">Lastname: </span> {this.props.lastname}</p>
-            <p><span className="bold">Email: </span>{this.props.email}</p>
-            <p><span className="bold">Role: </span>{this.props.rolee}</p>
-            <div className="button panel bold shadow hvr-grow"  data-toggle="modal" data-target="#myModal">add to project</div>
+            <p><span className="bold">Name: </span>{first_name}</p>
+            <p><span className="bold">Lastname: </span> {last_name}</p>
+            <p><span className="bold">Email: </span>{email}</p>
+            <p><span className="bold">Department: </span>{department}</p>
+            <p><span className="bold">Office: </span>{office}</p>
+            <p><span className="bold">Role: </span>{isprofessor}</p>
           </div>
           <div className="col-9">
             <Chart data={data_to_profile} type="profile" startDate={month}/>
-            <Chart data={['10','20','30','40']} type="budget" startDate={month}/>
           </div>
         </div>
       </div>
     );
   }
 };
-
 export default Profile;

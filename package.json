@@ -5,9 +5,12 @@
   "dependencies": {
     "bootstrap": "^4.1.1",
     "chart.js": "^2.7.2",
+    "cors": "^2.8.4",
     "crud-fetch": "^0.1.2",
     "express": "^4.16.3",
     "hover.css": "^2.3.1",
+    "jquery": "^1.9.1",
+    "json-schema": "^0.2.3",
     "mysql": "^2.15.0",
     "npm": "^6.0.1",
     "prop-types": "^15.6.1",
@@ -15,7 +18,8 @@
     "react-chartjs-2": "^2.7.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.1.4",
-    "reactstrap": "^6.0.1"
+    "reactstrap": "^6.0.1",
+    "webpack": "^3.11.0"
   },
   "scripts": {
     "start": "react-scripts start",
