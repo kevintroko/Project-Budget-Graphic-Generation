@@ -63,7 +63,7 @@ class Chart extends React.Component {
       }
 
       var chartData = { labels: graphMonth, datasets: []};
-        for (k = 0; k < arrayOfData.length; k++) {
+        for (k = 0; k < arrayOfData.length-1; k++) {
             getRandomColor();
             colors1 = 'rgba('+redA+','+greenA+','+blueA+',1.0)';
             newDataset = {
@@ -79,7 +79,7 @@ class Chart extends React.Component {
       //   colors1 = 'rgba(215,226,228,1.0)';
       //   newDataset = {
       //   label:'Teaching',
-      //   data: arrayOfData[2],
+      //   data: arrayOfData[arrayOfData.length-1],
       //   backgroundColor: colors1,
       //   hoverBorderColor:'#000',
       //   hidden: false

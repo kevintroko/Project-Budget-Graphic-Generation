@@ -67,11 +67,11 @@ class Profile extends Component {
     // }
 
     function profileCalculator(){
-       data_to_profile = [[15,10,31,15,40],[15,10,21,12,30],[18,10,10,19,10],[10,40,10,30,10]];
+       data_to_profile = [[1,2,3,4,5,6,7,8,9,10,11,12]];
        //Add empty array for teaching bar section
        data_to_profile.push([]);
        //Call the 100 hours - workload calculator
-       sumProfesorHours();
+       //sumProfesorHours();
     }
 
     return (
