@@ -33,7 +33,6 @@ class Profile extends Component {
 
     //Const is read only so I change it to let
     let data_to_profile=[];
-
     profileCalculator();
     function sumProfesorHours(){
         let sum=0; //The hours of workload substracting 100 hours
@@ -52,7 +51,6 @@ class Profile extends Component {
           //data_to_profile[4].push([0],[0],[0],[0]);
     }
 
-
     let first_name, last_name, email, department,office,isprofessor = "";
     this.state.profile.map(p=>(first_name=p.first_name));
     this.state.profile.map(p=>(last_name=p.last_name));
@@ -61,14 +59,12 @@ class Profile extends Component {
     this.state.profile.map(p=>(office=p.office));
     this.state.profile.map(p=>(isprofessor=p.isprofessor));
     if(isprofessor===1){isprofessor="Professor";}else {isprofessor="Student"}
-
     // let workload="";
     // this.state.graphData.map(p=>(workload=p.workload));
 
     function profileCalculator(){
       //DUMMY DATA ARRAY OF DATES
       let workload = 0;
-      let b=0;
       let arrayOfData_d1 = ["August, 2018","September, 2018"];
       let arrayOfData_d2 = ["September, 2018","October, 2018","October, 2018","December, 2018","December, 2018","January, 2019"];
       let arrayOfWorkLoad_d = [10,10,10,10,10,10,10,10,10];
@@ -118,10 +114,6 @@ class Profile extends Component {
       sumProfesorHours();
     }
 
-    function budgetCalculator(){
-
-    }
-
     return (
       <div>
         <div className="title">
@@ -137,8 +129,7 @@ class Profile extends Component {
             <p><span className="bold">Role: </span>{isprofessor}</p>
           </div>
           <div className="col-9">
-            {/* <Chart data={data_to_profile} type="profile" startDate={month}/> */}
-            <Chart data={['10','20','30','40']} type="budget" startDate={month}/>
+            <Chart data={data_to_profile} type="profile" startDate={month}/>
           </div>
         </div>
       </div>
