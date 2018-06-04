@@ -1,10 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
+import {Link} from 'react-router';
 // import '../css/EditIcons.css';
 
-class AddIcon extends Component {
+class AddIcon extends React.Component {
 	render() {
 		return (
-      <span><i className="material-icons circle-icon shadow hvr-grow">add</i></span>
+			<Link to='/createProject'>
+      	<span><i className="material-icons circle-icon shadow hvr-grow">add</i></span>
+			</Link>
 		);
   }
 };

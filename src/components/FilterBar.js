@@ -40,7 +40,7 @@ export class FilterBar extends React.Component {
 				/>
 			));
 			return (
-	        <div className="row filter shadow d-flex justify-content-around p-2">
+	        <div className="row filter box-shadow d-flex justify-content-around p-2">
 						{filters}
 					</div>
 	      );

@@ -4,6 +4,8 @@ import { Link, IndexLink } from 'react-router';
 import Auth from '../modules/Auth';
 import React, { Component } from 'react';
 import {Popover, Button, PopoverBody} from 'reactstrap';
+import '../css/App.css';
+import '../css/Navbar.css';
 const jwt = require('jsonwebtoken');
 const config = require('../../config');
 
@@ -97,7 +99,7 @@ const Base = ({ children }) => (
         <IndexLink to="/">Budget Manager</IndexLink>
       </div>
 
-      {Auth.isUserAuthenticated() 
+      {Auth.isUserAuthenticated()
       ? (
         <div className="top-bar-right">
         <Link to="/profile">Profile</Link>

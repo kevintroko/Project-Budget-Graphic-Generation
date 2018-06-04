@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { Card, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
+import {Button} from 'reactstrap';
 
 
 
@@ -51,7 +52,7 @@ const SignUpForm = ({
       </div>
 
       <div className="button-line">
-        <RaisedButton type="submit" label="Create New Account" primary />
+        <Button type="submit" id="main-btn">Create New Account</Button>
       </div>
 
       <CardText>Already have an account? <Link to={'/login'}>Log in</Link></CardText>

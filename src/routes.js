@@ -5,6 +5,7 @@ import LoginPage from './containers/LoginPage.jsx';
 import SignUpPage from './containers/SignUpPage.jsx';
 import Auth from './modules/Auth';
 import Profile from './components/Profile.js';
+import CreateProjectPage from './containers/CreateProjectPage.jsx';
 
 
 const routes = {
@@ -30,6 +31,10 @@ const routes = {
     {
       path: '/profile',
       component: Profile
+    },
+    {
+      path: '/createProject',
+      component: CreateProjectPage
     },
 
     {
