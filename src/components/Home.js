@@ -6,7 +6,8 @@ import AddIcon from './AddIcon';
 
 const filters = ["Project name", "Owner", "Budget left", "Time left"];
 
-export class Home extends React.Component{
+
+ class Home extends React.Component{
   constructor(props) {
 		super(props);
 		this.state={
@@ -25,7 +26,7 @@ export class Home extends React.Component{
     this.callApi().then(data => (this.setState({projects:data,isLoading:false})));
   }
 
-  callApi = async() => {
+  async callApi() {
     const response = await fetch('/projects');
     const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
@@ -111,3 +112,4 @@ export class Home extends React.Component{
     );
   }
 }
+export default Home;

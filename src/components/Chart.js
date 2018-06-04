@@ -1,6 +1,7 @@
 import React from 'react';
 import ChartDesign from './ChartDesign';
 
+
 //months defined in here.
 const months_profile = ['January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December'];
 //Create date for the year.
@@ -60,6 +61,8 @@ class Chart extends React.Component {
           }
         ]
       };
+
+
       //For used to sort the month circularly, may be on a function to be more optimized
       for (var j = 0, graphMonth=[], len=months_profile.length; j < len; j++) {
               graphMonth[j]=months_profile[(j+this.props.startDate)%len];

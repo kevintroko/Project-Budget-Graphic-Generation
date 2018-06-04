@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Bar, Line} from 'react-chartjs-2';
 
+
 class ChartDesign extends Component{
   render(){
     if(this.props.kind==='profile'){

@@ -1,7 +1,5 @@
 import React from 'react';
-import './css/App.css';
-import Navbar from './components/Navbar';
-// import Project from './components/Project';
+// import Navbar from './components/Navbar';
 import Profile from './components/Profile';
 
 class App extends React.Component {
