@@ -63,7 +63,7 @@ class Chart extends React.Component {
       }
 
       var chartData = { labels: graphMonth, datasets: []};
-        for (k = 0; k < arrayOfData.length-1; k++) {
+        for (k = 0; k < arrayOfData.length; k++) {
             getRandomColor();
             colors1 = 'rgba('+redA+','+greenA+','+blueA+',1.0)';
             newDataset = {
@@ -76,16 +76,16 @@ class Chart extends React.Component {
           // You add the newly created dataset to the list of `data`
           chartData.datasets.push(newDataset);
         }
-        colors1 = 'rgba(215,226,228,1.0)';
-        newDataset = {
-        label:'Teaching',
-        data: arrayOfData[2],
-        backgroundColor: colors1,
-        hoverBorderColor:'#000',
-        hidden: false
-      }
-      // You add the newly created dataset to the list of `data`
-      chartData.datasets.push(newDataset);
+      //   colors1 = 'rgba(215,226,228,1.0)';
+      //   newDataset = {
+      //   label:'Teaching',
+      //   data: arrayOfData[2],
+      //   backgroundColor: colors1,
+      //   hoverBorderColor:'#000',
+      //   hidden: false
+      // }
+      // // You add the newly created dataset to the list of `data`
+      // chartData.datasets.push(newDataset);
 
       if(this.props.type==='profile'){
         return (

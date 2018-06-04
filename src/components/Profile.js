@@ -8,8 +8,8 @@ class Profile extends Component {
     this.state={profile:[], graphData:[]};
   }
   componentDidMount(){
-    this.callApiGraph().then(data => (this.setState({graphData:data})));
-    this.callApiProfile().then(data => (this.setState({profile:data})));
+  //  this.callApiGraph().then(data => (this.setState({graphData:data})));
+    //this.callApiProfile().then(data => (this.setState({profile:data})));
   }
   //Calls the information from the graph of the profile database
   async callApiGraph() {
@@ -36,18 +36,18 @@ class Profile extends Component {
 
     profileCalculator();
     function sumProfesorHours(){
-        let sum; //The hours of workload substracting 100 hours
+        let sum=0; //The hours of workload substracting 100 hours
         let newArray=[];
-        for (var y = 0; y < data_to_profile[0].length; y++) {
-          sum=0;
-          for (let x = 0; x < data_to_profile.length-1; x++) {
-            sum=sum+data_to_profile[x][y];
+        for (var y = 0; y < data_to_profile.length; y++) { //2 and [x][y]
+            sum=0;
+            for (let x = 0; x < data_to_profile.length-1; x++) { //3
+              sum=sum+data_to_profile[x][y];
+            }
+            newArray.push(100-sum);
+         }
+         for (var i = 0; i < data_to_profile.length; i++) { //2
+            data_to_profile[(data_to_profile.length-1)].push(newArray[i]);
           }
-          newArray.push(100-sum);
-        }
-        for (var i = 0; i < data_to_profile[0].length; i++) {
-          data_to_profile[2].push(newArray[i]);
-        }
     }
 
     let first_name, last_name, email, department,office,isprofessor = "";
@@ -63,11 +63,11 @@ class Profile extends Component {
     this.state.graphData.map(p=>(hiring_date=p.hiring_date));
     var date1 = new Date(hiring_date);
     // if((5+" "+date1.getYear())===(date.getMonth()+" "+date.getYear()+" ")){
-      alert((5+date1.getYear())===(date.getMonth()+date.getYear()));
+      // alert((5+date1.getYear())===(date.getMonth()+date.getYear()));
     // }
 
     function profileCalculator(){
-       data_to_profile = [[10,11,12,50,100,0],[20,21,22,50,0,0]];
+       data_to_profile = [[15,10,31,15,40],[15,10,21,12,30],[18,10,10,19,10],[10,40,10,30,10]];
        //Add empty array for teaching bar section
        data_to_profile.push([]);
        //Call the 100 hours - workload calculator
