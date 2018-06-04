@@ -64,27 +64,31 @@ class Profile extends Component {
     console.log(workload);
 
     function profileCalculator(){
+      let a = new Date("February, 2018");
+      // a = a.getMonth();
+      let b = new Date("March, 2019");
+      // b = b.getMonth();
+      let c = (((((((b-a))/1000)/60)/60)/24)/30);
+      console.log(b+'-'+a+'='+c);
+
       let hiring_date = new Date("August, 2018");
       let end_date    = new Date("September, 2018");
       workload    = 10;
-      let array1      = [];
       let arrayMonth  = [];
-      let elapsedForZero = Math.ceil((((((end_date-date)/1000)/60)/60)/24)/30);
+      let elapsedForZero = ((((((end_date-date)/1000)/60)/60)/24)/30);
       for (var i = 0; i < elapsedForZero-1;i++){
         arrayMonth.push(0);
       }
-      let elapsed     = Math.floor((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      let elapsed1    = Math.floor((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      let elapsed     = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      let elapsed1    = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
       for (var i = 0; i < elapsed1; i++) {
           arrayMonth.push(workload);
       }
 
       hiring_date = new Date("September, 2018");
-      elapsedForZero = Math.ceil((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
+      elapsedForZero = ((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
       end_date    = new Date("January, 2019");
-      workload    = 20;
-      array1      = [];
-      console.log(elapsedForZero);
+      workload    = 13;
       if(elapsed===1){
         for (var i = 0; i < elapsedForZero;i++){
           arrayMonth.push(0);
@@ -94,8 +98,27 @@ class Profile extends Component {
           arrayMonth.push(0);
         }
       }
-      elapsed     = Math.floor((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-      elapsed1    = Math.floor((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      elapsed     = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      elapsed1    = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      for (var i = 0; i < elapsed1; i++) {
+          arrayMonth.push(workload);
+      }
+      //for 3
+      hiring_date = new Date("January, 2019");
+      elapsedForZero = ((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
+      end_date    = new Date("March, 2019");
+      workload    = 15;
+      if(elapsed===1){
+        for (var i = 0; i < elapsedForZero;i++){
+          arrayMonth.push(0);
+        }
+      }else {
+        for (var i = 0; i < elapsedForZero-1;i++){
+          arrayMonth.push(0);
+        }
+      }
+      elapsed     = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+      elapsed1    = ((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
       for (var i = 0; i < elapsed1; i++) {
           arrayMonth.push(workload);
       }
@@ -106,7 +129,6 @@ class Profile extends Component {
      //   elapsed1    -= elapsed1-elapsed;
      //   elapsed = elapsed1;
      //   workload    = 20;
-     //   array1      = [];
      //    for (var i = 0; i < elapsed1; i++) {
      //      arrayMonth.push(workload);
      //  }
@@ -116,7 +138,6 @@ class Profile extends Component {
      //  elapsed1    -= elapsed1-elapsed;
      //  elapsed     = elapsed1;
      //  workload    = 15;
-     //  array1      = [];
      //   for (var i = 0; i < elapsed1; i++) {
      //     arrayMonth.push(workload);
      // }
@@ -133,7 +154,6 @@ class Profile extends Component {
      //  elapsed1    = Math.ceil((((((end_date-date)/1000)/60)/60)/24)/30);
      //  console.log(elapsed1);
      //   workload    = 10;
-     //  array1      = [];
      //  arrayMonth  = [];
      //    for (var i = 0; i < elapsed1; i++) {
      //      arrayMonth.push(workload);
@@ -144,7 +164,6 @@ class Profile extends Component {
      //   elapsed1    -= elapsed1-elapsed;
      //   elapsed = elapsed1;
      //   workload    = 20;
-     //   array1      = [];
      //    for (var i = 0; i < elapsed1; i++) {
      //      arrayMonth.push(workload);
      //  }
@@ -155,7 +174,6 @@ class Profile extends Component {
      //  elapsed1    -= elapsed1-elapsed;
      //  elapsed = elapsed1;
      //  workload    = 15;
-     //  array1      = [];
      //   for (var i = 0; i < elapsed1; i++) {
      //     arrayMonth.push(workload);
      // }
