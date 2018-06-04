@@ -76,16 +76,16 @@ class Chart extends React.Component {
           // You add the newly created dataset to the list of `data`
           chartData.datasets.push(newDataset);
         }
-      //   colors1 = 'rgba(215,226,228,1.0)';
-      //   newDataset = {
-      //   label:'Teaching',
-      //   data: arrayOfData[arrayOfData.length-1],
-      //   backgroundColor: colors1,
-      //   hoverBorderColor:'#000',
-      //   hidden: false
-      // }
-      // // You add the newly created dataset to the list of `data`
-      // chartData.datasets.push(newDataset);
+        colors1 = 'rgba(215,226,228,1.0)';
+        newDataset = {
+        label:'Teaching',
+        data: arrayOfData[arrayOfData.length-1],
+        backgroundColor: colors1,
+        hoverBorderColor:'#000',
+        hidden: false
+      }
+      // You add the newly created dataset to the list of `data`
+      chartData.datasets.push(newDataset);
 
       if(this.props.type==='profile'){
         return (
