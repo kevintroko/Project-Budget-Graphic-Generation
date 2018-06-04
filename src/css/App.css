@@ -13,16 +13,19 @@
 	--red: #9F0000;
 	--redDark: #7F0000;
 }
-.btn{
+#main-btn{
+  width: 256px;
+}
+button{
 	background-color: var(--orange);
 	color: white;
 	border-radius: 0;
 }
-.btn:hover{
+button:hover{
 	background-color: var(--orangeDark);
 }
-.shadow {
-	  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+.box-shadow {
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
 }
 .bold {
   font-weight: 500;
@@ -38,7 +41,6 @@
 /* Grow */
 .hvr-grow {
     transform: translateZ(0);
-    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
     backface-visibility: hidden;
     -moz-osx-font-smoothing: grayscale;
     transition-duration: 0.3s;
@@ -71,17 +73,16 @@
 }
 
 .boxes {
-  width: 85%;
+  width: 80%;
   margin: 0 auto;
 }
 /*Project box css*/
 .project {
   background-color: var(--graySoft);
   color: var(--gray);
-  padding-bottom: .8em;
-  margin: 1em;
+  margin: 0;
 }
-.title {
+.project-title {
   font-size: 1.2em;
   margin-left: 0.8em;
   padding-top: 1em;
@@ -106,7 +107,7 @@
 .filter {
   background-color: var(--graySoft);
   max-width: 80%;
-  margin: 1em auto 0.5em auto;
+  margin: 0em auto 0em auto;
   padding: 0em;
 }
 .filter-text {

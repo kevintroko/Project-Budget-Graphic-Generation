@@ -4,8 +4,16 @@
   position: static;
 }
 /* Put bottom border orange */
-.bottom-border {
+.top-bar {
     border-bottom: 2px solid var(--orange);
+    padding: 1.5em;
+    margin-bottom: 25px;
+}
+
+
+.top-bar-right{
+  position: relative;
+  bottom: -0.75em;
 }
 
 .navbar-nav{
@@ -16,13 +24,13 @@
   border-bottom: 2px solid var(--orangeDark);
 }
 /*  Navbar hover */
-.navbar-light .navbar-nav .nav-link {
+a {
     font-size: 1.2em;
     padding: 1rem 1.5rem;
     color: var(--orange);
 }
 
-.navbar-light .navbar-nav .nav-link:hover{
+a:hover{
     color: var(--orangeDark);
 }
 /*  Navbar title */

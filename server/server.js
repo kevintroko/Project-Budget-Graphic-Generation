@@ -93,7 +93,7 @@ app.get('/user_projects', function (req, res) {
     });
 });
 
-//query to get some project's information 
+//query to get some project's information
 //give the code of a project
 app.get('/project_info', function (req, res) {
     connection.query('select * from project_current_participants_view where project_code="'+req.query.code+'"', function (error, results, fields) {

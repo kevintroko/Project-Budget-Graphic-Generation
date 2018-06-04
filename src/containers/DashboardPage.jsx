@@ -6,6 +6,7 @@ const config = require('../../config');
 import ProjectCard from '../components/ProjectCard';
 import {FilterBar} from '../components/FilterBar';
 import AddIcon from '../components/AddIcon';
+import {Col} from 'reactstrap';
 
 const filters = ["Project name", "Owner", "Budget left", "Time left"];
 class DashboardPage extends React.Component {
@@ -43,7 +44,7 @@ class DashboardPage extends React.Component {
   componentDidMount() {
     this.setState({ isLoading: true });
   const xhr = new XMLHttpRequest();
-    xhr.open('get', '/api/dashboard'); 
+    xhr.open('get', '/api/dashboard');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     //set the authorization HTTP header
     xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
@@ -138,7 +139,7 @@ class DashboardPage extends React.Component {
       />)
     );
     return(
-      <div>
+      <Col xs={{size: 10, offset: 1}}>
       {this.state.successMessage && <p className="success-message">{this.state.successMessage}</p>}
         <FilterBar
           filters={filters}
@@ -151,7 +152,7 @@ class DashboardPage extends React.Component {
         <div className="row boxes">
           {cards}
         </div>
-      </div>
+      </Col>
     );
   }
 
