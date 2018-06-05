@@ -52,6 +52,7 @@ import {Row,Col,Container} from 'reactstrap';
 
 
 export const Project = (props) => {
+	console.log(props);
 	return(
     <Container>
     <Row>
@@ -64,7 +65,7 @@ export const Project = (props) => {
 							current_balance={props.project.current_balance}
 							budget={props.project.budget}
 							startDate={props.project.start_date}
-							endDate={props.project.end_date}
+							deadline={props.project.deadline}
 							description={props.project.description}
 						/>}
 				/>
@@ -101,7 +102,7 @@ function ProjectDescription (props){
 			</tr>
 			<tr>
 			  <th scope="row">Budget</th>
-			  <td>{props.current_balance} / {props.budget}</td>
+			  <td>{props.budget}</td>
 			</tr>
 			<tr>
 			  <th scope="row">Start date</th>
@@ -109,7 +110,7 @@ function ProjectDescription (props){
 			</tr>
 			<tr>
 			  <th scope="row">Deadline</th>
-			  <td>{props.endDate}</td>
+			  <td>{props.deadline}</td>
 			</tr>
 			<tr>
 			  <th scope="row">Description</th>

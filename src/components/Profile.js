@@ -8,13 +8,8 @@ class Profile extends Component {
     this.state={profile:[], graphData:[]};
   }
   componentDidMount(){
-<<<<<<< HEAD
     this.callApiGraph().then(data => (this.setState({graphData:data})));
     this.callApiProfile().then(data => (this.setState({profile:data})));
-=======
-   // this.callApiGraph().then(data => (this.setState({graphData:data})));
-   //  this.callApiProfile().then(data => (this.setState({profile:data})));
->>>>>>> graph
   }
   //Calls the information from the graph of the profile database
   async callApiGraph() {
