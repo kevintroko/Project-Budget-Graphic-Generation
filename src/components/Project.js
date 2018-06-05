@@ -28,11 +28,9 @@ class Project extends Component {
 		}
     return (
       <div>
-        {/* <div className="title">
-          Project
-        </div> */}
+        <div className="title">Project</div>
         <div className="row panel flex-center-vertically">
-          <div className="col-9">
+          <div className="col-12">
 						<Chart data={budgetData} averageLine={averageLine} type="budget"
 							startDate={project.startDate}
 							endDate={project.deadline}/>
