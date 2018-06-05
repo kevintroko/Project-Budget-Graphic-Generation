@@ -27,9 +27,15 @@ function getRandomColor() {
 class Chart extends React.Component {
     render() {
       //Initial month for the budget graph 0=January... 5=January... 11=December
-      let initial_month =this.props.startDate.getMonth();
-      let deadline_month = this.props.endDate.getMonth();
-      if(this.props.endDate.getYear()-this.props.startDate.getYear()>0){
+      // let initial_month =this.props.startDate.getMonth();
+      // let deadline_month = this.props.endDate.getMonth();
+      // if(this.props.endDate.getYear()-this.props.startDate.getYear()>0){
+        // deadline_month+=12;
+      // }
+      let initial_month =6;
+      let deadline_month = 12;
+      // if(this.props.endDate.getYear()-this.props.startDate.getYear()>0){
+      if(2018-2018>0){
         deadline_month+=12;
       }
       let time = deadline_month-initial_month;
