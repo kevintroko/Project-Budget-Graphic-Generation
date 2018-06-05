@@ -128,7 +128,7 @@ class DashboardPage extends React.Component {
   this.orderProjects();
     const {projects,isLoading}=this.state;
     if (isLoading) {
-      return <p>Start node server.js</p>;
+      return <p></p>;
     }
     let cards = projects.map(project =>
       (<ProjectCard

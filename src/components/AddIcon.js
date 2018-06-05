@@ -5,7 +5,7 @@ import {Link} from 'react-router';
 class AddIcon extends React.Component {
 	render() {
 		return (
-			<Link to='/createProject'>
+			<Link to="/newproject">
       	<span><i className="material-icons circle-icon shadow hvr-grow">add</i></span>
 			</Link>
 		);

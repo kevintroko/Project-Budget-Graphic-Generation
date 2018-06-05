@@ -104,10 +104,9 @@ const Base = ({ children }) => (
         <div className="top-bar-right">
         <Link to={{pathname:"/editproject"
                     , state: { 
-                      name: 'hiii:)))',
+                      name: 'Edit Project Form',
                     }
                 }}>Edit Project</Link>
-        <Link to="/newproject">Create A New Project</Link>
         <Link to="/profile">Profile</Link>
           <Link to="/logout">Log out</Link>
           </div>

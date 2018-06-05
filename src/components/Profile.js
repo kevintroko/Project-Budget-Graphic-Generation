@@ -8,13 +8,10 @@ class Profile extends Component {
     this.state={profile:[], graphData:[]};
   }
   componentDidMount(){
-<<<<<<< HEAD
-    this.callApiGraph().then(data => (this.setState({graphData:data})));
-    this.callApiProfile().then(data => (this.setState({profile:data})));
-=======
-   // this.callApiGraph().then(data => (this.setState({graphData:data})));
-   //  this.callApiProfile().then(data => (this.setState({profile:data})));
->>>>>>> graph
+
+     this.callApiGraph().then(data => (this.setState({graphData:data})));
+     this.callApiProfile().then(data => (this.setState({profile:data})));
+
   }
   //Calls the information from the graph of the profile database
   async callApiGraph() {
@@ -30,6 +27,77 @@ class Profile extends Component {
   if (response.status !== 200) throw Error(body.message);
     return body;
   };
+
+
+
+ profileCalculator(data_to_profile,date){
+      let numberOfProjects=0;
+      let names=[];
+      this.state.graphData.map(p=>{
+        if(!names.includes(p.name)){
+          numberOfProjects++;
+          names.push({name:p.name,code:p.code});
+        }
+        });
+      let workload = 0;
+      // let arrayOfData_d1 = ["August, 2018","September, 2018"];
+      // let arrayOfData_d2 = ["September, 2018","October, 2018","October, 2018","December, 2018","December, 2018","January, 2019"];
+      // let arrayOfWorkLoad_d = [10,10,10,10,10,10,10,10,10];
+      let hiring_date, end_date, arrayMonth, elapsedForZero, elapsed,elapsed1;
+
+      for (let a = 0; a < numberOfProjects; a++) {
+        let counter=0;
+        this.state.graphData.map(p=>{
+            if (p.code===names[a].code){
+              if (counter==0){
+                    hiring_date = new Date(p.hiring_date);
+                    end_date    = new Date(p.end_date);
+                    workload    = p.workload;
+                    arrayMonth  = [];
+                    elapsedForZero =  Math.round((((((end_date-date)/1000)/60)/60)/24)/30);
+                    for (let i = 0; i < elapsedForZero-1;i++){
+                      arrayMonth.push(0);
+                    }
+                    elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+                    elapsed1    = elapsed;
+                    for (let i = 0; i < elapsed1; i++) {
+                       arrayMonth.push(workload);
+                    }
+            }else{
+
+        
+                hiring_date = new Date(p.hiring_date);
+                elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
+                end_date    = new Date(p.end_date);
+                workload    = p.workload;
+                if(elapsed===1){
+                  for (let i = 0; i < elapsedForZero;i++){
+                    arrayMonth.push(0);
+                  }
+                }else {
+                  for (let i = 0; i < elapsedForZero-1;i++){
+                    arrayMonth.push(0);
+                  }
+                }
+                elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
+                elapsed1    = elapsed;
+                for (let i = 0; i < elapsed1; i++) {
+                    arrayMonth.push(workload);
+                }
+        }
+        counter++;
+      }
+     });
+        data_to_profile.push(arrayMonth);
+      }
+
+      //Add empty array for teaching bar section
+      data_to_profile.push([]);
+      //Call the 100 hours - workload calculator
+      //sumProfesorHours();
+      return names;
+    }
+
   render() {
 
     //Get the current date and therefore the month
@@ -39,7 +107,7 @@ class Profile extends Component {
 
     //Const is read only so I change it to let
     let data_to_profile=[];
-    profileCalculator();
+    let names=this.profileCalculator(data_to_profile,date);
     function sumProfesorHours(){
         let sum=0; //The hours of workload substracting 100 hours
         let newArray=[];
@@ -68,57 +136,7 @@ class Profile extends Component {
     // let workload="";
     // this.state.graphData.map(p=>(workload=p.workload));
 
-    function profileCalculator(){
-      //DUMMY DATA ARRAY OF DATES
-      let workload = 0;
-      let arrayOfData_d1 = ["August, 2018","September, 2018"];
-      let arrayOfData_d2 = ["September, 2018","October, 2018","October, 2018","December, 2018","December, 2018","January, 2019"];
-      let arrayOfWorkLoad_d = [10,10,10,10,10,10,10,10,10];
-      let hiring_date, end_date, arrayMonth, elapsedForZero, elapsed,elapsed1;
-
-      for (let a = 0; a < 4; a++) {
-        hiring_date = new Date(arrayOfData_d1[0]);
-        end_date    = new Date(arrayOfData_d1[1]);
-        workload    = arrayOfWorkLoad_d[a];
-        arrayMonth  = [];
-        elapsedForZero =  Math.round((((((end_date-date)/1000)/60)/60)/24)/30);
-        for (let i = 0; i < elapsedForZero-1;i++){
-          arrayMonth.push(0);
-        }
-        elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-        elapsed1    = elapsed;
-        for (let i = 0; i < elapsed1; i++) {
-           arrayMonth.push(workload);
-        }
-
-        for (var z = 0; z < arrayOfData_d2.length; z+=2) {
-          hiring_date = new Date(arrayOfData_d2[z]);
-          elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
-          end_date    = new Date(arrayOfData_d2[z+1]);
-          workload    = z+11;
-          if(elapsed===1){
-            for (let i = 0; i < elapsedForZero;i++){
-              arrayMonth.push(0);
-            }
-          }else {
-            for (let i = 0; i < elapsedForZero-1;i++){
-              arrayMonth.push(0);
-            }
-          }
-          elapsed     = Math.round((((((end_date-hiring_date)/1000)/60)/60)/24)/30);
-          elapsed1    = elapsed;
-          for (let i = 0; i < elapsed1; i++) {
-              arrayMonth.push(workload);
-          }
-        }
-        data_to_profile.push(arrayMonth);
-      }
-
-      //Add empty array for teaching bar section
-      data_to_profile.push([]);
-      //Call the 100 hours - workload calculator
-      //sumProfesorHours();
-    }
+   
 
 
     return (
@@ -137,7 +155,7 @@ class Profile extends Component {
             <p><span className="bold">Role: </span>{isprofessor}</p>
           </div>
           <div className="col-9">
-            <Chart data={data_to_profile} type="profile" startDate={month}/>
+            <Chart data={data_to_profile} type="profile" startDate={month} names={names}/>
           </div>
         </div>
       </div>

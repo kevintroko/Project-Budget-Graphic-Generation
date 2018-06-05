@@ -98,12 +98,13 @@ class Chart extends React.Component {
               graphMonth[j]=months_profile[(j+this.props.startDate)%len];
       }
 
+      let names=this.props.names;
       var chartData = { labels: graphMonth, datasets: []};
         for (k = 0; k < arrayOfData.length-1; k++) {
             getRandomColor();
             colors1 = 'rgba('+redA+','+greenA+','+blueA+',1.0)';
             newDataset = {
-            label:'Project '+(k+1),
+            label:names[k].name,
             data: arrayOfData[k],
             backgroundColor: colors1,
             hoverBorderColor:'#000',
