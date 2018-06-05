@@ -68,10 +68,6 @@ class DashboardPage extends React.Component {
     xhr.send();
   }
 
-  getEmail() {
-
-  }
-
   async callApi(){
     const response = await fetch('http://localhost:5000/user_projects?code='+this.state.userEmail);
     const body = await response.json();

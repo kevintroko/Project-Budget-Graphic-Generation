@@ -102,6 +102,12 @@ const Base = ({ children }) => (
       {Auth.isUserAuthenticated()
       ? (
         <div className="top-bar-right">
+        <Link to={{pathname:"/editproject"
+                    , state: { 
+                      name: 'hiii:)))',
+                    }
+                }}>Edit Project</Link>
+        <Link to="/newproject">Create A New Project</Link>
         <Link to="/profile">Profile</Link>
           <Link to="/logout">Log out</Link>
           </div>
