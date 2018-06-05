@@ -1,9 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import '../css/Project.css';
 import {Project} from './Project';
 
-export class ProjectContainer extends React.Component {
+class ProjectContainer extends Component {
 	constructor(props) {
 		super(props);
 		this.state={
@@ -33,20 +32,23 @@ export class ProjectContainer extends React.Component {
 			newMembers.push({name: name, workload: members[i].workload, hiring_date: members[i].hiring_date, deadline: members[i].deadline});
 		}
 		return newMembers;
-	}
+	};
 
-	fetchProjectDetails = async() => {
-    const response = await fetch('/projectDetails?code='+this.props.code);
+
+
+	async fetchMembers() {
+    const response = await fetch('http://localhost:5000/members?code='+this.props.location.query.code);
     const body = await response.json();
   	if (response.status !== 200) throw Error(body.message);
+
     return body;
   };
 
-	fetchMembers = async() => {
-    const response = await fetch('/members?code='+this.props.code);
+
+	async fetchProjectDetails(){
+    const response = await fetch('http://localhost:5000/projectDetails?code='+this.props.location.query.code);
     const body = await response.json();
   	if (response.status !== 200) throw Error(body.message);
-
     return body;
   };
 
@@ -60,6 +62,7 @@ export class ProjectContainer extends React.Component {
   }
 
 };
+export default ProjectContainer;
 
 ProjectContainer.defaultProps = {
 	name: 'Project name',
@@ -68,12 +71,4 @@ ProjectContainer.defaultProps = {
 	current_balance: 0,
 	budget: 0,
 	description: ''
-};
-ProjectContainer.propTypes={
-	name: 						PropTypes.string.isRequired,
-	owner: 						PropTypes.string.isRequired,
-	code:							PropTypes.string.isRequired,
-	current_balance: 	PropTypes.number.isRequired,
-	budget:						PropTypes.number.isRequired,
-	description: 			PropTypes.string,
 };

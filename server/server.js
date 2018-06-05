@@ -56,7 +56,7 @@ app.get('/has', function (req, res) {
 });
 //members query
 app.get('/members', function (req, res) {
-    connection.query('select first_name, middle_name, last_name, workload, hiring_date, deadline from has_view join person_view where person_view.email = has_view.person_code and has_view.project_code='+'"'+req.query.code+'"', function (error, results, fields) {
+    connection.query('select first_name, middle_name, last_name, workload, hiring_date, end_date from has_view join person_view where person_view.email = has_view.person_code and has_view.project_code='+'"'+req.query.code+'"', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
@@ -139,7 +139,7 @@ app.get('/project_info', function (req, res) {
     });
 });
 
-//query to get some project's information 
+//query to get some project's information
 //give the code of a project
 app.get('/all_person_emails', function (req, res) {
     connection.query('select email from person_view ', function (error, results, fields) {
