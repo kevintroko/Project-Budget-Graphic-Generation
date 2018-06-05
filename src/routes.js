@@ -7,6 +7,7 @@ import Auth from './modules/Auth';
 import Profile from './components/Profile.js';
 import NewProjectPage from './containers/NewProjectPage.jsx';
 import EditProjectPage from './containers/EditProjectPage.jsx';
+import ProjectContainer from './components/ProjectContainer.js';
 
 
 
@@ -33,6 +34,10 @@ const routes = {
     {
       path: '/profile',
       component: Profile
+    },
+    {
+      path: '/project',
+      component: ProjectContainer
     },
     {
       path: '/newproject',

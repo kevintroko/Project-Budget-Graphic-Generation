@@ -132,9 +132,12 @@ class DashboardPage extends React.Component {
     }
     let cards = projects.map(project =>
       (<ProjectCard
-        name={project.name} workload={project.workload}
+        name={project.name}
+        workload={project.workload}
+        code={project.code}
         owner={project.owner}
-        budget={project.budget} current_balance={project.current_balance}
+        budget={project.budget}
+        current_balance={project.current_balance}
         description={project.description}
       />)
     );
