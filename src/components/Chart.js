@@ -29,9 +29,12 @@ class Chart extends React.Component {
       //Initial month for the budget graph 0=January... 5=January... 11=December
       let initial_month =this.props.startDate.getMonth();
       let deadline_month = this.props.endDate.getMonth();
+      if(this.props.endDate.getYear()-this.props.startDate.getYear()>0){
+        deadline_month+=12;
+      }
       let time = deadline_month-initial_month;
       let arrayOfData = this.props.data;
-      if(time<12){
+      if(time<=12){
         for (var i = 0, graphMonth_Budget=[]; i < 12+initial_month; i++) {
           graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year);
           //Adds a year every time month is December
@@ -44,19 +47,19 @@ class Chart extends React.Component {
             graphMonth_Budget[i-initial_month]= 'deadline';
           }
         }
-      }else {
-        for (let i = 0, graphMonth_Budget=[]; i < time+initial_month; i++) {
-          graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year);
-          //Adds a year every time month is December
-          if(i===11) year++;
-          //Colors the current month
-          if(i===month){
-            graphMonth_Budget[i-initial_month]= 'current date';
-          } //Colors the deadline month
-          if(i===deadline_month){
-            graphMonth_Budget[i-initial_month]= 'deadline';
-          }
-        }
+      // }else {
+      //   for (let i = 0, graphMonth_Budget=[]; i < time+initial_month; i++) {
+      //     graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year);
+      //     //Adds a year every time month is December
+      //     if(i===11) year++;
+      //     //Colors the current month
+      //     if(i===month){
+      //       graphMonth_Budget[i-initial_month]= 'current date';
+      //     } //Colors the deadline month
+      //     if(i===deadline_month){
+      //       graphMonth_Budget[i-initial_month]= 'deadline';
+      //     }
+      //   }
       }
 
       //Data for the budget graph

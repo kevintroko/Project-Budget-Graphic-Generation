@@ -5,7 +5,7 @@ import '../css/Profile.css';
 class Project extends Component {
   render() {
 		//DUMMY DATA
-		var project = {name:"Volvo Project",startDate:new Date("March, 2018"),deadline:new Date("February, 2020"),percentage:80.0, budget:2000};
+		var project = {name:"Volvo Project",startDate:new Date("March, 2018"),deadline:new Date("February, 2019"),percentage:80.0, budget:2000};
 		let time = Math.round((((((project.deadline-project.startDate)/1000)/60)/60)/24)/30);
 		let cost=0;
 		let budgetData = [];
