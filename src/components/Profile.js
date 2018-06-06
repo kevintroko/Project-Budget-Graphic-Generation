@@ -111,7 +111,7 @@ class Profile extends Component {
       //Add empty array for teaching bar section
       data_to_profile.push([]);
       //Call the 100 hours - workload calculator
-      sumProfesorHours();
+      //sumProfesorHours();
     }
 
     return (
