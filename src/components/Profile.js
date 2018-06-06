@@ -21,7 +21,7 @@ class Profile extends Component {
   };
   //Calls the information from the person profile database
   async callApiProfile(){
-    const response = await fetch('http://localhost:5000/person_info?code=chad@bing.se');
+    const response = await fetch('http://localhost:5000/person_info?code='+this.props.location.query.email);
     const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
     return body;
@@ -64,7 +64,7 @@ class Profile extends Component {
                     }
             }else{
 
-        
+
                 hiring_date = new Date(p.hiring_date);
                 elapsedForZero =  Math.round((((((hiring_date-end_date)/1000)/60)/60)/24)/30);
                 end_date    = new Date(p.end_date);
@@ -135,7 +135,7 @@ class Profile extends Component {
     // let workload="";
     // this.state.graphData.map(p=>(workload=p.workload));
 
-   
+
 
 
     return (
