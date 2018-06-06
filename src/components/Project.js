@@ -2,6 +2,7 @@ import React from 'react';
 import Chart from './Chart';
 import {Table} from './Table';
 import {Row,Col,Container} from 'reactstrap';
+import AddIcon from './AddIcon';
 // import '../css/Profile.css';
 //
 // class Project extends Component {
@@ -52,42 +53,46 @@ import {Row,Col,Container} from 'reactstrap';
 
 
 export const Project = (props) => {
-	console.log(props);
 	return(
     <Container>
-    <Row>
-		<Col xs="6">
-				<Card
-					name={props.project.name}
-					content=
-						{<ProjectDescription
-							owner={props.project.owner}
-							current_balance={props.project.current_balance}
-							budget={props.project.budget}
-							startDate={props.project.start_date}
-							deadline={props.project.deadline}
-							description={props.project.description}
-						/>}
-				/>
+	    <Row>
+				<Col xs="6">
+					<Card
+						name={props.project.name}
+						content=
+							{<ProjectDescription
+								owner={props.project.owner}
+								current_balance={props.project.current_balance}
+								budget={props.project.budget}
+								startDate={props.project.start_date}
+								deadline={props.project.deadline}
+								description={props.project.description}
+							/>}
+					/>
 
-				<Card
-					name='Members'
-					content=
-						{<Table
-							cols={['Name','Email','Workflow','Start Date','End Date']}
-							data={props.members}
-							links={props.memberLinks}
-						/>}
-				/>
+					<Card
+						name='Members'
+						content=
+							{<Table
+								cols={['Name','Email','Workflow','Start Date','End Date']}
+								data={props.members}
+								links={props.memberLinks}
+							/>}
+					/>
 
-			</Col>
-			<Col xs="6">
-				<Card
-					name='Graph'
-					content=''
-				/>
-			</Col>
-    </Row>
+				</Col>
+				<Col xs="6">
+					<Card
+						name='Graph'
+						content=''
+					/>
+				</Col>
+	    </Row>
+			<AddIcon icon="edit" link={{pathname:"/editproject"
+									, state: {
+										name: props.project.code,
+									}
+							}}/>
     </Container>
 	);
 }
