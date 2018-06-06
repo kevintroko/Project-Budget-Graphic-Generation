@@ -88,11 +88,11 @@ export const Project = (props) => {
 					/>
 				</Col>
 	    </Row>
-			<AddIcon icon="edit" link={{pathname:"/editproject"
-									, state: {
-										name: props.project.code,
-									}
-							}}/>
+			<AddIcon icon="edit" link={{pathname:"/editproject",
+				 													state: {
+																		name: props.project.code,
+																	}
+																}}/>
     </Container>
 	);
 }

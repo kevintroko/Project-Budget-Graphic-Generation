@@ -23,16 +23,23 @@
 .admin {
   border-bottom: 2px solid var(--orangeDark);
 }
-/*  Navbar hover */
-a {
-    font-size: 1.2em;
-    padding: 1rem 1.5rem;
-    color: var(--orange);
+a{
+  color: var(--orange);
 }
-
 a:hover{
     color: var(--orangeDark);
 }
+/*  Navbar hover */
+.top-bar a {
+    font-size: 1.2em;
+    padding: 1rem 1.5rem;
+}
+
+.project-card{
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
 /*  Navbar title */
 .navbar-light .navbar-brand:hover {
     color: var(--orangeDark);
