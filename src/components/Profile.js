@@ -1,27 +1,56 @@
 import React, { Component } from 'react';
 import '../css/Profile.css';
 import Chart from './Chart';
+import Auth from '../modules/Auth';
+const jwt = require('jsonwebtoken');
+const config = require('../../config');
 
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state={profile:[], graphData:[]};
+    this.state={profile:[], graphData:[], userEmail: '', secretData: ''};
   }
   componentDidMount(){
+    this.setState({ isLoading: true });
+    const xhr = new XMLHttpRequest();
+    xhr.open('get', '/api/dashboard');
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+    //set the authorization HTTP header
+    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
+    xhr.responseType = 'json';
+    xhr.addEventListener('load', () => {
+      if (xhr.status === 200) {
+         this.setState({
+            secretData:xhr.response.message
+          });
+          // decode the token using a secret key-phrase
+          jwt.verify(this.state.secretData, config.jwtSecret, (err, decoded) => {
+            // the 401 code is for unauthorized status
+            if (err) { return res.status(401).end(); }
+            this.setState({
+                userEmail:decoded.sub
+            });
+            this.callApiGraph().then(data => (this.setState({graphData:data})));
+            this.callApiProfile().then(data => (this.setState({profile:data})));
+          });
+      }
+    });
+    xhr.send();
 
-     this.callApiGraph().then(data => (this.setState({graphData:data})));
-     this.callApiProfile().then(data => (this.setState({profile:data})));
+
   }
   //Calls the information from the graph of the profile database
   async callApiGraph() {
-    const response = await fetch('http://localhost:5000/working_projects?code=test@admin.se');
+    let email = (Object.keys(this.props.location.query).length ==0) ?  this.state.userEmail : this.props.location.query.email;
+    const response = await fetch('http://localhost:5000/working_projects?code='+email);
     const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
     return body;
   };
   //Calls the information from the person profile database
   async callApiProfile(){
-    const response = await fetch('http://localhost:5000/person_info?code='+this.props.location.query.email);
+    let email = (Object.keys(this.props.location.query).length ==0) ?  this.state.userEmail : this.props.location.query.email;
+    const response = await fetch('http://localhost:5000/person_info?code='+email);
     const body = await response.json();
   if (response.status !== 200) throw Error(body.message);
     return body;
