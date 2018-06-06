@@ -10,22 +10,26 @@ class Project extends Component {
 		let cost=0;
 		let budgetData = [];
 		let averageLine = [];
-		var person1 = {firstName:"John",lastName:"Doe",salary:50,socialfactor:1.4,cost:0,workload:10};
-		var person2 = {firstName:"James",lastName:"Blunt",salary:50,socialfactor:1.4,cost:0,workload:100};
-		var person3 = {firstName:"Peter",lastName:"Parker",salary:50,socialfactor:1.4,cost:0,workload:50};
+		var person1 = {firstName:"John",lastName:"Doe",salary:200,socialfactor:1.4,cost:0,workload:10};
+		var person2 = {firstName:"James",lastName:"Blunt",salary:200,socialfactor:1.4,cost:0,workload:100};
+		var person3 = {firstName:"Peter",lastName:"Parker",salary:200,socialfactor:1.4,cost:0,workload:50};
 		let expected_budget = project.budget*((100-project.percentage)*0.01);
 		getCost();
-		function getCost(){
-			person1.cost=(person1.salary)*(person1.socialfactor);
-			person2.cost=person2.salary*person2.socialfactor;
-			person3.cost=person3.salary*person3.socialfactor;
-			cost=person1.cost+person2.cost+person3.cost;
-			for(var i=0; i<time+2;i++) {
-				budgetData.push(project.budget);
-				averageLine.push(expected_budget);
-				project.budget=project.budget-cost;
-			}//display extra month
+    function getCost(){
+			person1.cost=(person1.salary)*(person1.socialfactor)*(person1.workload/100);
+      person2.cost=(person2.salary)*(person2.socialfactor)*(person2.workload/100);
+      person2.cost=(person3.salary)*(person3.socialfactor)*(person3.workload/100);
 		}
+    getBudgetPerMonth();
+    function getBudgetPerMonth(){
+      cost=person1.cost+person2.cost+person3.cost;
+      for(var i=0; i<time+2;i++) {
+        budgetData.push(project.budget);
+        averageLine.push(expected_budget);
+        project.budget=project.budget-cost;
+      }//display extra month
+    }
+
     return (
       <div>
         <div className="title">Project</div>
