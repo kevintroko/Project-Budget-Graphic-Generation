@@ -118,7 +118,11 @@ class DashboardPage extends React.Component {
     });
   }
   orderByTime(ascending){
-    /*PLS IMPLEMENT ME SENPAI */
+    this.state.projects.sort(function(a, b){
+      let timeA = new Date(a.deadline);
+      let timeB = new Date(b.deadline);
+      return (timeA-timeB)*ascending;
+    });
   }
 
   /**
