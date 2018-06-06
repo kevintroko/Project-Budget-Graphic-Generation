@@ -74,7 +74,7 @@ export const Project = (props) => {
 					name='Members'
 					content=
 						{<Table
-							cols={['Name','Workflow','Start Date','End Date']}
+							cols={['Name','Email','Workflow','Start Date','End Date']}
 							data={props.members}
 							links={props.memberLinks}
 						/>}

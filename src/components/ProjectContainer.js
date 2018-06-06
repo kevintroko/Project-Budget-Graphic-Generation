@@ -14,10 +14,11 @@ class ProjectContainer extends Component {
 
 	componentWillMount(){
     this.fetchProjectDetails().then(data => {
+			this.improveProject(data[0]);
 			this.setState({project: data[0]});
 		});
 		this.fetchMembers().then(membersQuery => {
-			let newMembers = this.improveNames(membersQuery);
+			let newMembers = this.improveMembers(membersQuery);
 			this.setState({
 				members: newMembers,
 				memberLinks: this.getMemberLinks(newMembers),
@@ -25,7 +26,7 @@ class ProjectContainer extends Component {
 		});
 	}
 
-	improveNames(members){
+	improveMembers(members){
 		let newMembers=[];
 		for(var i=0; i<members.length; i++){
 			let name = members[i].first_name;
@@ -33,10 +34,20 @@ class ProjectContainer extends Component {
 				name += " "+members[i].middle_name;
 			}
 			name += " "+members[i].last_name;
-
-			newMembers.push({name: name, email: members[i].person_code, workload: members[i].workload, hiring_date: members[i].hiring_date, deadline: members[i].deadline});
+			newMembers.push({name: name, email: members[i].person_code, workload: members[i].workload, hiring_date: this.improveDate(members[i].hiring_date), deadline: this.improveDate(members[i].end_date)});
 		}
 		return newMembers;
+	};
+
+	improveProject(project){
+		project.start_date = this.improveDate(project.start_date);
+		project.deadline = this.improveDate(project.deadline);
+		return project;
+	}
+
+	improveDate(date){
+		var d = new Date(date);
+		return d.getMonth()+" / "+d.getFullYear();
 	};
 
 	getMemberLinks(members){
