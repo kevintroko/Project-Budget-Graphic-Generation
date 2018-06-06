@@ -12,7 +12,7 @@ class ProjectCard extends Component {
                     <p className="bold project-title inline-block">{this.props.name}</p>
                     <div className="percentage bold">{this.props.workload}%</div>
                     <p className="bold">Owner: <span className="nobold">{this.props.owner}</span></p>
-                    <p className="bold">Budget: <span className="nobold">{this.props.current_balance}/{this.props.budget}</span></p>
+                    <p className="bold">Budget: <span className="nobold">{this.props.budget}</span></p>
                     <p className="italic">{this.props.description}</p>
                 </div>
               </Link>

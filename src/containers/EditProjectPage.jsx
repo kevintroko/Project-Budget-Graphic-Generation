@@ -30,6 +30,7 @@ class EditProjectPage extends React.Component {
       participants: [],
       persons:[],
       values: [],
+      fetched_projects:[],
       project: {
         name: '',
         project_code: '',
@@ -40,31 +41,6 @@ class EditProjectPage extends React.Component {
       },
       secretData: '',
     };
-    const xhr = new XMLHttpRequest();
-    xhr.open('get', '/api/dashboard'); 
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    //set the authorization HTTP header
-    xhr.setRequestHeader('Authorization', `bearer ${Auth.getToken()}`);
-    xhr.responseType = 'json';
-    xhr.addEventListener('load', () => {
-      if (xhr.status === 200) {
-         this.setState({
-            secretData:xhr.response.message
-          });
-          // decode the token using a secret key-phrase
-          jwt.verify(this.state.secretData, config.jwtSecret, (err, decoded) => {
-            // the 401 code is for unauthorized status
-            if (err) { return res.status(401).end(); }
-            this.setState({
-                email:decoded.sub
-            });
-            this.state.values.push({workload:'25',description:'the administrator of the project!',range:this.state.mrange2, email:this.state.email})
-          });
-      }
-    });
-    xhr.send();
-    
-
     this.processForm = this.processForm.bind(this);
     this.changeProject = this.changeProject.bind(this);
     this._handleClickRangeBox2 = this._handleClickRangeBox2.bind(this);
@@ -170,11 +146,32 @@ class EditProjectPage extends React.Component {
 //      }
 //  }  
 
-componentDidMount(){
+componentWillMount(){
   this.callApi().then(data => (this.setState({persons:data})));  
+  this.callApiProjectDetails().then(data => (this.updateChanges(data)));
 }
-async callApi(){
+
+updateChanges(data){
+  let pr=Object.assign({}, this.state.project);
+  pr.name=data[0].name,
+  pr.project_code=data[0].code;
+  pr.project_budget=data[0].budget;
+  pr.project_desc=data[0].description;
+  pr.project_start=data[0].start_date;
+  pr.project_deadline=data[0].deadline;
+  this.setState({project:pr})
+}
+
+
+  async callApi(){
     const response = await fetch('http://localhost:5000/all_person_emails');
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  };
+
+  async callApiProjectDetails(){
+    const response = await fetch('http://localhost:5000/projectDetails?code='+this.props.location.state.name);
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     return body;

@@ -68,8 +68,8 @@ class Notifications extends Component {
   }
 };
 
-var secretData;
-var userEmail;
+var secretData='';
+var userEmail='';
 function getUsername() {
     const xhr = new XMLHttpRequest();
     xhr.open('get', '/api/dashboard');
@@ -79,17 +79,19 @@ function getUsername() {
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
       if (xhr.status === 200) {
-          secretData:xhr.response.message
+          secretData=xhr.response.message;
           // decode the token using a secret key-phrase
           jwt.verify(secretData, config.jwtSecret, (err, decoded) => {
             // the 401 code is for unauthorized status
             if (err) { return res.status(401).end(); }
-            userEmail:decoded.sub
+            userEmail=decoded.sub;
+            console.log(decoded.sub);
+            return(<Link to="/">{decoded.sub}</Link>);
           });
       }
     });
     xhr.send();
-    return(<Link to="/">{userEmail}</Link>);
+    
   }
 
 const Base = ({ children }) => (
@@ -104,7 +106,7 @@ const Base = ({ children }) => (
         <div className="top-bar-right">
         <Link to={{pathname:"/editproject"
                     , state: { 
-                      name: 'Edit Project Form',
+                      name: 'cfin1',
                     }
                 }}>Edit Project</Link>
         <Link to="/profile">Profile</Link>
