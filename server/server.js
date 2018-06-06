@@ -56,7 +56,7 @@ app.get('/has', function (req, res) {
 });
 //members query
 app.get('/members', function (req, res) {
-    connection.query('select first_name, middle_name, last_name, workload, hiring_date, end_date from has_view join person_view where person_view.email = has_view.person_code and has_view.project_code='+'"'+req.query.code+'"', function (error, results, fields) {
+    connection.query('select first_name, person_code, middle_name, last_name, workload, hiring_date, end_date from has_view join person_view where person_view.email = has_view.person_code and has_view.project_code='+'"'+req.query.code+'"', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
