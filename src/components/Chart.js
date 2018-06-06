@@ -28,25 +28,32 @@ function getRandomColor() {
 class Chart extends React.Component {
     render() {
       //Initial month for the budget graph 0=January... 5=January... 11=December
-      // let initial_month =this.props.startDate.getMonth();
-      // let deadline_month = this.props.endDate.getMonth();
-      // if(this.props.endDate.getYear()-this.props.startDate.getYear()>0){
-        // deadline_month+=12;
-      // }
-      let initial_month =6;
-      let deadline_month = 12;
-      // if(this.props.endDate.getYear()-this.props.startDate.getYear()>0){
-      if(2018-2018>0){
-        deadline_month+=12;
+      let initial_month;
+      let deadline_month;
+      if(this.props.type==="budget"){
+        let initial =this.props.startDate;
+        let deadline = this.props.endDate;
+        let initial_year = initial.getYear();
+        let deadline_year = deadline.getYear();
+        initial_month=initial.getMonth();
+        deadline_month=deadline.getMonth();
+        if(deadline_year-initial_year>0){
+          deadline_month+=12;
+        }
       }
+
       let time = deadline_month-initial_month;
       let arrayOfData = this.props.data;
+
       if(time<=12){
         for (var i = 0, graphMonth_Budget=[]; i < 12+initial_month; i++) {
           graphMonth_Budget[i-initial_month]=((i%12)+1)+"/"+(year);
           //Adds a year every time month is December
           if(i===11) year++;
           //Colors the current month
+          if(i===initial_month){
+            graphMonth_Budget[i-initial_month]= 'initial date';
+          }
           if(i===month){
             graphMonth_Budget[i-initial_month]= 'current date';
           } //Colors the deadline month

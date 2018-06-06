@@ -8,6 +8,7 @@ class ProjectContainer extends Component {
 		this.state={
 			project: null,
 			members: [],
+			memberLinks: [],
 		};
 	}
 
@@ -16,7 +17,11 @@ class ProjectContainer extends Component {
 			this.setState({project: data[0]});
 		});
 		this.fetchMembers().then(membersQuery => {
-			this.setState({members: this.improveNames(membersQuery)});
+			let newMembers = this.improveNames(membersQuery);
+			this.setState({
+				members: newMembers,
+				memberLinks: this.getMemberLinks(newMembers),
+			});
 		});
 	}
 
@@ -29,9 +34,18 @@ class ProjectContainer extends Component {
 			}
 			name += " "+members[i].last_name;
 
-			newMembers.push({name: name, workload: members[i].workload, hiring_date: members[i].hiring_date, deadline: members[i].deadline});
+			newMembers.push({name: name, email: members[i].person_code, workload: members[i].workload, hiring_date: members[i].hiring_date, deadline: members[i].deadline});
 		}
 		return newMembers;
+	};
+
+	getMemberLinks(members){
+		console.log(members);
+		let links=[members.length];
+		for(var i=0; i<members.length; i++){
+			links[i] = "/profile?email="+members[i].email;
+		}
+		return links;
 	};
 
 
@@ -55,7 +69,7 @@ class ProjectContainer extends Component {
   render() {
 		//makes sure the SQL query finished
 		if(this.state.project){
-    	return <Project project={this.state.project} members={this.state.members} />;
+    	return <Project project={this.state.project} members={this.state.members} memberLinks={this.state.memberLinks} />;
 		}else{
 			return null;
 		}
