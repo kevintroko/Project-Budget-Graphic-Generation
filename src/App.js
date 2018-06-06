@@ -1,5 +1,7 @@
 import React from 'react';
-// import Navbar from './components/Navbar';
+import './css/App.css';
+import Navbar from './components/Navbar';
+import Project from './components/Project';
 import Profile from './components/Profile';
 
 class App extends React.Component {
@@ -7,8 +9,8 @@ class App extends React.Component {
       return (
         <div className="App">
           <Navbar/>
-          <Profile name="Kevin" lastname="Cabrera" rolee="Professor" email="kevintroko@gmail.com"/>
           {/* <Project/> */}
+          {/* <Profile name="Kevin" lastname="Cabrera" role="Professor" email="kevintroko@gmail.com"/> */}
         </div>
       );
     }

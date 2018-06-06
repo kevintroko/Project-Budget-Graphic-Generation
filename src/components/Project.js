@@ -2,45 +2,135 @@ import React from 'react';
 import Chart from './Chart';
 import {Table} from './Table';
 import {Row,Col,Container} from 'reactstrap';
-// import '../css/Profile.css';
+
 //
 // class Project extends Component {
 //   render() {
 // 		//DUMMY DATA
-// 		const date = new Date();
-// 		const month = date.getMonth();
-// 		var project = {name:"Volvo Project",startDate:"",deadline:""};
-// 		project.startDate=new Date("March, 2018");
-// 		project.deadline=new Date("December, 2018");
+//     let dates, datesP;
+// 		var project = {name:"Volvo Project",startDate:new Date("March, 2018"),deadline:new Date("February, 2019"),percentage:80.0, budget:2000};
 // 		let time = Math.round((((((project.deadline-project.startDate)/1000)/60)/60)/24)/30);
-// 		console.log(time);
-// 		let budget = 2000;
 // 		let cost=0;
 // 		let budgetData = [];
-// 		var person1 = {firstName:"John",lastName:"Doe",salary:50,socialfactor:1,cost:0};
-// 		var person2 = {firstName:"James",lastName:"Blunt",salary:50,socialfactor:1,cost:0};
-// 		var person3 = {firstName:"Peter",lastName:"Parker",salary:50,socialfactor:1,cost:0};
+// 		let averageLine = [];
+// 		var person1 = {firstName:"John",lastName:"Doe",salary:100,socialfactor:1.4,cost:0,workload:10,firstDay:new Date("March, 2018"),LastDay:new Date("February, 2019"), monthsWorking:[]};
+// 		var person2 = {firstName:"James",lastName:"Blunt",salary:100,socialfactor:1.4,cost:0,workload:10,firstDay:new Date("April, 2018"),LastDay:new Date("August, 2018"), monthsWorking:[]};
+// 		var person3 = {firstName:"Peter",lastName:"Parker",salary:200,socialfactor:1.4,cost:0,workload:50,firstDay:new Date("April, 2018"),LastDay:new Date("June, 2018"), monthsWorking:[]};
+//     var person4 = {firstName:"Peter",lastName:"Parker",salary:100,socialfactor:1.4,cost:0,workload:100,firstDay:new Date("September, 2018"),LastDay:new Date("February, 2019"), monthsWorking:[]};
+// 		let expected_budget = project.budget*((100-project.percentage)*0.01);
+//     //Push the project budget into the graph so push 2000
+//     budgetData.push(project.budget);
+//     averageLine.push(expected_budget);
 // 		getCost();
+//     let peopleToADD;
+//     let currentmonth,currentmonthPerson;
+//     //GET array of months
+//     getBudgetPerMonth((project.startDate.getFullYear())+" "+(project.startDate.getMonth()),(project.deadline.getFullYear())+" "+(project.deadline.getMonth()));
+//     getPersonPerMonth((person1.firstDay.getFullYear())+" "+(person1.firstDay.getMonth()),(person1.LastDay.getFullYear())+" "+(person1.LastDay.getMonth()),person1);
+//     getPersonPerMonth((person2.firstDay.getFullYear())+" "+(person2.firstDay.getMonth()),(person2.LastDay.getFullYear())+" "+(person2.LastDay.getMonth()),person2);
 //
-// 		function getCost(){
-// 			person1.cost=(person1.salary)*(person1.socialfactor);
-// 			person2.cost=person2.salary*person2.socialfactor;
-// 			person3.cost=person3.salary*person3.socialfactor;
-// 			cost=person1.cost+person2.cost+person3.cost;
-// 			for (var i = 0; i < time; i++) {
-// 				budgetData.push(budget);
-// 				budget=budget-cost;
-// 			}
+//     peopleToADD = [];
+//     currentmonth = dates.shift();
+//               //Make a person array
+//                 if(person1.monthsWorking[0]===currentmonth){
+//                   currentmonthPerson = person1.monthsWorking.shift();
+//                   console.log("currentmonthPerson: "+currentmonthPerson);
+//                   if(currentmonth===currentmonthPerson){
+//                     peopleToADD.push(person1);
+//                   }
+//                 }
+//
+//                 if(person2.monthsWorking[0]===currentmonth){
+//                   currentmonthPerson = person2.monthsWorking.shift();
+//                   if(currentmonth===currentmonthPerson){
+//                     peopleToADD.push(person2);
+//                   }
+//                 }
+//     for (var i = 0; i < peopleToADD.length; i++) {
+//       cost+=peopleToADD[i].cost;
+//     }
+//     //Push the 80% of line
+//     averageLine.push(expected_budget);
+//     project.budget=project.budget-cost;
+//     budgetData.push(project.budget);
+//     cost=0;
+//
+//     peopleToADD = [];
+//     currentmonth = dates.shift();
+//               //Make a person array
+//                 if(person1.monthsWorking[0]===currentmonth){
+//                   currentmonthPerson = person1.monthsWorking.shift();
+//                   console.log("currentmonthPerson: "+currentmonthPerson);
+//                   if(currentmonth===currentmonthPerson){
+//                     peopleToADD.push(person1);
+//                   }
+//                 }
+//
+//                 if(person2.monthsWorking[0]===currentmonth){
+//                   currentmonthPerson = person2.monthsWorking.shift();
+//                   if(currentmonth===currentmonthPerson){
+//                     peopleToADD.push(person2);
+//                   }
+//                 }
+//     for (var i = 0; i < peopleToADD.length; i++) {
+//       cost+=peopleToADD[i].cost;
+//     }
+//     //Push the 80% of line
+//     averageLine.push(expected_budget);
+//     project.budget=project.budget-cost;
+//     budgetData.push(project.budget);
+//     cost=0;
+//
+//     function getCost(){
+// 			person1.cost=(person1.salary)*(person1.socialfactor)*(person1.workload/100);
+//       person2.cost=(person2.salary)*(person2.socialfactor)*(person2.workload/100);
+//       person3.cost=(person3.salary)*(person3.socialfactor)*(person3.workload/100);
 // 		}
+//
+//     function getPersonPerMonth(startDate,endDate,personN){
+//         let start      = startDate.split(' ');
+//         let end        = endDate.split(' ');
+//         let startYear  = parseInt(start[0]);
+//         let endYear    = parseInt(end[0]);
+//         personN.monthsWorking  = [];
+//         var datesPeople= [];
+//         for(var i = startYear; i <= endYear; i++) {
+//           var endMonth = i != endYear ? 11 : parseInt(end[1]) - 1;
+//           var startMon = i === startYear ? parseInt(start[1])-1 : 0;
+//           for(var j = startMon; j <= endMonth; j = j > 12 ? j % 12 || 11 : j+1) {
+//             var month = j+1;
+//             var displayMonth = month < 10 ? month : month;
+//             personN.monthsWorking.push([i, displayMonth].join(' '));
+//           }
+//         }
+//     }
+//
+//     function getBudgetPerMonth(startDate,endDate){
+//         let start      = startDate.split(' ');
+//         let end        = endDate.split(' ');
+//         let startYear  = parseInt(start[0]);
+//         let endYear    = parseInt(end[0]);
+//         dates      = [];
+//         var datesPeople= [];
+//         for(var i = startYear; i <= endYear; i++) {
+//           var endMonth = i != endYear ? 11 : parseInt(end[1]) - 1;
+//           var startMon = i === startYear ? parseInt(start[1])-1 : 0;
+//           for(var j = startMon; j <= endMonth; j = j > 12 ? j % 12 || 11 : j+1) {
+//             var month = j+1;
+//             var displayMonth = month < 10 ? month : month;
+//             dates.push([i, displayMonth].join(' '));
+//           }
+//         }
+//     }
 //
 //     return (
 //       <div>
-//         {/* <div className="title">
-//           Project
-//         </div> */}
+//         <div className="title">Project</div>
 //         <div className="row panel flex-center-vertically">
-//           <div className="col-9">
-// 						<Chart data={budgetData} type="budget" startDate={project.startDate.getMonth()} endDate={project.deadline.getMonth()}/>
+//           <div className="col-12">
+// 						<Chart data={budgetData} averageLine={averageLine} type="budget"
+// 							startDate={project.startDate}
+// 							endDate={project.deadline}/>
 //           </div>
 //         </div>
 //       </div>
@@ -48,7 +138,6 @@ import {Row,Col,Container} from 'reactstrap';
 //   }
 // };
 // export default Project;
-
 
 
 export const Project = (props) => {
