@@ -9,9 +9,8 @@ class App extends React.Component {
       return (
         <div className="App">
           <Navbar/>
-          {/* <Project/> */}
-
-          <Profile name="Kevin" lastname="Cabrera" role="Professor" email="kevintroko@gmail.com"/>
+          <Project/>
+          {/* <Profile name="Kevin" lastname="Cabrera" role="Professor" email="kevintroko@gmail.com"/> */}
         </div>
       );
     }

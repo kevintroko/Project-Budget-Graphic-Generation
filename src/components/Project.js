@@ -5,29 +5,90 @@ import '../css/Profile.css';
 class Project extends Component {
   render() {
 		//DUMMY DATA
+    let dates, datesP;
 		var project = {name:"Volvo Project",startDate:new Date("March, 2018"),deadline:new Date("February, 2019"),percentage:80.0, budget:2000};
 		let time = Math.round((((((project.deadline-project.startDate)/1000)/60)/60)/24)/30);
 		let cost=0;
 		let budgetData = [];
 		let averageLine = [];
-		var person1 = {firstName:"John",lastName:"Doe",salary:200,socialfactor:1.4,cost:0,workload:10};
-		var person2 = {firstName:"James",lastName:"Blunt",salary:200,socialfactor:1.4,cost:0,workload:100};
-		var person3 = {firstName:"Peter",lastName:"Parker",salary:200,socialfactor:1.4,cost:0,workload:50};
+		var person1 = {firstName:"John",lastName:"Doe",salary:200,socialfactor:1.4,cost:0,workload:10,firstDay:new Date("March, 2018"),LastDay:new Date("February, 2019"), monthsWorking:[]};
+		var person2 = {firstName:"James",lastName:"Blunt",salary:200,socialfactor:1.4,cost:0,workload:10,firstDay:new Date("March, 2018"),LastDay:new Date("January, 2019")};
+		var person3 = {firstName:"Peter",lastName:"Parker",salary:200,socialfactor:1.4,cost:0,workload:50,firstDay:new Date("April, 2018"),LastDay:new Date("June, 2018")};
+    var person4 = {firstName:"Peter",lastName:"Parker",salary:100,socialfactor:1.4,cost:0,workload:100,firstDay:new Date("September, 2018"),LastDay:new Date("February, 2019")};
 		let expected_budget = project.budget*((100-project.percentage)*0.01);
+    //Push the project budget into the graph so push 2000
+    budgetData.push(project.budget);
+    averageLine.push(expected_budget);
 		getCost();
+    let peopleToADD;
+    let currentmonth,currentmonthPerson;
+    //GET array of months
+    getBudgetPerMonth((project.startDate.getFullYear())+" "+(project.startDate.getMonth()),(project.deadline.getFullYear())+" "+(project.deadline.getMonth()));
+
+    peopleToADD = [];
+    currentmonth = dates.shift();
+
+              //Make a person array
+                getPersonPerMonth((person1.firstDay.getFullYear())+" "+(person1.firstDay.getMonth()),(person1.LastDay.getFullYear())+" "+(person1.LastDay.getMonth()),person1);
+                getPersonPerMonth((person2.firstDay.getFullYear())+" "+(person2.firstDay.getMonth()),(person2.LastDay.getFullYear())+" "+(person2.LastDay.getMonth()),person2);
+
+                currentmonthPerson = person1.monthsWorking.shift();
+                if(currentmonth===currentmonthPerson){
+                  peopleToADD.push(person1);
+                }
+                currentmonthPerson = person2.monthsWorking.shift();
+                if(currentmonth===currentmonthPerson){
+                  peopleToADD.push(person2);
+                }
+
+    for (var i = 0; i < peopleToADD.length; i++) {
+      cost+=peopleToADD[i].cost;
+    }
+    //Push the 80% of line
+    averageLine.push(expected_budget);
+    project.budget=project.budget-cost;
+    budgetData.push(project.budget);
+
     function getCost(){
 			person1.cost=(person1.salary)*(person1.socialfactor)*(person1.workload/100);
       person2.cost=(person2.salary)*(person2.socialfactor)*(person2.workload/100);
-      person2.cost=(person3.salary)*(person3.socialfactor)*(person3.workload/100);
+      person3.cost=(person3.salary)*(person3.socialfactor)*(person3.workload/100);
 		}
-    getBudgetPerMonth();
-    function getBudgetPerMonth(){
-      cost=person1.cost+person2.cost+person3.cost;
-      for(var i=0; i<time+2;i++) {
-        budgetData.push(project.budget);
-        averageLine.push(expected_budget);
-        project.budget=project.budget-cost;
-      }//display extra month
+
+    function getPersonPerMonth(startDate,endDate,personN){
+        let start      = startDate.split(' ');
+        let end        = endDate.split(' ');
+        let startYear  = parseInt(start[0]);
+        let endYear    = parseInt(end[0]);
+        personN.monthsWorking  = [];
+        var datesPeople= [];
+        for(var i = startYear; i <= endYear; i++) {
+          var endMonth = i != endYear ? 11 : parseInt(end[1]) - 1;
+          var startMon = i === startYear ? parseInt(start[1])-1 : 0;
+          for(var j = startMon; j <= endMonth; j = j > 12 ? j % 12 || 11 : j+1) {
+            var month = j+1;
+            var displayMonth = month < 10 ? month : month;
+            personN.monthsWorking.push([i, displayMonth].join(' '));
+          }
+        }
+    }
+
+    function getBudgetPerMonth(startDate,endDate){
+        let start      = startDate.split(' ');
+        let end        = endDate.split(' ');
+        let startYear  = parseInt(start[0]);
+        let endYear    = parseInt(end[0]);
+        dates      = [];
+        var datesPeople= [];
+        for(var i = startYear; i <= endYear; i++) {
+          var endMonth = i != endYear ? 11 : parseInt(end[1]) - 1;
+          var startMon = i === startYear ? parseInt(start[1])-1 : 0;
+          for(var j = startMon; j <= endMonth; j = j > 12 ? j % 12 || 11 : j+1) {
+            var month = j+1;
+            var displayMonth = month < 10 ? month : month;
+            dates.push([i, displayMonth].join(' '));
+          }
+        }
     }
 
     return (
