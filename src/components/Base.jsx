@@ -91,7 +91,7 @@ function getUsername() {
       }
     });
     xhr.send();
-    
+
   }
 
 const Base = ({ children }) => (
@@ -105,13 +105,8 @@ const Base = ({ children }) => (
       ? (
         <div className="top-bar-right">
         <Link to={{pathname:"/editproject"
-<<<<<<< HEAD
-                    , state: { 
-                      name: 'cfin1',
-=======
                     , state: {
-                      name: 'Edit Project Form',
->>>>>>> 7d92b3f
+                      name: 'cfin1',
                     }
                 }}>Edit Project</Link>
         <Link to="/profile">Profile</Link>
