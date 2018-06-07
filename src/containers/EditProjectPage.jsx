@@ -27,6 +27,7 @@ class EditProjectPage extends React.Component {
       errors: {},
       email: '',
       mrange2: {from: {year: currYear, month: currMonth}, to: {year: currYear, month: currMonth}},
+      parti:{workload:'',description:'',range:{from: {year: currYear, month: currMonth}, to: {year: currYear, month: currMonth}}, email:''},
       participants: [],
       persons:[],
       values: [],
@@ -94,7 +95,7 @@ class EditProjectPage extends React.Component {
     const formData = `name=${name}&email=${email}&project_code=${project_code}&project_desc=${project_desc}&project_budget=${project_budget}&project_start=${project_start}&project_deadline=${project_deadline}&values=${values}`;
     // create an AJAX request
     const xhr = new XMLHttpRequest();
-    xhr.open('post', '/auth/newproject');
+    xhr.open('post', '/auth/updateproject');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
@@ -149,17 +150,46 @@ class EditProjectPage extends React.Component {
 componentWillMount(){
   this.callApi().then(data => (this.setState({persons:data})));  
   this.callApiProjectDetails().then(data => (this.updateChanges(data)));
+  this.callApiParticipants().then(data => (this.updateChangesParticipants(data)));
 }
 
 updateChanges(data){
   let pr=Object.assign({}, this.state.project);
+  let start=new Date();
+  let end=new Date();
   pr.name=data[0].name,
   pr.project_code=data[0].code;
   pr.project_budget=data[0].budget;
   pr.project_desc=data[0].description;
-  pr.project_start=data[0].start_date;
-  pr.project_deadline=data[0].deadline;
+  start=new Date(data[0].start_date);
+  end=new Date(data[0].deadline);
   this.setState({project:pr})
+  console.log(this.state.project);
+  let range=Object.assign({}, this.state.mrange2);
+  range.from.year=start.getFullYear();
+  range.from.month=start.getMonth()+1; 
+  range.to.year=end.getFullYear();
+  range.to.month=end.getMonth()+1;
+  this.setState({mrange2:range})
+}
+updateChangesParticipants(data){
+  for(var i=0;i<data.length;i++){
+  let pr=Object.assign({}, this.state.parti);
+  pr.workload=data[i].workload;
+  pr.description=data[i].job_description;
+  pr.email=data[i].person_code;
+  let start=new Date(data[i].hiring_date);
+  let end=new Date(data[i].end_date);
+  let range=Object.assign({}, this.state.mrange2);
+  range.from.year=start.getFullYear();
+  range.from.month=start.getMonth()+1; 
+  range.to.year=end.getFullYear();
+  range.to.month=end.getMonth()+1;
+  pr.range=range;
+  console.log(pr);
+  this.state.values.push(pr);
+  console.log(this.state.values);
+}
 }
 
 
@@ -172,6 +202,13 @@ updateChanges(data){
 
   async callApiProjectDetails(){
     const response = await fetch('http://localhost:5000/projectDetails?code='+this.props.location.state.name);
+    const body = await response.json();
+    if (response.status !== 200) throw Error(body.message);
+    return body;
+  };
+
+  async callApiParticipants(){
+    const response = await fetch('http://localhost:5000/participants?code='+this.props.location.state.name);
     const body = await response.json();
     if (response.status !== 200) throw Error(body.message);
     return body;
@@ -350,10 +387,11 @@ createUI(){
         </Picker>
     </div>
         <h4>Participants</h4>
+        <h7>In order to add a new participant to this project press the button bellow and you will be able to edit the old participants</h7>
         {this.createUI()}        
         <input type='button' value='Add Participant' onClick={this.addClick.bind(this)}/>
       <div className="button-line">
-        <RaisedButton type="submit" label="Create New Project" primary />
+        <RaisedButton type="submit" label="Update Project" primary />
       </div>
     </form>
   </Card>

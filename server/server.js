@@ -110,6 +110,13 @@ app.get('/all_person_emails', function (req, res) {
     });
 });
 
+app.get('/participants', function (req, res) {
+    connection.query('select * from has_view where has_view.project_code="'+req.query.code+'"', function (error, results, fields) {
+      if (error) throw error;
+      res.send(results)
+    });
+});
+
 // Start the server
 app.listen(port, () => {
  console.log('Go to http://localhost:5000/persons to see persons');

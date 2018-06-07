@@ -36,9 +36,9 @@ class Profile extends Component {
       }
     });
     xhr.send();
-
-
   }
+
+
   //Calls the information from the graph of the profile database
   async callApiGraph() {
     let email = (Object.keys(this.props.location.query).length ==0) ?  this.state.userEmail : this.props.location.query.email;
@@ -170,7 +170,7 @@ class Profile extends Component {
       data_to_profile.push([]);
       //Call the 100 hours - workload calculator
       //sumProfesorHours();
-    }
+  
 
     return (
 
