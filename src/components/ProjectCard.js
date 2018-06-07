@@ -7,7 +7,7 @@ class ProjectCard extends Component {
     let link= "/project?code="+this.props.code;
     return (
             <div className="col-12 col-md-6">
-              <Link to={link} >
+              <Link to={link} className="project-card">
                 <div className="project box-shadow hvr-grow">
                     <p className="bold project-title inline-block">{this.props.name}</p>
                     <div className="percentage bold">{this.props.workload}%</div>

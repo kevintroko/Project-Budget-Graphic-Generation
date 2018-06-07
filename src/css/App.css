@@ -55,8 +55,6 @@ button:hover{
 /* Edit icons*/
 .circle-icon {
 	position:fixed;
-	bottom:5%;
-	right: 5%;
   background: var(--orange);
 	color:white;
   padding:10px;

@@ -118,7 +118,11 @@ class DashboardPage extends React.Component {
     });
   }
   orderByTime(ascending){
-    /*PLS IMPLEMENT ME SENPAI */
+    this.state.projects.sort(function(a, b){
+      let timeA = new Date(a.deadline);
+      let timeB = new Date(b.deadline);
+      return (timeA-timeB)*ascending;
+    });
   }
 
   /**
@@ -150,7 +154,7 @@ class DashboardPage extends React.Component {
           onFilterChange={this.handleFilterChange}
           isOrderAsc={this.state.isOrderAsc}
           />
-        <AddIcon/>
+        <AddIcon icon="add" link="/newproject"/>
 
         <div className="row boxes">
           {cards}
