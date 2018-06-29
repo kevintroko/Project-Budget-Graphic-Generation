@@ -11,7 +11,8 @@ body {
 }
 .panel{
   max-width: 80%;
-  margin: 0.5em auto;
+  margin-top: 10%;
+  margin: 0.2em auto;
 }
 .button {
   background: var(--orange);
@@ -19,7 +20,7 @@ body {
   text-align: center;
   padding: 0.5em;
   margin-bottom: 0.8em;
-  max-width: 75%;
+  max-width: 100%;
 }
 .delete{
   color: white;
@@ -69,4 +70,7 @@ input, textarea, button {outline: none; }
 
 .center-modal {
   margin-top: 12em;
+}
+.margin-10{
+  margin-top: 3%;
 }

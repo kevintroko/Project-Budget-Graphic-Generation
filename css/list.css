@@ -8,13 +8,13 @@ body {
   color: var(--gray);
   text-align: center;
 }
-.title {
+/* .title {
   position: relative;
   font-size: 2em;
   font-weight: 500;
   margin: 1em;
   padding: 0.5em;
-}
+} */
 #inactive{
   color: #c9c9c9;
   font-weight: 400;
@@ -34,5 +34,4 @@ th:not(:first-child), th:first-child, td:not(:first-child), td:first-child {
 }
 .hidden {
    visibility: hidden;
-
 }

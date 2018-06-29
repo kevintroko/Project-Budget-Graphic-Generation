@@ -8,22 +8,42 @@
   text-align: right;
 }
 /* Put bottom border orange */
-.bottom-border {
+.top-bar {
     border-bottom: 2px solid var(--orange);
+    padding: 1.5em;
+    margin-bottom: 25px;
+}
+
+
+.top-bar-right{
+  position: relative;
+  bottom: -0.75em;
 }
 
 .admin {
   border-bottom: 2px solid var(--orangeDark);
 }
+a{
+  color: var(--orange);
+}
+a:hover{
+    color: var(--orangeDark);
+}
 /*  Navbar hover */
-.navbar-light .navbar-nav .nav-link {
+.top-bar a {
     font-size: 1.2em;
     padding: 1rem 1.5rem;
-    color: var(--orange);
 }
+
+.project-card{
+  padding: 1rem 1.5rem;
+  text-align: left;
+}
+
 .navbar-light .navbar-nav .nav-link:hover{
     color: var(--orangeDark);
 }
+
 /*  Navbar title */
 .navbar-light .navbar-brand:hover {
     color: var(--orangeDark);
@@ -33,4 +53,16 @@
     padding: 0.7rem 1.1rem;
     font-size: 2em;
     font-weight: 500;
+}
+
+.popover{
+  border-radius: 0px;
+}
+/* Notifications*/
+#notifications-container{
+  border: 1px solid var(--grayLight);
+  background-color:white;
+}
+.popover-body{
+	padding:0;
 }
