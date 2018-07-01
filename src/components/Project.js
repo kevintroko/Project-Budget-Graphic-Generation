@@ -2,7 +2,7 @@ import React from 'react';
 import Chart from './Chart';
 import {Table} from './Table';
 import {Row,Col,Container} from 'reactstrap';
-import {AddIcon} from './AddIcon.js';
+import AddIcon from './AddIcon.js';
 
 
 // class Project extends Component {
@@ -43,65 +43,7 @@ import {AddIcon} from './AddIcon.js';
 //     return body;
 //   };
 
-//   render() {
-//     let dates, datesP;
-// 		let time = Math.round((((((this.state.project.deadline-this.state.project.startDate)/1000)/60)/60)/24)/30);
-// 		let cost=0;
-// 		let budgetData = [];
-// 		let averageLine = [];
-// 		let expected_budget = this.state.project.budget*((100-this.state.project.percentage)*0.01);
-//     //Push the project budget into the graph so push 2000
-//     budgetData.push(this.state.project.budget);
-//     averageLine.push(expected_budget);
-//     this.state.persons.map(pers=>(pers.cost=(pers.salary)*(pers.socialfactor)*(pers.workload/100)));
-//     let peopleToADD;
-//     let currentmonth,currentmonthPerson;
-//     //GET array of months )
-//     getBudgetPerMonth(this.state.project.start_date.getFullYear()+" "+(this.state.project.start_date.getMonth()),(this.state.project.deadline.getFullYear())+" "+(this.state.project.deadline.getMonth()));
-//     this.state.persons.map(pers=>(
-//     getPersonPerMonth((pers.firstDay.getFullYear())+" "+(pers.firstDay.getMonth()),(pers.LastDay.getFullYear())+" "+(pers.LastDay.getMonth()),pers)
-//     ))
-
-//     for (let x = 0; x < 12; x++) {
-//       //BEGIN
-//       peopleToADD = [];
-//       currentmonth = dates.shift();
-//                   this.state.persons.map(pers=>{
-//                     if(pers.monthsWorking[0]===currentmonth){
-//                       currentmonthPerson = pers.monthsWorking.shift();
-//                       if(currentmonth===currentmonthPerson){
-//                         peopleToADD.push(pers);
-//                       }
-//                     }
-//                   }
-//       )
-
-
-//       for (var i = 0; i < peopleToADD.length; i++) {
-//         cost+=peopleToADD[i].cost;
-//       }
-//       //Push the 80% of line
-//       averageLine.push(expected_budget);
-//       this.state.project.budget=this.state.project.budget-cost;
-//       budgetData.push(this.state.project.budget);
-//       cost=0;
-//       //END
-//     }
-
-//     return (
-//       <div>
-//         <div className="title">Project</div>
-//         <div className="row panel flex-center-vertically">
-//           <div className="col-12">
-//             <Chart data={budgetData} averageLine={averageLine} type="budget"
-//               startDate={this.state.project.start_date}
-//               endDate={this.state.project.deadline}/>
-//           </div>
-//         </div>
-//       </div>
-//     );
-//   }
-// };
+// import AddIcon from './AddIcon.js';
 
 
 export const Project = (props) => {

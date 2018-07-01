@@ -91,7 +91,7 @@ function getUsername() {
       }
     });
     xhr.send();
-    
+
   }
 
 const Base = ({ children }) => (
