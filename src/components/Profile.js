@@ -8,10 +8,10 @@ const config = require('../../config');
 class Profile extends Component {
   constructor(props) {
     super(props);
-    this.state={profile:[], graphData:[], userEmail: '', secretData: ''};
+    this.state={profile:[], graphData:[], userEmail: '', secretData: '',isLoadingA: true ,isLoadingB: true };
   }
   componentDidMount(){
-    this.setState({ isLoading: true });
+    // this.setState({ isLoading: true });
     const xhr = new XMLHttpRequest();
     xhr.open('get', '/api/dashboard');
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -30,15 +30,16 @@ class Profile extends Component {
             this.setState({
                 userEmail:decoded.sub
             });
-            this.callApiGraph().then(data => (this.setState({graphData:data})));
-            this.callApiProfile().then(data => (this.setState({profile:data})));
+            console.log(decoded.sub);
+            this.callApiGraph().then(data => (this.setState({graphData:data,isLoadingA:false})));
+            this.callApiProfile().then(data => (this.setState({profile:data,isLoadingB:false})));
           });
       }
     });
     xhr.send();
+
+
   }
-
-
   //Calls the information from the graph of the profile database
   async callApiGraph() {
     let email = (Object.keys(this.props.location.query).length ==0) ?  this.state.userEmail : this.props.location.query.email;
@@ -127,7 +128,11 @@ class Profile extends Component {
     }
 
   render() {
-
+console.log(this.state.profile);
+console.log(this.state.graphData);
+if (this.state.isLoadingA ||this.state.isLoadingB) {
+      return <p>Loading ...</p>;
+    }
     //Get the current date and therefore the month
     //It will be send trough the Chart.js prop
     const date = new Date();
@@ -165,13 +170,11 @@ class Profile extends Component {
     // this.state.graphData.map(p=>(workload=p.workload));
 
 
-
       //Add empty array for teaching bar section
       data_to_profile.push([]);
       //Call the 100 hours - workload calculator
       //sumProfesorHours();
-  
-
+    
     return (
 
       <div>
