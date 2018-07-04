@@ -265,7 +265,6 @@ router.post('/newproject', (req, res, next) => {
   });
 
 
-
 router.post('/updateproject', (req, res, next) => {
 
   const validationResult = validateNewProjectPage(req.body);

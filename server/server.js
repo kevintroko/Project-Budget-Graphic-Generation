@@ -88,7 +88,7 @@ app.get('/user_projects', function (req, res) {
 //query to get some project's information
 //give the code of a project
 app.get('/project_info', function (req, res) {
-    connection.query('select * from project_current_participants_view where project_code="'+req.query.code+'"', function (error, results, fields) {
+    connection.query('select * from project_current_participants_view join change_salary on project_current_participants_view.person_code=change_salary.email where project_code="'+req.query.code+'"', function (error, results, fields) {
       if (error) throw error;
       res.send(results)
     });
